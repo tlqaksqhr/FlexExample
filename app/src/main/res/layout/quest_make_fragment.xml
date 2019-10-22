@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".quest_make.QuestMakeFragment">
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/toolbar">
+                <TextView
+                        android:id="@+id/quest_make_toolbar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="#383635"
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="2sp"
+                        android:gravity="center_horizontal"
+                        android:text="도전과제 등록"/>
+            </androidx.appcompat.widget.Toolbar>
+
+            <TextView
+                    android:id="@+id/quest_make_start_date"
+                    android:layout_width="0dp"
+                    android:layout_height="37.5dp"
+                    android:text="시작 날짜"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    android:layout_marginTop="24dp" app:layout_constraintEnd_toStartOf="@+id/quest_make_date_delimiter"
+                    android:layout_marginStart="16dp"/>
+            <TextView
+                    android:id="@+id/quest_make_date_delimiter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37.5dp"
+                    android:text="~"
+                    app:layout_constraintStart_toEndOf="@+id/quest_make_start_date"
+                    app:layout_constraintEnd_toStartOf="@+id/quest_make_end_date"
+                    app:layout_constraintTop_toTopOf="@+id/quest_make_start_date"
+                    app:layout_constraintBottom_toBottomOf="@+id/quest_make_start_date"
+                    app:layout_constraintHorizontal_bias="0.0" android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"/>
+            <TextView
+                    android:id="@+id/quest_make_end_date"
+                    android:layout_width="0dp"
+                    android:layout_height="37.5dp"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    android:text="종료 날짜"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/quest_make_date_delimiter"
+                    app:layout_constraintBottom_toBottomOf="@+id/quest_make_date_delimiter"
+                    app:layout_constraintStart_toEndOf="@+id/quest_make_date_delimiter"
+                    android:layout_marginEnd="16dp"/>
+
+            <EditText
+                    android:id="@+id/quest_make_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:text="도전과제명" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/quest_make_date_delimiter" android:layout_marginTop="32dp"
+                    android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+
+            <EditText
+                    android:id="@+id/quest_make_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="128dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/quest_make_title"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:inputType="textMultiLine"
+                    android:text="설명"/>
+
+            <TextView
+                    android:id="@+id/quest_make_location_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/quest_make_desc"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:textSize="15sp"
+                    android:textColor="#383635"
+                    android:lineSpacingExtra="2.5sp"
+                    android:text="수행위치"/>
+            <SearchView
+                    android:id="@+id/quest_make_location_searchbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/quest_make_location_title"
+                    android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+
+            <fragment
+                    class="com.google.android.gms.maps.SupportMapFragment"
+                    android:id="@+id/quest_make_location_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="228dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/quest_make_location_searchbar"
+                    android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+            <TextView
+                android:text="수행조건"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/quest_make_condition_title"
+                app:layout_constraintTop_toBottomOf="@+id/quest_make_location_map"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="2.5sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/quest_make_condition_add_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="조건 추가"
+                app:layout_constraintTop_toBottomOf="@+id/quest_make_location_map"
+                app:layout_constraintEnd_toStartOf="@+id/quest_make_condition_remove_btn"
+                android:layout_marginEnd="16dp" android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/quest_make_condition_remove_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="조건 삭제"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quest_make_location_map" android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/quest_make_condition_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/quest_make_condition_add_btn"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/quest_make_reward_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보상제공"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="2.5sp"
+                app:layout_constraintTop_toBottomOf="@+id/quest_make_condition_list"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/quest_make_reward_container"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="9dp"
+                app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_title">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/quest_make_reward_container_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/quest_make_reward_star_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="보유스타 2,000개" app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="10dp"/>
+                    <View
+                        android:id="@+id/quest_make_reward_divider"
+                        android:layout_width="363dp"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_star_count"
+                        android:layout_marginTop="8dp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                    android:id="@+id/quest_make_register_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:cornerRadius="15dp"
+                    android:text="등록하기"
+                    android:gravity="center"
+                    android:background="#919191"
+                    android:textSize="17.5sp"
+                    android:textColor="#ffffff"
+                    android:lineSpacingExtra="0sp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

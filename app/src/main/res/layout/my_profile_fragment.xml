@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".profile.MyProfileFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/myprofile_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent">
+            <ImageButton
+                    android:id="@+id/myprofile_prev_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"/>
+
+            <TextView
+                    android:id="@+id/myprofile_toolbar_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="마이페이지"
+                    android:layout_gravity="center"/>
+
+            <ImageButton
+                    android:id="@+id/myprofile_next_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="8dp"/>
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+                android:id="@+id/myprofile_profile_image"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/myprofile_toolbar"/>
+        <TextView
+                android:text="닉네임은 몇자까지?"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/myprofile_nickname_text"
+                app:layout_constraintTop_toBottomOf="@+id/myprofile_profile_image"
+                android:layout_marginTop="16dp"/>
+        <TextView
+                android:text="제주도 9,998등"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/myprofile_ranking_text"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/myprofile_nickname_text"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+                android:text="3,000,000 스타 보유중 "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/myprofile_have_star_text"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintBottom_toBottomOf="@+id/myprofile_star_charge_btn"
+                app:layout_constraintTop_toTopOf="@+id/myprofile_star_charge_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/myprofile_star_charge_btn"
+                android:layout_marginEnd="8dp"/>
+        <Button
+                android:text="충전 >"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                android:id="@+id/myprofile_star_charge_btn"
+                app:layout_constraintStart_toEndOf="@+id/myprofile_have_star_text"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/myprofile_ranking_text" android:layout_marginStart="8dp"/>
+
+        <GridLayout
+                android:id="@+id/myprofile_btn_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:columnCount="4"
+                android:rowCount="2"
+                app:layout_constraintTop_toBottomOf="@+id/myprofile_have_star_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+            <Button
+                    android:id="@+id/myprofile_history_btn"
+                    android:background="#FFEEEE"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_width="87.5dp"
+                    android:layout_height="87.5dp"
+                    android:text="히스토리">
+            </Button>
+            <Button
+                    android:id="@+id/myprofile_coupon_btn"
+                    android:background="#EEEEEE"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_width="87.5dp"
+                    android:layout_height="87.5dp"
+                    android:text="쿠폰">
+            </Button>
+            <Button
+                    android:id="@+id/myprofile_star_btn"
+                    android:background="#EEEEEE"
+                    android:layout_row="0"
+                    android:layout_column="2"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_width="87.5dp"
+                    android:layout_height="87.5dp"
+                    android:text="스타">
+            </Button>
+            <Button
+                    android:id="@+id/myprofile_shop_btn"
+                    android:background="#EEEEEE"
+                    android:layout_row="0"
+                    android:layout_column="3"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_width="87.5dp"
+                    android:layout_height="87.5dp"
+                    android:text="상점">
+            </Button>
+            <Button
+                    android:id="@+id/myprofile_history_myinfo_btn"
+                    android:background="#FFEEEE"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_width="87.5dp"
+                    android:layout_height="87.5dp"
+                    android:text="내 정보">
+            </Button>
+            <Button
+                    android:id="@+id/myprofile_help_btn"
+                    android:background="#EEEEEE"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_width="87.5dp"
+                    android:layout_height="87.5dp"
+                    android:text="문의하기">
+            </Button>
+            <Button
+                android:id="@+id/myprofile_setting_btn"
+                android:background="#EEEEEE"
+                android:layout_row="1"
+                android:layout_column="2"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_width="87.5dp"
+                android:layout_height="87.5dp"
+                android:text="설정">
+            </Button>
+            <Button
+                android:id="@+id/myprofile_null_btn"
+                android:background="#EEEEEE"
+                android:layout_row="1"
+                android:layout_column="3"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_width="87.5dp"
+                android:layout_height="87.5dp">
+            </Button>
+        </GridLayout>
+
+        <com.synnapps.carouselview.CarouselView
+                android:id="@+id/myprofile_ad_carousel_view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:fillColor="#FFFFFFFF"
+                app:pageColor="#00000000"
+                app:radius="6dp"
+                app:slideInterval="3000"
+                app:strokeColor="#FF777777"
+                app:strokeWidth="1dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="28dp"
+                app:layout_constraintTop_toBottomOf="@+id/myprofile_btn_box" android:layout_marginStart="22dp"
+                android:layout_marginEnd="22dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

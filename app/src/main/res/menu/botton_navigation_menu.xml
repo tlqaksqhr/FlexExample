@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/action_quest_main"
+            android:title="목록"
+            android:icon="@drawable/ic_launcher_background"/>
+
+    <item
+            android:id="@+id/action_quest_ongoing"
+            android:title="진행중"
+            android:icon="@drawable/ic_launcher_background"/>
+
+    <item
+            android:id="@+id/action_ranking"
+            android:title="랭킹"
+            android:icon="@drawable/ic_launcher_background"/>
+
+    <item
+            android:id="@+id/action_quest_create"
+            android:title="등록"
+            android:icon="@drawable/ic_launcher_background"/>
+
+    <item
+            android:id="@+id/action_my_profile"
+            android:title="설정"
+            android:icon="@drawable/ic_launcher_background"/>
+</menu>
