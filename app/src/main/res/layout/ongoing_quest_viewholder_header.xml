@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="ongoingQuestHeader" type="com.example.flxrexample.quest_ongoing.OngoingQuestHeader"/>
+        <variable name="ongoingQuestHeaderExpanded" type="android.view.View.OnClickListener"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:onClick="@{ongoingQuestHeaderExpanded}">
+
+        <ImageView
+            android:id="@+id/ongoing_quest_item_state_icon"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/ongoing_quest_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="13dp"
+            android:gravity="center_vertical"
+            android:text="@{ongoingQuestHeader.title}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:layout_constraintStart_toEndOf="@+id/ongoing_quest_item_state_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="12.5sp"
+            android:letterSpacing="-0.05"
+            android:lineSpacingExtra="5sp"
+            tools:text="제주로, 해녀로 (2/3)"/>
+
+        <ImageView
+            android:id="@+id/ongoing_quest_item_arrow_icon"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="18dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

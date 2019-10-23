@@ -7,4 +7,237 @@
         android:layout_height="match_parent"
         tools:context=".charge.StarChargeActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/star_charge_payment_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageButton
+            android:id="@+id/star_charge_payment_toolbar_prev_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"/>
+
+        <TextView
+            android:id="@+id/star_charge_payment_toolbar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스타충전"
+            android:layout_gravity="center"/>
+
+        <ImageButton
+            android:id="@+id/star_charge_payment_toolbar_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="8dp"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/star_charge_payment_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#2a3542"
+        android:lineSpacingExtra="7.3sp"
+        android:text="결제수단"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/star_charge_payment_toolbar"
+        android:layout_marginTop="100dp"/>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/star_charge_payment_button_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:checkedButton="@+id/star_charge_payment_toss_btn"
+        app:singleSelection="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/star_charge_payment_label">
+
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/star_charge_payment_credit_card_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="신용카드"/>
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/star_charge_payment_toss_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toss"/>
+
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/star_charge_payment_kakao_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kakaopay"/>
+
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/star_charge_payment_phone_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="휴대폰"/>
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+    <com.google.android.material.card.MaterialCardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/star_charge_payment_money_container"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            card_view:strokeWidth="1dp"
+            card_view:strokeColor="#707070"
+            card_view:cardCornerRadius="10dp"
+            card_view:cardElevation="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/star_charge_payment_button_group"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="21dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/star_charge_payment_money_container_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:id="@+id/star_charge_payment_money_before_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="충전 전"
+                    android:textSize="11.5sp"
+                    android:textColor="#5e5e5e"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="6sp"
+                    card_view:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp" card_view:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                    android:id="@+id/star_charge_payment_money_before_star_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30,000 스타"
+                    android:textSize="16.5sp"
+                    android:textColor="#5e5e5e"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="6sp"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="20dp"
+                    card_view:layout_constraintTop_toBottomOf="@+id/star_charge_payment_money_before_label"
+                    android:layout_marginTop="4dp"/>
+
+
+            <TextView
+                    android:id="@+id/star_charge_payment_money_after_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="충전 후"
+                    android:textSize="11.5sp"
+                    android:textColor="#5e5e5e"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="6sp"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="10dp" card_view:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginEnd="16dp"
+                    card_view:layout_constraintStart_toEndOf="@+id/star_charge_payment_money_before_label"
+                    card_view:layout_constraintHorizontal_bias="0.65"/>
+
+            <TextView
+                    android:id="@+id/star_charge_payment_money_after_star_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="31,000 스타"
+                    android:textSize="16.5sp"
+                    android:textColor="#5e5e5e"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="6sp"
+                    card_view:layout_constraintTop_toBottomOf="@+id/star_charge_payment_money_before_label"
+                    android:layout_marginTop="4dp" card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintHorizontal_bias="0.67"
+                    card_view:layout_constraintStart_toEndOf="@+id/star_charge_payment_money_before_star_count"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/star_charge_payment_charge_terms_container"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#ffffff"
+            card_view:strokeWidth="1dp"
+            card_view:strokeColor="#707070"
+            card_view:cardCornerRadius="10dp"
+            card_view:cardElevation="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/star_charge_payment_money_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="22dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/star_charge_payment_charge_terms_container_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/star_charge_payment_charge_terms_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12.5sp"
+                    android:textColor="#5e5e5e"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="3sp"
+                    android:text="스타 충전에 관한 약관을 읽었으며\n상기 약관에 동의합니다." card_view:layout_constraintTop_toTopOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="20dp"
+                    card_view:layout_constraintBottom_toBottomOf="parent"/>
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/star_charge_payment_charge_terms_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#fafafa"
+                    android:textColor="#919191"
+                    app:strokeWidth="0.2dp"
+                    app:strokeColor="#707070"
+                    android:text="약관 동의"
+                    android:layout_marginEnd="15dp"
+                    card_view:layout_constraintEnd_toStartOf="@+id/star_charge_payment_charge_terms_check"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    card_view:layout_constraintBottom_toBottomOf="parent"/>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/star_charge_payment_charge_terms_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    card_view:layout_constraintTop_toTopOf="parent" card_view:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="19dp" card_view:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/star_charge_payment_charge_submit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/star_charge_payment_charge_terms_container"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            app:cornerRadius="24dp"
+            android:backgroundTint="#fc4d71"
+            android:textSize="17.5sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="0sp"
+            android:text="충전하기"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

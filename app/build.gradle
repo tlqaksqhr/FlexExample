@@ -29,6 +29,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -44,11 +47,17 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
     implementation 'com.google.android.gms:play-services-location:15.0.1'
 
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0-alpha10'
+
+    implementation "com.airbnb.android:epoxy:3.8.0"
+    implementation "com.airbnb.android:epoxy-databinding:3.8.0"
+    annotationProcessor "com.airbnb.android:epoxy-processor:3.8.0"
+    kapt "com.airbnb.android:epoxy-processor:$epoxyVersion"
 
     implementation 'com.synnapps:carouselview:0.1.5'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.1.0'
 }

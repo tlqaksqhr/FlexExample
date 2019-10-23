@@ -21,7 +21,6 @@ class QuestMakeFragment : Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.quest_make_fragment, container, false)
     }
 

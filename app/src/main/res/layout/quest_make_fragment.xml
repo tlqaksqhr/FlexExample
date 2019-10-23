@@ -188,7 +188,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/quest_make_reward_star_count"
+                        android:id="@+id/quest_make_reward_star_count_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="보유스타 2,000개" app:layout_constraintStart_toStartOf="parent"
@@ -201,8 +201,71 @@
                         android:background="?android:attr/listDivider"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_star_count"
+                        app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_star_count_label"
                         android:layout_marginTop="8dp"/>
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="1인당 제공 스타수"
+                        android:textSize="12.5sp"
+                        android:ems="7"
+                        android:id="@+id/quest_make_reward_star_count_text"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_divider"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/quest_make_reward_star_mult_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X"
+                        app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_divider"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/quest_make_reward_star_count_text"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintEnd_toStartOf="@+id/quest_make_reward_star_person_count_text"
+                        android:layout_marginEnd="8dp"/>
+
+                    <EditText
+                        android:id="@+id/quest_make_reward_star_person_count_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="인원"
+                        android:textSize="12.5sp"
+                        android:ems="4"
+                        app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_divider"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/quest_make_reward_star_mult_label"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintEnd_toStartOf="@+id/quest_make_reward_star_equal_label"
+                        android:layout_marginEnd="8dp"/>
+
+                    <TextView
+                        android:id="@+id/quest_make_reward_star_equal_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="="
+                        app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_divider"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/quest_make_reward_star_person_count_text"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintEnd_toStartOf="@+id/quest_make_reward_star_person_total_text"
+                        android:layout_marginEnd="16dp"/>
+
+                    <EditText
+                        android:id="@+id/quest_make_reward_star_person_total_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="총 지불 스타"
+                        android:textSize="12.5sp"
+                        android:ems="7"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/quest_make_reward_star_equal_label"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_divider"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>

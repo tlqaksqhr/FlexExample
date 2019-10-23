@@ -3,6 +3,7 @@ package com.example.flxrexample
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.flxrexample.profile.MyProfileFragment
 import com.example.flxrexample.quest.QuestMainFragment
 import com.example.flxrexample.quest_make.QuestMakeFragment
 import com.example.flxrexample.quest_ongoing.QuestOngoingFragment
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupUI(){
         navigation.itemIconTintList = null
+        selectedFragment = QuestMainFragment()
         navigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId){
                 R.id.action_quest_main -> {
@@ -35,13 +37,18 @@ class MainActivity : AppCompatActivity() {
                 R.id.action_quest_create -> {
                     selectedFragment = QuestMakeFragment()
                 }
+                R.id.action_my_profile -> {
+                    selectedFragment = MyProfileFragment()
+                }
                 else -> {
+                    selectedFragment = QuestMainFragment()
                 }
             }
-
             changeFragment(selectedFragment)
             true
         }
+
+        changeFragment(selectedFragment)
     }
 
     private fun changeFragment(selectedFragment: Fragment){
