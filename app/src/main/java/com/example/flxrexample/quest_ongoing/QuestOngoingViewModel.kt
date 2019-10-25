@@ -63,13 +63,13 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
                 OngoingQuest(
                     OngoingQuestHeader(
                         title = "오늘 부터 1일",
-                        isCompleted = false,
+                        isCompleted = true,
                         numOfComplete = 10
                     ),
                     listOf(
-                        QuestConstraint(1, "해녀 슈트 입고 인증사진 찍기", false),
+                        QuestConstraint(1, "해녀 슈트 입고 인증사진 찍기", true),
                         QuestConstraint(2, "바다속 사진 찍기", true),
-                        QuestConstraint(3, "인증사진 찍기", false)
+                        QuestConstraint(3, "인증사진 찍기", true)
                     ),
                     OngoingQuestFooter(),
                     ongoingQuestAuthClick

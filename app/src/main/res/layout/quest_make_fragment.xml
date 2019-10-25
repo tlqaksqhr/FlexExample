@@ -35,34 +35,42 @@
                     android:id="@+id/quest_make_start_date"
                     android:layout_width="0dp"
                     android:layout_height="37.5dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
                     android:text="시작 날짜"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/quest_make_date_delimiter"
                     app:layout_constraintHorizontal_chainStyle="packed"
-                    android:layout_marginTop="24dp" app:layout_constraintEnd_toStartOf="@+id/quest_make_date_delimiter"
-                    android:layout_marginStart="16dp"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
             <TextView
                     android:id="@+id/quest_make_date_delimiter"
                     android:layout_width="wrap_content"
                     android:layout_height="37.5dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
                     android:text="~"
-                    app:layout_constraintStart_toEndOf="@+id/quest_make_start_date"
-                    app:layout_constraintEnd_toStartOf="@+id/quest_make_end_date"
-                    app:layout_constraintTop_toTopOf="@+id/quest_make_start_date"
+                    android:textSize="16dp"
                     app:layout_constraintBottom_toBottomOf="@+id/quest_make_start_date"
-                    app:layout_constraintHorizontal_bias="0.0" android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"/>
+                    app:layout_constraintEnd_toStartOf="@+id/quest_make_end_date"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/quest_make_start_date"
+                    app:layout_constraintTop_toTopOf="@+id/quest_make_start_date" />
+
             <TextView
                     android:id="@+id/quest_make_end_date"
                     android:layout_width="0dp"
                     android:layout_height="37.5dp"
-                    app:layout_constraintHorizontal_chainStyle="packed"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
                     android:text="종료 날짜"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/quest_make_date_delimiter"
                     app:layout_constraintBottom_toBottomOf="@+id/quest_make_date_delimiter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toEndOf="@+id/quest_make_date_delimiter"
-                    android:layout_marginEnd="16dp"/>
+                    app:layout_constraintTop_toTopOf="@+id/quest_make_date_delimiter" />
 
             <EditText
                     android:id="@+id/quest_make_title"
@@ -130,23 +138,41 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"/>
 
-            <Button
-                android:id="@+id/quest_make_condition_add_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="조건 추가"
-                app:layout_constraintTop_toBottomOf="@+id/quest_make_location_map"
-                app:layout_constraintEnd_toStartOf="@+id/quest_make_condition_remove_btn"
-                android:layout_marginEnd="16dp" android:layout_marginTop="10dp"/>
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/quest_make_condition_add_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:backgroundTint="#ffffff"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="7.5sp"
+                    android:padding="3dp"
+                    android:text="조건 추가"
+                    android:textColor="#5956b7"
+                    app:cornerRadius="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/quest_make_condition_title"
+                    app:layout_constraintEnd_toStartOf="@+id/quest_make_condition_remove_btn"
+                    app:layout_constraintTop_toTopOf="@+id/quest_make_condition_title"
+                    app:strokeColor="#5956b7"
+                    app:strokeWidth="0.5dp" />
 
-            <Button
-                android:id="@+id/quest_make_condition_remove_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="조건 삭제"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/quest_make_location_map" android:layout_marginEnd="16dp"
-                android:layout_marginTop="10dp"/>
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/quest_make_condition_remove_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:backgroundTint="#ffffff"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="7.5sp"
+                    android:padding="3dp"
+                    android:text="조건 삭제"
+                    android:textColor="#5956b7"
+                    app:cornerRadius="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/quest_make_condition_add_btn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/quest_make_condition_add_btn"
+                    app:strokeColor="#5956b7"
+                    app:strokeWidth="0.5dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/quest_make_condition_list"

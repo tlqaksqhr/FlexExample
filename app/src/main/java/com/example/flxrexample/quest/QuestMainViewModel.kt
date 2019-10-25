@@ -1,7 +1,15 @@
 package com.example.flxrexample.quest
 
-import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import com.example.flxrexample.quest_model.QuestRepository
 
 class QuestMainViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+
+    private val repository = QuestRepository()
+    private val allQuests = repository.getQuests()
+
+    fun getQuests() = allQuests
+
+    fun getQuest(id: Int) = repository.getQuest(id)
 }

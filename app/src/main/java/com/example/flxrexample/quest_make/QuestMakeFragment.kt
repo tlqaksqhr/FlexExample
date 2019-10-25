@@ -6,8 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.flxrexample.R
+import kotlinx.android.synthetic.main.quest_make_fragment.*
 
 class QuestMakeFragment : Fragment(){
 
@@ -27,7 +30,8 @@ class QuestMakeFragment : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(QuestMakeViewModel::class.java)
-        // TODO: Use the ViewModel
+
+        quest_make_condition_list.layoutManager = LinearLayoutManager(this.context)
     }
 
 }

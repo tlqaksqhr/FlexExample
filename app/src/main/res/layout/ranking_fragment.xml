@@ -43,15 +43,30 @@
                 card_view:cardCornerRadius="15dp"
                 card_view:cardElevation="2dp">
             <TextView
-                    android:id="@+id/ranking_info_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="이 지역의 1등은 내것! 지역별 1등을 확인해보세요."
-                    android:textSize="13.5sp"
-                    android:textColor="#5e5e5e"
-                    android:letterSpacing="-0.05"
-                    android:lineSpacingExtra="4sp"
-                    android:layout_gravity="center"/>
+                android:id="@+id/ranking_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이 지역의 1등은 내것! 지역별 1등을 확인해보세요."
+                android:textSize="13.5sp"
+                android:textColor="#5e5e5e"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="4sp"
+                android:layout_gravity="center"/>
         </androidx.cardview.widget.CardView>
+
+
+        <ImageView
+            android:id="@+id/ranking_map_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/ic_korea_map"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ranking_card_view" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
