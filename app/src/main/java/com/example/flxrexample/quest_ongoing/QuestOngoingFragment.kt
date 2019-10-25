@@ -24,6 +24,7 @@ class QuestOngoingFragment : Fragment() {
     private lateinit var viewModel: QuestOngoingViewModel
 
     private val questOngoingListController = QuestOngoingListController()
+    private val questFavoriteListController = QuestFavoriteListController()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +34,8 @@ class QuestOngoingFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.quest_ongoing_fragment, container, false)
         binding.questOngoingList.layoutManager = LinearLayoutManager(this.context)
         binding.questOngoingList.adapter = questOngoingListController.adapter
+        binding.questOngoingFavoriteList.layoutManager = LinearLayoutManager(this.context)
+        binding.questOngoingFavoriteList.adapter = questFavoriteListController.adapter
 
         return binding.root
     }
@@ -40,18 +43,18 @@ class QuestOngoingFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        /*
-        quest_ongoing_btn.setOnClickListener {
-            val questAuthIntent = Intent(activity, QuestOngoingAuthActivity::class.java)
-            startActivity(questAuthIntent)
-        }
-        */
-
-        viewModel = ViewModelProviders.of(this).get(QuestOngoingViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, QuestOngoingViewModelFactory(this::transitionQuestAuthPage)).get(
+            QuestOngoingViewModel::class.java)
 
         viewModel.ongoingQuestLiveData.observe(this, Observer { container ->
             questOngoingListController.setData(container)
+            questFavoriteListController.setData(container)
         })
+    }
+
+    private fun transitionQuestAuthPage(){
+        val questAuthIntent = Intent(activity, QuestOngoingAuthActivity::class.java)
+        startActivity(questAuthIntent)
     }
 
 }

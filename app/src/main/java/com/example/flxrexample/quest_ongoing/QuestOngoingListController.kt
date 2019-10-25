@@ -1,11 +1,11 @@
 package com.example.flxrexample.quest_ongoing
 
 import com.airbnb.epoxy.TypedEpoxyController
-import com.example.flxrexample.content
-import com.example.flxrexample.footer
-import com.example.flxrexample.header
+import com.example.flxrexample.*
+import com.example.flxrexample.quest_model.Container
+import com.example.flxrexample.quest_model.OngoingQuestAuthClick
 
-class QuestOngoingListController : TypedEpoxyController<Container>() {
+class QuestOngoingListController() : TypedEpoxyController<Container>() {
 
     override fun buildModels(container: Container?) {
         container?.ongoingQuests?.forEach {
@@ -21,6 +21,9 @@ class QuestOngoingListController : TypedEpoxyController<Container>() {
                     content {
                         id(constraint.id)
                         questConstraint(constraint)
+                        ongoingQuestAuthClick { model ->
+                            it.ongoingQuestAuthClick()
+                        }
                     }
                 }
                 footer {

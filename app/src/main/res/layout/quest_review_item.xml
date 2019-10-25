@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+                android:id="@+id/quest_review_item_image_container"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:cardCornerRadius="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp">
+            <ImageView
+                    android:id="@+id/quest_review_item_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/sample_person_image"
+                    android:scaleType="centerCrop"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+                android:id="@+id/quest_review_item_user_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#919191"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="7.5sp"
+                android:text="제주 온 새댁"
+                tools:text="제주 온 새댁"
+                app:layout_constraintTop_toTopOf="@+id/quest_review_item_image_container"
+                app:layout_constraintStart_toEndOf="@+id/quest_review_item_image_container"
+                android:layout_marginStart="13dp"/>
+
+        <TextView
+                android:id="@+id/quest_review_item_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:textSize="11.3sp"
+                android:textColor="#5e5e5e"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="6.3sp"
+                android:text="제주도 여행와서 관광도 하고 도전과제도 클리어!!! 남자친구가 너무 재미있어 했어요~ 내일은....."
+                app:layout_constraintStart_toStartOf="@+id/quest_review_item_user_id"
+                app:layout_constraintTop_toBottomOf="@+id/quest_review_item_user_id" android:layout_marginTop="7dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="28dp"
+                app:layout_constraintBottom_toBottomOf="@+id/quest_review_item_image_container"/>
+
+        <TextView
+                android:id="@+id/quest_review_item_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="7.5sp"
+                android:textColor="#919191"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="10sp"
+                android:text="2019.09.30"
+                app:layout_constraintTop_toTopOf="@+id/quest_review_item_rating"
+                app:layout_constraintBottom_toBottomOf="@+id/quest_review_item_rating"
+                app:layout_constraintEnd_toStartOf="@+id/quest_review_item_rating"
+                android:layout_marginEnd="9dp"/>
+
+        <RatingBar
+                android:id="@+id/quest_review_item_rating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/quest_review_item_user_id"
+                app:layout_constraintEnd_toEndOf="@+id/quest_review_item_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

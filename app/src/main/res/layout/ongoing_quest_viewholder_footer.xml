@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="questConstraint" type="com.example.flxrexample.quest_ongoing.QuestConstraint"/>
+        <variable name="questConstraint" type="com.example.flxrexample.quest_model.QuestConstraint"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

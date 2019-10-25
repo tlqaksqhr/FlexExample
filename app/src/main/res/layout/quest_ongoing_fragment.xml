@@ -7,6 +7,9 @@
         android:layout_height="match_parent"
         tools:context=".quest_ongoing.QuestOngoingFragment">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -38,6 +41,8 @@
                 android:id="@+id/quest_ongoing_notice_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:src="@drawable/ic_notice_icon"
+                android:backgroundTint="#919191"
                 android:layout_marginRight="10dp"/>
             <TextView
                 android:id="@+id/quest_ongoing_notice_content"
@@ -73,6 +78,29 @@
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="21dp"
                     android:layout_marginTop="20dp"/>
 
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/quest_ongoing_count_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textSize="12sp"
+                    android:textColor="#5e5e5e"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="7.5sp"
+                    android:text="3 / 5"
+                    app:strokeColor="#5e5e5e"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="8dp"
+                    android:backgroundTint="#ffffff"
+                    app:layout_constraintBottom_toBottomOf="@+id/quest_ongoing_list_container_title"
+                    app:layout_constraintStart_toEndOf="@+id/quest_ongoing_list_container_title"
+                    app:layout_constraintTop_toTopOf="@+id/quest_ongoing_list_container_title" />
+
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/quest_ongoing_list"
                     android:layout_width="match_parent"
@@ -97,43 +125,75 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 <TextView
-                        android:id="@+id/quest_ongoing_favorite_list_container_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16.5sp"
-                        android:textColor="#3f3f3f"
-                        android:letterSpacing="-0.05"
-                        android:lineSpacingExtra="3.5sp"
-                        android:text="찜 목록" app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginStart="21dp"
-                        android:layout_marginTop="20dp"/>
+                    android:id="@+id/quest_ongoing_favorite_list_container_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16.5sp"
+                    android:textColor="#3f3f3f"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="3.5sp"
+                    android:text="찜 목록" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginTop="20dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/quest_ongoing_favorite_count_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textSize="12sp"
+                    android:textColor="#5e5e5e"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="7.5sp"
+                    android:text="7 / 15"
+                    app:strokeColor="#5e5e5e"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="8dp"
+                    android:backgroundTint="#ffffff"
+                    app:layout_constraintBottom_toBottomOf="@+id/quest_ongoing_favorite_list_container_title"
+                    app:layout_constraintStart_toEndOf="@+id/quest_ongoing_favorite_list_container_title"
+                    app:layout_constraintTop_toTopOf="@+id/quest_ongoing_favorite_list_container_title" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/quest_ongoing_favorite_list"
-                        android:layout_width="match_parent"
+                    android:id="@+id/quest_ongoing_favorite_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_favorite_list_container_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginEnd="21dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/quest_ongoing_favorite_modify_btn"
+                        android:layout_width="64dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_favorite_list_container_title"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginEnd="17dp"
+                        android:backgroundTint="#ffffff"
+                        android:gravity="center"
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="7.5sp"
+                        android:padding="4dp"
+                        android:text="수정하기"
+                        android:textColor="#5956b7"
+                        android:textSize="10sp"
+                        app:cornerRadius="12dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/quest_ongoing_favorite_count_btn"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginStart="21dp"
-                        android:layout_marginEnd="21dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="20dp"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toTopOf="@+id/quest_ongoing_favorite_count_btn"
+                        app:strokeColor="#5956b7"
+                        app:strokeWidth="0.8dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
-
-        <!--
-        <Button
-            android:id="@+id/quest_ongoing_btn"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="인증!" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-        -->
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>
 </layout>

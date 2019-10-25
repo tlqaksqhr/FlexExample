@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="questConstraint" type="com.example.flxrexample.quest_model.QuestConstraint"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ongoing_favorite_quest_item_footer_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/ongoing_favorite_quest_item_footer_complete_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:background="#6956b7"
+            android:text="도전하기"
+            android:textSize="12.5sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="5sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ongoing_favorite_quest_item_footer_cancel_btn"/>
+
+        <Button
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            android:id="@+id/ongoing_favorite_quest_item_footer_cancel_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:background="#e6e6e6"
+            android:textSize="12.5sp"
+            android:textColor="#7d7d7d"
+            android:lineSpacingExtra="5sp"
+            android:text="포기"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ongoing_favorite_quest_item_footer_complete_btn"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

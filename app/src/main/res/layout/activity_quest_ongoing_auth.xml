@@ -9,47 +9,57 @@
     tools:context=".quest_ongoing.QuestOngoingAuthActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="true">
 
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/quest_ongoing_auth_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="54.5dp"
+                android:background="#ffffff"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
             <ImageButton
-                    android:id="@+id/quest_ongoing_auth_prev_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"/>
-
-            <TextView
-                    android:id="@+id/quest_ongoing_auth_page_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="조건 03"/>
-
-            <ImageButton
-                    android:id="@+id/quest_ongoing_auth_cancel_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:layout_gravity="right"/>
-        </androidx.appcompat.widget.Toolbar>
-
-        <TextView
-                android:id="@+id/quest_ongoing_auth_example_title"
+                android:id="@+id/quest_ongoing_auth_prev_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:backgroundTint="#ffffff"
+                android:src="@drawable/ic_left_arrow"/>
+
+            <TextView
+                android:id="@+id/quest_ongoing_auth_page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:textSize="15sp"
                 android:textColor="#383635"
                 android:lineSpacingExtra="2.5sp"
-                android:text="인증예시" android:layout_marginTop="13dp"
-                app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_auth_toolbar"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:text="조건 03"/>
+
+            <ImageButton
+                android:id="@+id/quest_ongoing_auth_cancel_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_gravity="right"
+                android:backgroundTint="#ffffff"
+                android:src="@drawable/ic_exit_icon"/>
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/quest_ongoing_auth_example_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="#383635"
+            android:lineSpacingExtra="2.5sp"
+            android:textStyle="bold"
+            android:text="인증예시" android:layout_marginTop="13dp"
+            app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_auth_toolbar"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <com.google.android.material.card.MaterialCardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -62,67 +72,78 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
-                card_view:strokeWidth="1dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:strokeWidth="0.2dp"
                 card_view:strokeColor="#707070"
                 card_view:cardCornerRadius="15dp"
                 card_view:cardElevation="2dp">
             <TextView
-                    android:id="@+id/quest_ongoing_auth_title_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="물고기 나오게 하기"/>
+                android:id="@+id/quest_ongoing_auth_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:text="물고기 한마리 나오게 하기"/>
         </com.google.android.material.card.MaterialCardView>
 
         <ImageView
-                android:id="@+id/quest_ongoing_main_image_view"
-                android:layout_width="match_parent"
-                android:layout_height="300dp" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="14dp"
-                app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_auth_title"/>
+            android:id="@+id/quest_ongoing_main_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:src="@drawable/sample_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="14dp"
+            app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_auth_title" android:scaleType="fitXY"/>
 
         <TextView
                 android:id="@+id/quest_ongoing_register_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textColor="#383635"
-                android:lineSpacingExtra="2.5sp"
-                android:text="사진등록"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="11dp"
-                app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_main_image_view"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
+                android:lineSpacingExtra="2.5sp"
+                android:textStyle="bold"
+                android:text="사진등록"
+                android:textColor="#383635"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_main_image_view" />
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/quest_ongoing_auth_thumbnail_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_register_text"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_register_text" />
 
         <com.google.android.material.button.MaterialButton
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                 android:id="@+id/quest_ongoing_auth_submit_btn"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
-                app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_auth_thumbnail_list"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="12dp"
                 android:background="#5956b7"
-                android:textSize="17.5sp"
-                android:textColor="#ffffff"
-                android:lineSpacingExtra="0sp"
+                android:backgroundTint="#5956b7"
                 android:gravity="center"
+                android:lineSpacingExtra="0sp"
+                android:text="인증하기"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                android:textColor="#ffffff"
+                android:textSize="17.5sp"
                 app:cornerRadius="15dp"
-                android:text="인증하기"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_auth_thumbnail_list" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

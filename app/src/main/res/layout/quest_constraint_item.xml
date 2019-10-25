@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/quest_constraint_item_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="36.8dp"
+        card_view:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="18.5dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="#707070"
+        app:cardPreventCornerOverlap="false"
+        card_view:cardElevation="3dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/quest_constraint_count"
+            android:layout_width="63dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="조건 01"
+            android:background="@drawable/common_gradient"
+            android:textSize="11.5sp"
+            android:textColor="#ffffff"
+            android:letterSpacing="-0.05"
+            android:lineSpacingExtra="6sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/quest_constraint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="해녀 슈트 입고 인증사진 찍기"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/quest_constraint_count"
+            android:layout_marginStart="36dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

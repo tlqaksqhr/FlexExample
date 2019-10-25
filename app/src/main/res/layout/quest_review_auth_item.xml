@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/quest_review_auth_item_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13.5sp"
+        android:textColor="#5e5e5e"
+        android:letterSpacing="-0.05"
+        android:lineSpacingExtra="4sp"
+        android:textStyle="bold"
+        android:text="인증사진 1" app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"/>
+
+    <ImageView
+        android:id="@+id/quest_review_auth_item_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:src="@drawable/sample_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quest_review_auth_item_text" android:layout_marginTop="10dp"
+        android:scaleType="fitXY"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,27 @@
-package com.example.flxrexample.quest_ongoing
+package com.example.flxrexample.quest_model
 
 import java.util.concurrent.atomic.AtomicInteger
 
 private val globalId = AtomicInteger(1)
 
 typealias OngoingQuestHeaderExpanded = (quest: OngoingQuestHeader) -> Unit
-typealias FavoriteQuestListExpanded = (favorite: FavoriteQuest) -> Unit
+typealias FavoriteQuestHeaderExpanded = (favorite: FavoriteQuestHeader) -> Unit
+typealias OngoingQuestAuthClick = () -> Unit
 
 data class Container(
     val ongoingQuests: List<OngoingQuest>,
-    val ongoingQuestHeaderExpanded: OngoingQuestHeaderExpanded
+    val ongoingQuestHeaderExpanded: OngoingQuestHeaderExpanded,
+    val favoriteQuests: List<FavoriteQuest>,
+    val favoriteQuestHeaderExpanded: FavoriteQuestHeaderExpanded
+)
+
+data class Quest(
+    val title: String,
+    val desc: String,
+    val isCompleted: Boolean,
+    val challengingCount: Int,
+    val questStar: Int,
+    val numOfComplete: Int
 )
 
 data class OngoingQuestHeader(
@@ -23,14 +35,15 @@ data class OngoingQuestHeader(
 data class OngoingQuest(
     val ongoingQuestHeader: OngoingQuestHeader,
     val questConstraints: List<QuestConstraint>,
-    val ongoingQuestFooter: OngoingQuestFooter
+    val ongoingQuestFooter: OngoingQuestFooter,
+    val ongoingQuestAuthClick: OngoingQuestAuthClick
 )
 
 data class OngoingQuestFooter(
     val id: Int = globalId.getAndIncrement()
 )
 
-data class FavoriteHeader(
+data class FavoriteQuestHeader(
     val isExpanded: Boolean = false,
     val title: String,
     val desc: String,
@@ -40,8 +53,13 @@ data class FavoriteHeader(
 )
 
 data class FavoriteQuest(
-    val favoriteHeader: FavoriteHeader,
-    val questConstraints: List<QuestConstraint>
+    val favoriteQuestHeader: FavoriteQuestHeader,
+    val questConstraints: List<QuestConstraint>,
+    val favoriteQuestFooter: FavoriteQuestFooter
+)
+
+data class FavoriteQuestFooter(
+    val id: Int = globalId.getAndIncrement()
 )
 
 data class QuestConstraint(

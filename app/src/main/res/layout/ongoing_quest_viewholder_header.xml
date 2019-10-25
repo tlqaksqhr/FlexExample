@@ -3,24 +3,29 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <variable name="ongoingQuestHeader" type="com.example.flxrexample.quest_ongoing.OngoingQuestHeader"/>
+        <variable name="ongoingQuestHeader" type="com.example.flxrexample.quest_model.OngoingQuestHeader"/>
         <variable name="ongoingQuestHeaderExpanded" type="android.view.View.OnClickListener"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:onClick="@{ongoingQuestHeaderExpanded}">
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{ongoingQuestHeaderExpanded}">
 
-        <ImageView
+        <TextView
             android:id="@+id/ongoing_quest_item_state_icon"
-            android:layout_width="24dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="16dp"
+            android:layout_width="46dp"
+            android:layout_height="37dp"
             android:layout_marginStart="16dp"
-            android:src="@mipmap/ic_launcher"
+            android:background="@drawable/ic_incomplete_badge"
+            android:textColor="#ffffff"
+            android:textSize="9.3sp"
+            android:lineSpacingExtra="-0.8sp"
+            android:gravity="center"
+            android:text="미완료"
+            android:paddingBottom="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="-18dp"/>
 
         <TextView
             android:id="@+id/ongoing_quest_item_title"
@@ -42,7 +47,7 @@
             android:layout_width="24dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="18dp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_arrow_up_gray"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

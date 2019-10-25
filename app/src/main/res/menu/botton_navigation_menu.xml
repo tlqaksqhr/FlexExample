@@ -3,25 +3,25 @@
     <item
             android:id="@+id/action_quest_main"
             android:title="목록"
-            android:icon="@drawable/ic_launcher_background"/>
+            android:icon="@drawable/ic_quest_list_icon"/>
 
     <item
             android:id="@+id/action_quest_ongoing"
             android:title="진행중"
-            android:icon="@drawable/ic_launcher_background"/>
+            android:icon="@drawable/ic_quest_make_icon"/>
 
     <item
             android:id="@+id/action_ranking"
             android:title="랭킹"
-            android:icon="@drawable/ic_launcher_background"/>
+            android:icon="@drawable/ic_quest_ongoing_icon"/>
 
     <item
             android:id="@+id/action_quest_create"
             android:title="등록"
-            android:icon="@drawable/ic_launcher_background"/>
+            android:icon="@drawable/ic_quest_make_icon"/>
 
     <item
             android:id="@+id/action_my_profile"
             android:title="설정"
-            android:icon="@drawable/ic_launcher_background"/>
+            android:icon="@drawable/ic_myprofile_icon"/>
 </menu>
