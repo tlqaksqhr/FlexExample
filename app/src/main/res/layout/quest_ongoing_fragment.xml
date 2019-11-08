@@ -59,6 +59,7 @@
                 android:id="@+id/quest_ongoing_list_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:cardBackgroundColor="#f5f5f5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/quest_ongoing_notice_toolbar">
@@ -92,11 +93,11 @@
                     android:textColor="#5e5e5e"
                     android:letterSpacing="-0.05"
                     android:lineSpacingExtra="7.5sp"
-                    android:text="3 / 5"
                     app:strokeColor="#5e5e5e"
                     app:strokeWidth="1dp"
                     app:cornerRadius="8dp"
                     android:backgroundTint="#ffffff"
+                    android:text="3 / 5"
                     app:layout_constraintBottom_toBottomOf="@+id/quest_ongoing_list_container_title"
                     app:layout_constraintStart_toEndOf="@+id/quest_ongoing_list_container_title"
                     app:layout_constraintTop_toTopOf="@+id/quest_ongoing_list_container_title" />

@@ -1,11 +1,13 @@
 package com.example.flxrexample.quest
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,12 +19,15 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.quest_main_fragment.*
 import kotlinx.android.synthetic.main.quest_ongoing_fragment.*
 
-class QuestMainFragment : Fragment(), OnMapReadyCallback {
+class QuestMainFragment : Fragment(), OnMapReadyCallback,
+    QuestMainEventListener{
 
     companion object {
         fun newInstance() = QuestMainFragment()
@@ -33,6 +38,9 @@ class QuestMainFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var googleMap: GoogleMap
     private lateinit var questListAdapter: QuestListViewAdapter
+
+    private lateinit var questInfoWindowAdapter: QuestInfoWindowAdapter
+    private lateinit var quest: Quest
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +55,17 @@ class QuestMainFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
 
         this.googleMap = googleMap
+        this.questInfoWindowAdapter = QuestInfoWindowAdapter(activity?.applicationContext!!)
+        this.googleMap.setInfoWindowAdapter(this.questInfoWindowAdapter)
+
+        this.googleMap.setOnInfoWindowClickListener {
+            transitToQuestView(quest.id)
+        }
+
+        this.googleMap.setOnInfoWindowLongClickListener {
+            transitToQuestView(quest.id)
+        }
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -56,7 +75,7 @@ class QuestMainFragment : Fragment(), OnMapReadyCallback {
         val mapFragment = childFragmentManager.findFragmentById(R.id.quest_map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        questListAdapter = QuestListViewAdapter()
+        questListAdapter = QuestListViewAdapter(this)
 
         quest_list_view.layoutManager = LinearLayoutManager(this.context)
         quest_list_view.adapter = questListAdapter
@@ -64,17 +83,30 @@ class QuestMainFragment : Fragment(), OnMapReadyCallback {
 
         viewModel.getQuests().observe(this, Observer<List<Quest>> { quests ->
             questListAdapter.submitList(quests)
-            addMarker(quests)
+
+            if(!quests.isEmpty())
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quests.last().latLng, 20.toFloat()))
         })
+
+    }
+    override fun transitToQuestView(id: Int){
+        val intent = Intent(this.context, QuestViewActivity::class.java)
+        intent.putExtra("id",id)
+        this.context?.startActivity(intent)
     }
 
-    private fun addMarker(quests: List<Quest>) {
-        quests.forEach{quest ->
-            val markerOptions = MarkerOptions()
-            //markerOptions.icon()
-            googleMap.addMarker(markerOptions.position(quest.latLng).title("서울특별시"))
-        }
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quests.first().latLng, 12.toFloat()))
+    override fun showMarkerDialog(quest: Quest, marker: Marker){
+        questInfoWindowAdapter.bind(quest)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quest.latLng, 12.toFloat()))
+        marker.showInfoWindow()
+        this.quest = quest
     }
 
+    override fun addMarker(quest: Quest) : Marker{
+        val markerOptions = MarkerOptions()
+        //markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_icon))
+        val marker = googleMap.addMarker(markerOptions.position(quest.latLng))
+
+        return marker
+    }
 }

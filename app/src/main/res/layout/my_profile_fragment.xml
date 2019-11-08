@@ -5,6 +5,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".profile.MyProfileFragment">
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
                                                        android:layout_height="match_parent">
         <androidx.appcompat.widget.Toolbar
@@ -12,11 +15,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent">
+
             <ImageButton
                     android:id="@+id/myprofile_prev_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"/>
+                    android:layout_gravity="left"
+                    android:background="#ffffff"
+                    android:backgroundTint="#ffffff"
+                    android:src="@drawable/ic_left_arrow"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="18dp" />
 
             <TextView
                     android:id="@+id/myprofile_toolbar_text"
@@ -30,54 +39,84 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginRight="8dp"/>
+                    android:backgroundTint="#ffffff"
+                    android:src="@drawable/ic_exit_icon"
+                    tools:layout_editor_absoluteX="380dp"
+                    tools:layout_editor_absoluteY="18dp" />
         </androidx.appcompat.widget.Toolbar>
 
-        <ImageView
-                android:id="@+id/myprofile_profile_image"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/myprofile_toolbar"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/myprofile_profile_image"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/sample_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/myprofile_toolbar"/>
         <TextView
-                android:text="닉네임은 몇자까지?"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:id="@+id/myprofile_nickname_text"
-                app:layout_constraintTop_toBottomOf="@+id/myprofile_profile_image"
-                android:layout_marginTop="16dp"/>
+            android:text="닉네임은 몇자까지?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/myprofile_nickname_text"
+            app:layout_constraintTop_toBottomOf="@+id/myprofile_profile_image"
+            android:layout_marginTop="16dp"/>
         <TextView
-                android:text="제주도 9,998등"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/myprofile_ranking_text"
-                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/myprofile_nickname_text"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+            android:text="제주도 9,998등"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/myprofile_ranking_text"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/myprofile_nickname_text"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+
         <TextView
-                android:text="3,000,000 스타 보유중 "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/myprofile_have_star_text"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintBottom_toBottomOf="@+id/myprofile_star_charge_btn"
-                app:layout_constraintTop_toTopOf="@+id/myprofile_star_charge_btn"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/myprofile_star_charge_btn"
-                android:layout_marginEnd="8dp"/>
-        <Button
-                android:text="충전 >"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintHorizontal_chainStyle="packed"
+            android:id="@+id/myprofile_have_star_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/ic_star_count_label"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            android:letterSpacing="-0.05"
+            android:lineSpacingExtra="0.5sp"
+            android:gravity="center_horizontal"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="16dp"
+            android:text="3,000,000 스타 보유중 "
+            app:layout_constraintBottom_toBottomOf="@+id/myprofile_star_charge_btn"
+            app:layout_constraintEnd_toStartOf="@+id/myprofile_star_charge_btn"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/myprofile_star_charge_btn" />
+
+        <com.google.android.material.button.MaterialButton
                 android:id="@+id/myprofile_star_charge_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#ffffff"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="7.5sp"
+                android:paddingLeft="8dp"
+                android:paddingTop="4dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="4dp"
+                android:text="충전 >"
+                android:textColor="#5e5e5e"
+                android:textSize="12sp"
+                app:cornerRadius="12dp"
+                app:strokeColor="#5956b7"
+                app:strokeWidth="0.2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toEndOf="@+id/myprofile_have_star_text"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/myprofile_ranking_text" android:layout_marginStart="8dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/myprofile_ranking_text" />
 
         <GridLayout
                 android:id="@+id/myprofile_btn_box"
@@ -89,20 +128,41 @@
                 app:layout_constraintTop_toBottomOf="@+id/myprofile_have_star_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
-            <Button
-                    android:id="@+id/myprofile_history_btn"
-                    android:background="#FFEEEE"
-                    android:layout_row="0"
-                    android:layout_column="0"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_width="87.5dp"
-                    android:layout_height="87.5dp"
-                    android:text="히스토리">
-            </Button>
-            <Button
+            <LinearLayout
+                android:id="@+id/myprofile_history_btn"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_width="87.5dp"
+                android:layout_height="87.5dp"
+                android:text="히스토리">
+                <ImageView
+                    android:id="@+id/myprofile_history_btn_image"
+                    android:layout_width="27dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_history_icon"/>
+
+                <TextView
+                    android:id="@+id/myprofile_history_btn_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="2sp"
+                    android:text="히스토리"
+                    android:textColor="#383635"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
                     android:id="@+id/myprofile_coupon_btn"
-                    android:background="#EEEEEE"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="#fafafa"
                     android:layout_row="0"
                     android:layout_column="1"
                     android:layout_rowWeight="1"
@@ -110,43 +170,121 @@
                     android:layout_width="87.5dp"
                     android:layout_height="87.5dp"
                     android:text="쿠폰">
-            </Button>
-            <Button
+
+                <ImageView
+                    android:id="@+id/myprofile_coupon_btn_image"
+                    android:layout_width="27dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_coupon_icon"/>
+
+                <TextView
+                    android:id="@+id/myprofile_coupon_btn_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="2sp"
+                    android:text="쿠폰"
+                    android:textColor="#383635"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
                     android:id="@+id/myprofile_star_btn"
-                    android:background="#EEEEEE"
+                    android:orientation="vertical"
+                    android:gravity="center"
                     android:layout_row="0"
                     android:layout_column="2"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_width="87.5dp"
-                    android:layout_height="87.5dp"
-                    android:text="스타">
-            </Button>
-            <Button
-                    android:id="@+id/myprofile_shop_btn"
-                    android:background="#EEEEEE"
-                    android:layout_row="0"
-                    android:layout_column="3"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_width="87.5dp"
-                    android:layout_height="87.5dp"
-                    android:text="상점">
-            </Button>
-            <Button
-                    android:id="@+id/myprofile_history_myinfo_btn"
-                    android:background="#FFEEEE"
-                    android:layout_row="1"
-                    android:layout_column="0"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_width="87.5dp"
-                    android:layout_height="87.5dp"
-                    android:text="내 정보">
-            </Button>
-            <Button
+                    android:layout_height="87.5dp">
+
+                <ImageView
+                    android:id="@+id/myprofile_star_btn_image"
+                    android:layout_width="27dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_star_icon"/>
+                <TextView
+                    android:id="@+id/myprofile_star_btn_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="2sp"
+                    android:text="스타"
+                    android:textColor="#383635"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/myprofile_shop_btn"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#fafafa"
+                android:layout_row="0"
+                android:layout_column="3"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_width="87.5dp"
+                android:layout_height="87.5dp"
+                android:text="상점">
+
+                <ImageView
+                    android:id="@+id/myprofile_shop_btn_image"
+                    android:layout_width="27dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_shop_icon"/>
+                <TextView
+                    android:id="@+id/myprofile_shop_btn_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="2sp"
+                    android:text="상점"
+                    android:textColor="#383635"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/myprofile_mypage_myinfo_btn"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_width="87.5dp"
+                android:layout_height="87.5dp"
+                android:text="내 정보">
+
+                <ImageView
+                    android:id="@+id/myprofile_mypage_btn_image"
+                    android:layout_width="27dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_mypage_icon"/>
+                <TextView
+                    android:id="@+id/myprofile_mypage_btn_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="2sp"
+                    android:text="내 정보"
+                    android:textColor="#383635"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
                     android:id="@+id/myprofile_help_btn"
-                    android:background="#EEEEEE"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="#fafafa"
                     android:layout_row="1"
                     android:layout_column="1"
                     android:layout_rowWeight="1"
@@ -154,21 +292,57 @@
                     android:layout_width="87.5dp"
                     android:layout_height="87.5dp"
                     android:text="문의하기">
-            </Button>
-            <Button
+
+                <ImageView
+                    android:id="@+id/myprofile_help_btn_image"
+                    android:layout_width="27dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_help_icon"/>
+                <TextView
+                    android:id="@+id/myprofile_help_btn_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="2sp"
+                    android:text="문의하기"
+                    android:textColor="#383635"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/myprofile_setting_btn"
-                android:background="#EEEEEE"
+                android:orientation="vertical"
+                android:gravity="center"
                 android:layout_row="1"
                 android:layout_column="2"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_width="87.5dp"
-                android:layout_height="87.5dp"
-                android:text="설정">
-            </Button>
+                android:layout_height="87.5dp">
+
+                <ImageView
+                    android:id="@+id/myprofile_setting_btn_image"
+                    android:layout_width="27dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_setting_icon"/>
+                <TextView
+                    android:id="@+id/myprofile_setting_btn_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="2sp"
+                    android:text="설정"
+                    android:textColor="#383635"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
             <Button
                 android:id="@+id/myprofile_null_btn"
-                android:background="#EEEEEE"
+                android:background="#fafafa"
                 android:layout_row="1"
                 android:layout_column="3"
                 android:layout_rowWeight="1"
@@ -182,15 +356,20 @@
                 android:id="@+id/myprofile_ad_carousel_view"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="22dp"
                 app:fillColor="#FFFFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myprofile_btn_box"
                 app:pageColor="#00000000"
                 app:radius="6dp"
                 app:slideInterval="3000"
                 app:strokeColor="#FF777777"
-                app:strokeWidth="1dp" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="28dp"
-                app:layout_constraintTop_toBottomOf="@+id/myprofile_btn_box" android:layout_marginStart="22dp"
-                android:layout_marginEnd="22dp"/>
+                app:strokeWidth="1dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

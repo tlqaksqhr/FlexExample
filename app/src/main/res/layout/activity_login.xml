@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".login.LoginActivity">
+
+    <ImageView
+            android:id="@+id/login_logo_imageview"
+            android:layout_width="133dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="90dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_login_logo" />
+
+    <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_userid_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:hint="아이디"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_logo_imageview" />
+
+    <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_password_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="50dp"
+            android:hint="패스워드"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_userid_edit_text" />
+
+    <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="50dp"
+            android:text="도전과제 시작하기"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_password_edit_text" />
+
+    <TextView
+            android:id="@+id/login_findpw_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="아이디/비밀번호 찾기"
+            app:layout_constraintStart_toStartOf="@+id/login_button"
+            app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+    <TextView
+            android:id="@+id/login_register_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="회원가입"
+            app:layout_constraintEnd_toEndOf="@+id/login_button"
+            app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+    <Button
+        android:id="@+id/login_oauth_naver_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="45dp"
+        android:textSize="10.5sp"
+        android:letterSpacing="-0.05"
+        android:lineSpacingExtra="5sp"
+        android:text="네이버로 시작하기"
+        app:layout_constraintEnd_toStartOf="@+id/login_oauth_kakao_btn"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_findpw_btn" />
+
+    <Button
+        android:id="@+id/login_oauth_kakao_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="50dp"
+        android:textSize="10.5sp"
+        android:letterSpacing="-0.05"
+        android:lineSpacingExtra="5sp"
+        android:text="카카오로 시작하기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/login_oauth_naver_btn"
+        app:layout_constraintTop_toBottomOf="@+id/login_register_btn" />
+
+
+    <Button
+        android:id="@+id/login_oauth_facebook_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:letterSpacing="-0.05"
+        android:lineSpacingExtra="5sp"
+        android:text="페이스북으로 시작하기"
+        android:textSize="10.5sp"
+        app:layout_constraintEnd_toStartOf="@+id/login_oauth_twitter_btn"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_oauth_kakao_btn" />
+
+    <Button
+        android:id="@+id/login_oauth_twitter_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        android:letterSpacing="-0.05"
+        android:lineSpacingExtra="5sp"
+        android:text="트위터로 시작하기"
+        android:textSize="10.5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/login_oauth_facebook_btn"
+        app:layout_constraintTop_toBottomOf="@+id/login_oauth_naver_btn" />
+
+    <Button
+            android:id="@+id/login_oauth_google_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="8dp"
+            android:letterSpacing="-0.05"
+            android:lineSpacingExtra="5sp"
+            android:text="구글로 시작하기"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/login_oauth_instagram_btn"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_oauth_facebook_btn" />
+
+    <Button
+            android:id="@+id/login_oauth_instagram_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="50dp"
+            android:letterSpacing="-0.05"
+            android:lineSpacingExtra="5sp"
+            android:text="인스타그램으로 시작하기"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/login_oauth_google_btn"
+            app:layout_constraintTop_toBottomOf="@+id/login_oauth_twitter_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

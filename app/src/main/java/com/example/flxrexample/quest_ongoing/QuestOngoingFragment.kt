@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.airbnb.epoxy.EpoxyItemSpacingDecorator
 
 import com.example.flxrexample.R
 import com.example.flxrexample.databinding.QuestOngoingFragmentBinding
@@ -34,6 +35,7 @@ class QuestOngoingFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.quest_ongoing_fragment, container, false)
         binding.questOngoingList.layoutManager = LinearLayoutManager(this.context)
         binding.questOngoingList.adapter = questOngoingListController.adapter
+
         binding.questOngoingFavoriteList.layoutManager = LinearLayoutManager(this.context)
         binding.questOngoingFavoriteList.adapter = questFavoriteListController.adapter
 

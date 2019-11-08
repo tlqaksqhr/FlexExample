@@ -30,6 +30,7 @@
     <fragment
         class="com.google.android.gms.maps.SupportMapFragment"
         android:id="@+id/quest_map"
+        android:name="com.example.flxrexample.quest.QuestMainFragment"
         android:layout_width="match_parent"
         android:layout_height="340dp"
         android:layout_marginTop="1dp"

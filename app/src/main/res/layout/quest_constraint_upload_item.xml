@@ -39,7 +39,7 @@
 
         <ImageView
             android:id="@+id/quest_constraint_upload_imageview"
-            android:src="@drawable/sample_image"
+            android:src="@drawable/ic_camera_icon"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_marginStart="16dp"
@@ -47,7 +47,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/quest_constraint_upload_divider" />
 
-        <com.google.android.material.textview.MaterialTextView
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/quest_constraint_upload_text"
             android:layout_width="0dp"
             android:layout_height="75dp"

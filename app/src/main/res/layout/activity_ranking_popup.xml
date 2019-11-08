@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/ranking_popup_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+                android:id="@+id/ranking_popup_toolbar_prev_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:backgroundTint="#ffffff"
+                android:src="@drawable/ic_left_arrow"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="18dp" />
+
+        <TextView
+                android:id="@+id/ranking_popup_toolbar_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제주도"
+                android:layout_gravity="center"/>
+
+        <ImageButton
+                android:id="@+id/ranking_popup_toolbar_next_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#ffffff"
+                android:src="@drawable/ic_exit_icon"
+                tools:layout_editor_absoluteX="380dp"
+                tools:layout_editor_absoluteY="18dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ranking_popup_top_background_container"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/ic_ranking_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ranking_popup_toolbar">
+
+        <FrameLayout
+            android:id="@+id/ranking_popup_top_frame_ranking3"
+            android:layout_width="100dp"
+            android:layout_height="144dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="72dp"
+            android:background="@drawable/ic_ranking3_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                    android:id="@+id/ranking_popup_top_frame_ranking3_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/ranking_popup_top_frame_ranking3_rank_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="-0.5sp"
+                        android:text="3등"
+                        android:textColor="#5956b7"
+                        android:textSize="17.5sp"
+                        android:textStyle="bold" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ranking_popup_top_frame_ranking3_profile_image"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/sample_image" />
+
+                <TextView
+                        android:id="@+id/ranking_popup_top_frame_ranking3_desc_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center_horizontal"
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="1.5sp"
+                        android:text="따라 올테면\n따라와봐!"
+                        android:textColor="#919191"
+                        android:textSize="11sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+                android:id="@+id/ranking_popup_top_frame_ranking2"
+                android:layout_width="108dp"
+                android:layout_height="144dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="68dp"
+                android:background="@drawable/ic_ranking2_background"
+                app:layout_constraintEnd_toStartOf="@+id/ranking_popup_top_frame_ranking3"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                    android:id="@+id/ranking_popup_top_frame_ranking2_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/ranking_popup_top_frame_ranking2_rank_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="-0.5sp"
+                        android:text="2등"
+                        android:textColor="#5956b7"
+                        android:textSize="17.5sp"
+                        android:textStyle="bold" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ranking_popup_top_frame_ranking2_profile_image"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/sample_image" />
+
+                <TextView
+                        android:id="@+id/ranking_popup_top_frame_ranking2_desc_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center_horizontal"
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="1.5sp"
+                        android:text="따라 올테면\n따라와봐!"
+                        android:textColor="#919191"
+                        android:textSize="11sp" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+                android:id="@+id/ranking_popup_top_frame_ranking1"
+                android:layout_width="140dp"
+                android:layout_height="159dp"
+                android:background="@drawable/ic_ranking1_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.41000003">
+
+            <LinearLayout
+                    android:id="@+id/ranking_popup_top_frame_ranking1_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/ranking_popup_top_frame_ranking1_rank_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="-0.5sp"
+                        android:text="1등"
+                        android:textColor="#5956b7"
+                        android:textSize="17.5sp"
+                        android:textStyle="bold" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ranking_popup_top_frame_ranking1_profile_image"
+                        android:layout_width="63dp"
+                        android:layout_height="63dp"
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/sample_image" />
+
+                <TextView
+                        android:id="@+id/ranking_popup_top_frame_ranking1_desc_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center_horizontal"
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="1.5sp"
+                        android:text="따라 올테면\n따라와봐!"
+                        android:textColor="#919191"
+                        android:textSize="11sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <ImageView
+                android:id="@+id/ranking_king_img"
+                android:layout_width="37dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_king_icon"
+                app:layout_constraintBottom_toTopOf="@+id/ranking_popup_top_frame_ranking1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/ranking_popup_my_ranking_container_layout"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_marginTop="1dp"
+        app:cardBackgroundColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ranking_popup_top_background_container">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ranking_popup_my_ranking_inner_container_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            app:cardBackgroundColor="#ffffff"
+            app:cardCornerRadius="32dp"
+            app:strokeColor="#5956b7"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/ranking_popup_rank_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginBottom="21dp"
+                    android:text="7777"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_popup_rank_profile_image"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="13dp"
+                    android:src="@drawable/sample_image"
+                    app:layout_constraintBottom_toBottomOf="@+id/ranking_popup_rank_text"
+                    app:layout_constraintStart_toEndOf="@+id/ranking_popup_rank_text"
+                    app:layout_constraintTop_toTopOf="@+id/ranking_popup_rank_text" />
+
+                <TextView
+                    android:id="@+id/ranking_popup_rank_profile_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="3.5sp"
+                    android:text="내순위는 라운드를 좀 줘서\n표시를 해줍니다"
+                    android:textColor="#5e5e5e"
+                    android:textSize="11.5sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ranking_popup_rank_profile_image"
+                    app:layout_constraintStart_toEndOf="@+id/ranking_popup_rank_profile_image"
+                    app:layout_constraintTop_toTopOf="@+id/ranking_popup_rank_profile_image" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/ranking_popup_rank_profile_complete_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ranking_popup_rank_profile_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ranking_popup_rank_profile_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/ranking_popup_rank_profile_complete_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="875건 완료" />
+
+                        <View
+                            android:id="@+id/ranking_popup_rank_profile_complete_divider"
+                            android:layout_width="match_parent"
+                            android:layout_height="1.5dp"
+                            android:background="?android:attr/listDivider" />
+
+                        <TextView
+                            android:id="@+id/ranking_popup_rank_profile_complete_percent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="상위 3%" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ranking_popup_ranking_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ranking_popup_my_ranking_container_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

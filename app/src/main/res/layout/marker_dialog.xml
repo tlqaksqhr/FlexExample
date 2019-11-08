@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/marker_dialog_item_cardview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/marker_dialog_item_cardview_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/marker_dialog_imageview"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/sample_person_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/marker_dialog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="7.5sp"
+                android:text="제주로, 해녀로"
+                android:textColor="#3f3f3f"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/marker_dialog_imageview"
+                app:layout_constraintTop_toTopOf="@+id/marker_dialog_imageview" />
+
+        <TextView
+                android:id="@+id/marker_dialog_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="3.3sp"
+                android:text="인어공주는 실존할까요? \n제주에서 해녀가 되어 인어공주를 찾아봅시다! "
+                android:textColor="#3f3f3f"
+                android:textSize="10.5sp"
+                app:layout_constraintStart_toEndOf="@+id/marker_dialog_imageview"
+                app:layout_constraintTop_toBottomOf="@+id/marker_dialog_title" />
+
+
+        <Button
+                android:id="@+id/marker_dialog_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/button_bg"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="4sp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingLeft="4dp"
+                android:paddingTop="2dp"
+                android:paddingRight="4dp"
+                android:paddingBottom="2dp"
+                android:text="자세히보기"
+                android:textColor="#5956b7"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/marker_dialog_content"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <!--
+
+        -->
+
+        <View
+                android:id="@+id/marker_divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="@+id/marker_dialog_content"
+                app:layout_constraintStart_toStartOf="@+id/marker_dialog_content"
+                app:layout_constraintTop_toBottomOf="@+id/marker_dialog_content" />
+
+        <TextView
+                android:id="@+id/marker_dialog_addr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="2.5sp"
+                android:text="제주특별자치도 서귀포시 남원읍 하례망장포로 \n65-13 2층 서귀포 다이브센터"
+                android:textColor="#919191"
+                android:textSize="9.5sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/marker_divider"
+                app:layout_constraintTop_toBottomOf="@+id/marker_divider" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

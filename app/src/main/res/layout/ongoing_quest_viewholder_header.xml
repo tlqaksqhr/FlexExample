@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="#ffffff"
         android:onClick="@{ongoingQuestHeaderExpanded}">
 
         <TextView
@@ -47,8 +47,10 @@
             android:layout_width="24dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="18dp"
-            android:src="@drawable/ic_arrow_up_gray"
+            android:src="@drawable/ic_arrow_down"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

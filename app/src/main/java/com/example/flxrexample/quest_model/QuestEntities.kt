@@ -22,33 +22,68 @@ data class Quest(
     val numOfComplete: Int,
     val address: String,
     val latLng: LatLng,
+    val startDate: String,
+    val endDate: String,
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "quest_id")
     val id: Int = 0
 )
 
 
-/*
 @Entity(tableName="quest_constraint_table", foreignKeys = [
-    (ForeignKey(entity = QuestConstraint::class,
-        parentColumns = ["quest_id"],
-        childColumns = ["quest_constraint_id"],
-        onDelete = CASCADE))])*/
+    (ForeignKey(entity = Quest::class,
+        parentColumns = ["id"],
+        childColumns = ["quest_id"],
+        onDelete = CASCADE))])
 data class QuestConstraint(
+    @ColumnInfo(name = "constraintNum")
     val constraintNum: Int,
+    @ColumnInfo(name = "content")
     val content: String,
+    @ColumnInfo(name = "isCompleted")
     val isCompleted: Boolean,
-    //@PrimaryKey(autoGenerate = true)
-    //@ColumnInfo(name = "quest_constraint_id")
+    @ColumnInfo(name = "pictureURL")
+    val pictureURL: String,
+    @ColumnInfo(name = "quest_id")
+    val questID: Int = 0,
+    @PrimaryKey(autoGenerate = true)
     val id: Int = globalId.getAndIncrement()
 )
-
 
 data class QuestViewItem(
     @Embedded
     val quest: Quest,
-    @Embedded
-    val questConstraints: List<QuestConstraint>
+    @Relation(parentColumn =  "id", entityColumn = "quest_id")
+    val questConstraints: List<QuestConstraint>,
+    @Relation(parentColumn =  "id", entityColumn = "quest_id")
+    val questReviews: List<Review>
+)
+
+@Entity(tableName="quest_review_table", foreignKeys = [
+    (ForeignKey(entity = Quest::class,
+        parentColumns = ["id"],
+        childColumns = ["quest_id"],
+        onDelete = CASCADE))])
+data class Review(
+    val content: String,
+    val rating: Float,
+    val isRetry: Boolean,
+    @ColumnInfo(name = "quest_id")
+    val questID: Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = globalId.getAndIncrement()
+)
+
+@Entity(tableName="quest_auth_image_table", foreignKeys = [
+    (ForeignKey(entity = Quest::class,
+        parentColumns = ["id"],
+        childColumns = ["quest_id"],
+        onDelete = CASCADE))])
+data class QuestAuthImage(
+    val pictureURL: String,
+    @ColumnInfo(name = "quest_id")
+    val questID: Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = globalId.getAndIncrement()
 )
 
 

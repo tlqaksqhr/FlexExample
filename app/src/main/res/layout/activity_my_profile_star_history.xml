@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".profile.MyProfileStarHistoryActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/myprofile_star_history_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="54.5dp"
+            android:background="#ffffff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        <ImageButton
+                android:id="@+id/myprofile_star_history_toolbar_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:backgroundTint="#ffffff"
+                android:src="@drawable/ic_left_arrow"/>
+
+        <TextView
+                android:id="@+id/myprofile_star_history_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:lineSpacingExtra="2.5sp"
+                android:text="스타충전 내역"
+                android:textColor="#383635"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="182dp"
+                tools:layout_editor_absoluteY="17dp" />
+
+        <ImageButton
+                android:id="@+id/myprofile_star_history_toolbar_cancel_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_gravity="right"
+                android:backgroundTint="#ffffff"
+                android:src="@drawable/ic_exit_icon"/>
+    </androidx.appcompat.widget.Toolbar>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,8 @@ class QuestViewViewModel : ViewModel() {
 
     private val repository = QuestRepository()
 
-    //fun getQuestViewItem(id: Int) = repository.getQuestViewItem(id)
+    fun getQuestViewItem(id: Int) = repository.getQuestViewItem(id)
+
+    fun getQuestReviews(id: Int) = repository.getQuestReviews(id)
 
 }

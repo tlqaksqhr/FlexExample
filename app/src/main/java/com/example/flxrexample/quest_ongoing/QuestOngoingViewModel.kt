@@ -53,9 +53,9 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
                         numOfComplete = 10
                     ),
                     listOf(
-                        QuestConstraint(1, "해녀 슈트 입고 인증사진 찍기", false),
-                        QuestConstraint(2, "바다속 사진 찍기", true),
-                        QuestConstraint(3, "인증사진 찍기", false)
+                        QuestConstraint(1, "해녀 슈트 입고 인증사진 찍기", false,""),
+                        QuestConstraint(2, "바다속 사진 찍기", true,""),
+                        QuestConstraint(3, "인증사진 찍기", false,"")
                     ),
                     OngoingQuestFooter(),
                     ongoingQuestAuthClick
@@ -67,9 +67,9 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
                         numOfComplete = 10
                     ),
                     listOf(
-                        QuestConstraint(1, "해녀 슈트 입고 인증사진 찍기", true),
-                        QuestConstraint(2, "바다속 사진 찍기", true),
-                        QuestConstraint(3, "인증사진 찍기", true)
+                        QuestConstraint(1, "해녀 슈트 입고 인증사진 찍기", true,""),
+                        QuestConstraint(2, "바다속 사진 찍기", true,""),
+                        QuestConstraint(3, "인증사진 찍기", true,"")
                     ),
                     OngoingQuestFooter(),
                     ongoingQuestAuthClick
@@ -85,9 +85,9 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
                         numOfComplete = 10
                     ),
                     listOf(
-                        QuestConstraint(1, "해녀 슈트 입고 인증사진 찍기", false),
-                        QuestConstraint(2, "바다속 사진 찍기", true),
-                        QuestConstraint(3, "인증사진 찍기", false)
+                        QuestConstraint(1, "해녀 슈트 입고 인증사진 찍기", false,""),
+                        QuestConstraint(2, "바다속 사진 찍기", true,""),
+                        QuestConstraint(3, "인증사진 찍기", false,"")
                     ),
                     FavoriteQuestFooter()
                 ),
@@ -99,9 +99,9 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
                         numOfComplete = 10
                     ),
                     listOf(
-                        QuestConstraint(1, "해녀 슈트 입고 인증사진 찍기", false),
-                        QuestConstraint(2, "바다속 사진 찍기", false),
-                        QuestConstraint(3, "인증사진 찍기", false)
+                        QuestConstraint(1, "해녀 슈트 입고 인증사진 찍기", false,""),
+                        QuestConstraint(2, "바다속 사진 찍기", false,""),
+                        QuestConstraint(3, "인증사진 찍기", false,"")
                     ),
                     FavoriteQuestFooter()
                 )

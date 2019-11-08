@@ -54,19 +54,401 @@
                 android:layout_gravity="center"/>
         </androidx.cardview.widget.CardView>
 
-
         <ImageView
-            android:id="@+id/ranking_map_image"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="11dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/ic_korea_map"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ranking_card_view" />
+                android:id="@+id/ranking_map_image"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="11dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/ic_korea_map"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ranking_card_view"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        <LinearLayout
+                android:id="@+id/ranking_gyunggi_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="84dp"
+                android:layout_marginTop="140dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_gyunggi_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_gyunggi_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="경기도"
+                    android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/ranking_gangwon_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="228dp"
+                android:layout_marginTop="180dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_gangwon_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_gangwon_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="강원도"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:id="@+id/ranking_seoul_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="228dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_seoul_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_seoul_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:id="@+id/ranking_inchon_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="200dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_inchon_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_inchon_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="인천"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ranking_chungbuk_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="204dp"
+                android:layout_marginTop="280dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_chungbuk_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_chungbuk_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="충청북도"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ranking_chungnam_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="324dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_chungnam_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_chungnam_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="충청남도"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:id="@+id/ranking_daejun_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="144dp"
+                android:layout_marginTop="340dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_daejun_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_daejun_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대전"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ranking_gyungbuk_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="292dp"
+                android:layout_marginTop="312dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_gyungbuk_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_gyungbuk_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="경상북도"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ranking_daegu_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="228dp"
+                android:layout_marginTop="412dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_daegu_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_daegu_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대구"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:id="@+id/ranking_ulsan_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="292dp"
+                android:layout_marginTop="468dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_ulsan_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_ulsan_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="울산"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:id="@+id/ranking_busan_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="204dp"
+                android:layout_marginTop="512dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_busan_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_busan_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="부산"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:id="@+id/ranking_gyungnam_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="144dp"
+                android:layout_marginTop="460dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_gyungnam_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_gyungnam_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="경상남도"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ranking_chynkbuk_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="424dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_chynkbuk_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_chynkbuk_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전라북도"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ranking_chynknam_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="524dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_chynknam_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_chynknam_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전라남도"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ranking_jeju_btn"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="624dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ranking_jeju_btn_image"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:src="@drawable/sample_person_image" />
+
+            <TextView
+                    android:id="@+id/ranking_jeju_btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="제주도"
+                    android:textStyle="bold" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

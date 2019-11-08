@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/my_profile_history_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="11dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="6sp"
+                android:text="제주로 해녀로"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/my_profile_history_item_date_and_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="3dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="-0.5sp"
+                android:text="19.09.06 | 999번째 성공"
+                android:textColor="#919191"
+                android:textSize="10.5sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_profile_history_item_title" />
+
+        <com.google.android.material.button.MaterialButton
+                android:id="@+id/my_profile_history_item_share_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#ffffff"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="7.5sp"
+                android:paddingLeft="9dp"
+                android:paddingTop="9dp"
+                android:paddingRight="9dp"
+                android:paddingBottom="9dp"
+                android:text="자랑하기"
+                android:textColor="#5e5e5e"
+                android:textSize="12sp"
+                app:cornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/my_profile_history_item_date_and_cnt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="#5e5e5e"
+                app:strokeWidth="1dp" />
+
+        <ImageView
+                android:id="@+id/my_profile_history_item_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="12dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/sample_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_profile_history_item_date_and_cnt" />
+
+        <TextView
+                android:id="@+id/my_profile_history_item_constraint_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="7.3sp"
+                android:text="· 조건 01_해녀 슈트 입고 인증사진 찍기 두줄 표현 예시\n· 조건 02_바다속 사진찍기\n· 조건 03 해녀슈트입고 인증사진찍기 "
+                android:textColor="#383635"
+                android:textSize="11.5sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_profile_history_item_imageview" />
+
+        <com.google.android.material.button.MaterialButton
+                android:id="@+id/my_profile_history_item_review_btn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
+                android:background="#5956b7"
+                android:backgroundTint="#5956b7"
+                android:gravity="center"
+                android:lineSpacingExtra="3.8sp"
+                android:text="리뷰 작성하고 150스타 받기"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                android:textColor="#ffffff"
+                android:textSize="13.8sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_profile_history_item_constraint_list" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

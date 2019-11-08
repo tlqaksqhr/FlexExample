@@ -14,21 +14,21 @@
             android:layout_height="match_parent">
 
             <androidx.appcompat.widget.Toolbar
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-                    android:id="@+id/toolbar">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/toolbar">
                 <TextView
-                        android:id="@+id/quest_make_toolbar_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:textSize="18sp"
-                        android:textColor="#383635"
-                        android:letterSpacing="-0.05"
-                        android:lineSpacingExtra="2sp"
-                        android:gravity="center_horizontal"
-                        android:text="도전과제 등록"/>
+                    android:id="@+id/quest_make_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#383635"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="2sp"
+                    android:gravity="center_horizontal"
+                    android:text="도전과제 등록"/>
             </androidx.appcompat.widget.Toolbar>
 
             <TextView
@@ -38,26 +38,26 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"
                     android:gravity="center"
-                    android:text="시작 날짜"
+                    android:hint="시작 날짜"
                     app:layout_constraintEnd_toStartOf="@+id/quest_make_date_delimiter"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <TextView
-                    android:id="@+id/quest_make_date_delimiter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="37.5dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:gravity="center"
-                    android:text="~"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/quest_make_start_date"
-                    app:layout_constraintEnd_toStartOf="@+id/quest_make_end_date"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/quest_make_start_date"
-                    app:layout_constraintTop_toTopOf="@+id/quest_make_start_date" />
+                android:id="@+id/quest_make_date_delimiter"
+                android:layout_width="wrap_content"
+                android:layout_height="37.5dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:text="~"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/quest_make_start_date"
+                app:layout_constraintEnd_toStartOf="@+id/quest_make_end_date"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/quest_make_start_date"
+                app:layout_constraintTop_toTopOf="@+id/quest_make_start_date" />
 
             <TextView
                     android:id="@+id/quest_make_end_date"
@@ -65,6 +65,7 @@
                     android:layout_height="37.5dp"
                     android:layout_marginEnd="16dp"
                     android:gravity="center"
+                    android:hint="시작 날짜"
                     android:text="종료 날짜"
                     app:layout_constraintBottom_toBottomOf="@+id/quest_make_date_delimiter"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -76,23 +77,26 @@
                     android:id="@+id/quest_make_title"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:text="도전과제명" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="도전 과제명"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/quest_make_date_delimiter" android:layout_marginTop="32dp"
-                    android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/quest_make_date_delimiter" />
 
             <EditText
                     android:id="@+id/quest_make_desc"
                     android:layout_width="match_parent"
                     android:layout_height="128dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="설명"
+                    android:inputType="textMultiLine"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintTop_toBottomOf="@+id/quest_make_title"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:inputType="textMultiLine"
-                    android:text="설명"/>
+                    app:layout_constraintTop_toBottomOf="@+id/quest_make_title" />
 
             <TextView
                     android:id="@+id/quest_make_location_title"
@@ -107,24 +111,36 @@
                     android:lineSpacingExtra="2.5sp"
                     android:text="수행위치"/>
             <SearchView
-                    android:id="@+id/quest_make_location_searchbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/quest_make_location_title"
-                    android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+                android:id="@+id/quest_make_location_searchbar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/quest_make_location_title"
+                android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/quest_make_location_searchlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/quest_make_location_searchbar"/>
 
             <fragment
-                    class="com.google.android.gms.maps.SupportMapFragment"
-                    android:id="@+id/quest_make_location_map"
-                    android:layout_width="match_parent"
-                    android:layout_height="228dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/quest_make_location_searchbar"
-                    android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+                class="com.google.android.gms.maps.SupportMapFragment"
+                android:id="@+id/quest_make_location_map"
+                android:layout_width="match_parent"
+                android:layout_height="228dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/quest_make_location_searchlist" />
             <TextView
                 android:text="수행조건"
                 android:layout_width="wrap_content"
@@ -214,12 +230,15 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/quest_make_reward_star_count_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="보유스타 2,000개" app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="10dp"/>
+                            android:id="@+id/quest_make_reward_star_count_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="보유스타 2,000개"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
                     <View
                         android:id="@+id/quest_make_reward_divider"
                         android:layout_width="363dp"
@@ -229,17 +248,19 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_star_count_label"
                         android:layout_marginTop="8dp"/>
+
                     <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:text="1인당 제공 스타수"
-                        android:textSize="12.5sp"
-                        android:ems="7"
-                        android:id="@+id/quest_make_reward_star_count_text"
-                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-                        app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_divider"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                            android:id="@+id/quest_make_reward_star_count_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:ems="7"
+                            android:hint="1인당 제공 스타수"
+                            android:inputType="textPersonName"
+                            android:textSize="12.5sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_divider" />
 
                     <TextView
                         android:id="@+id/quest_make_reward_star_mult_label"
@@ -254,19 +275,19 @@
                         android:layout_marginEnd="8dp"/>
 
                     <EditText
-                        android:id="@+id/quest_make_reward_star_person_count_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:text="인원"
-                        android:textSize="12.5sp"
-                        android:ems="4"
-                        app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_divider"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/quest_make_reward_star_mult_label"
-                        android:layout_marginStart="8dp"
-                        app:layout_constraintEnd_toStartOf="@+id/quest_make_reward_star_equal_label"
-                        android:layout_marginEnd="8dp"/>
+                            android:id="@+id/quest_make_reward_star_person_count_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:ems="4"
+                            android:hint="인원"
+                            android:inputType="textPersonName"
+                            android:textSize="12.5sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/quest_make_reward_star_equal_label"
+                            app:layout_constraintStart_toEndOf="@+id/quest_make_reward_star_mult_label"
+                            app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_divider" />
 
                     <TextView
                         android:id="@+id/quest_make_reward_star_equal_label"
@@ -281,17 +302,17 @@
                         android:layout_marginEnd="16dp"/>
 
                     <EditText
-                        android:id="@+id/quest_make_reward_star_person_total_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:text="총 지불 스타"
-                        android:textSize="12.5sp"
-                        android:ems="7"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/quest_make_reward_star_equal_label"
-                        android:layout_marginStart="16dp"
-                        app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_divider"/>
+                            android:id="@+id/quest_make_reward_star_person_total_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:ems="7"
+                            android:hint="총 지불 스타"
+                            android:inputType="textPersonName"
+                            android:textSize="12.5sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/quest_make_reward_star_equal_label"
+                            app:layout_constraintTop_toBottomOf="@+id/quest_make_reward_divider" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -306,6 +327,7 @@
                     android:layout_height="49dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:backgroundTint="#5956b7"
                     app:cornerRadius="15dp"
                     android:text="등록하기"
                     android:gravity="center"

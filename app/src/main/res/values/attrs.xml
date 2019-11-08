@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomStarRadioButton">
+        <attr name="star_button_count" format="string"/>
+        <attr name="star_button_price" format="string"/>
+        <attr name="star_button_bonus" format="string"/>
+    </declare-styleable>
+</resources>

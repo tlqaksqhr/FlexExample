@@ -6,78 +6,92 @@
         <variable name="favoriteQuestHeader" type="com.example.flxrexample.quest_model.FavoriteQuestHeader"/>
         <variable name="favoriteQuestHeaderExpanded" type="android.view.View.OnClickListener"/>
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="#f1f1f1"
-            android:onClick="@{favoriteQuestHeaderExpanded}">
+            android:background="#f5f5f5"
+            android:onClick="@{favoriteQuestHeaderExpanded}"
+            android:paddingBottom="10dp">
 
         <TextView
-            android:id="@+id/ongoing_favorite_quest_item_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:text="@{favoriteQuestHeader.title}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textSize="13sp"
-            android:textColor="#5956b7"
-            android:letterSpacing="-0.05"
-            android:lineSpacingExtra="7sp"
-            tools:text="제주로, 해녀로 (2/3)"
-            android:layout_marginStart="15dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="13dp"/>
+                android:id="@+id/ongoing_favorite_quest_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="13dp"
+                android:gravity="center_vertical"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="7sp"
+                android:text="@{favoriteQuestHeader.title}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="#5956b7"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="제주로, 해녀로" />
 
         <TextView
-            android:id="@+id/ongoing_favorite_quest_item_desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:textSize="10sp"
-            android:textColor="#919191"
-            android:letterSpacing="-0.05"
-            android:lineSpacingExtra="0sp"
-            android:text="@{favoriteQuestHeader.desc}"
-            tools:text="바다속 풍경을 사진으로 찍고 인증하세요!"
-            app:layout_constraintTop_toBottomOf="@+id/ongoing_favorite_quest_item_title"
-            app:layout_constraintStart_toStartOf="@+id/ongoing_favorite_quest_item_title"/>
+                android:id="@+id/ongoing_favorite_quest_item_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="0sp"
+                android:text="@{favoriteQuestHeader.desc}"
+                android:textColor="#919191"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="@+id/ongoing_favorite_quest_item_title"
+                app:layout_constraintTop_toBottomOf="@+id/ongoing_favorite_quest_item_title"
+                tools:text="바다속 풍경을 사진으로 찍고 인증하세요!" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <Button
             android:id="@+id/ongoing_favorite_quest_item_challenge_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
             android:layout_marginEnd="8dp"
-            android:src="@android:drawable/ic_popup_sync"
-            android:foregroundGravity="center"
-            app:fabCustomSize="24dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/ongoing_quest_header_challenge_btn_bg"
+            android:text="도전"
+            android:textSize="9.5sp"
+            android:textColor="#6956b7"
+            android:letterSpacing="-0.05"
+            android:lineSpacingExtra="0.5sp"
+            android:textStyle="bold"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ongoing_favorite_quest_item_delete_icon"/>
+            app:layout_constraintEnd_toStartOf="@+id/ongoing_favorite_quest_item_delete_icon"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <Button
             android:id="@+id/ongoing_favorite_quest_item_delete_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
             android:layout_marginEnd="8dp"
-            android:foregroundGravity="center"
-            app:fabCustomSize="24dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:text="삭제"
+            android:textSize="9.5sp"
+            android:textColor="#fc4d71"
+            android:letterSpacing="-0.05"
+            android:lineSpacingExtra="0.5sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/ongoing_quest_header_challenge_btn_bg"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ongoing_favorite_quest_item_arrow_icon"/>
+            app:layout_constraintEnd_toStartOf="@+id/ongoing_favorite_quest_item_arrow_icon"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/ongoing_favorite_quest_item_arrow_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="18dp"
-            android:src="@android:drawable/ic_menu_more"
-            android:backgroundTint="#ffffff"
-            android:foregroundGravity="center"
-            app:fabCustomSize="24dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+                android:id="@+id/ongoing_favorite_quest_item_arrow_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:backgroundTint="#ffffff"
+                android:foregroundGravity="center"
+                android:src="@android:drawable/ic_menu_more"
+                app:fabCustomSize="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
