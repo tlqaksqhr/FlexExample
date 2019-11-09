@@ -53,8 +53,16 @@ object QuestListFactory {
         return listOf(
             QuestAuthImage(""),
             QuestAuthImage(""),
-            QuestAuthImage(""),
             QuestAuthImage("")
         )
+    }
+
+    fun questDummyAuthItemFactory(n: Int) : List<QuestAuthImage> {
+        var dummyList = mutableListOf<QuestAuthImage>()
+
+        for(i in 1..n) {
+            dummyList.add(QuestAuthImage(""))
+        }
+        return dummyList.toList()
     }
 }

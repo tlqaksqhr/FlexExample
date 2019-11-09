@@ -15,8 +15,10 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 android:id="@+id/toolbar">
                 <TextView
                     android:id="@+id/quest_make_toolbar_title"
@@ -32,46 +34,47 @@
             </androidx.appcompat.widget.Toolbar>
 
             <TextView
-                    android:id="@+id/quest_make_start_date"
-                    android:layout_width="0dp"
-                    android:layout_height="37.5dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
-                    android:gravity="center"
-                    android:hint="시작 날짜"
-                    app:layout_constraintEnd_toStartOf="@+id/quest_make_date_delimiter"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-            <TextView
-                android:id="@+id/quest_make_date_delimiter"
-                android:layout_width="wrap_content"
+                android:id="@+id/quest_make_start_date"
+                android:layout_width="0dp"
                 android:layout_height="37.5dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginTop="24dp"
                 android:gravity="center"
-                android:text="~"
-                android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/quest_make_start_date"
-                app:layout_constraintEnd_toStartOf="@+id/quest_make_end_date"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/quest_make_start_date"
-                app:layout_constraintTop_toTopOf="@+id/quest_make_start_date" />
+                android:hint="시작 날짜"
+                android:drawableRight="@drawable/ic_arrow_down_half"
+                app:layout_constraintEnd_toStartOf="@+id/quest_make_date_delimiter"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <TextView
-                    android:id="@+id/quest_make_end_date"
-                    android:layout_width="0dp"
+                    android:id="@+id/quest_make_date_delimiter"
+                    android:layout_width="wrap_content"
                     android:layout_height="37.5dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
                     android:gravity="center"
-                    android:hint="시작 날짜"
-                    android:text="종료 날짜"
-                    app:layout_constraintBottom_toBottomOf="@+id/quest_make_date_delimiter"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toEndOf="@+id/quest_make_date_delimiter"
-                    app:layout_constraintTop_toTopOf="@+id/quest_make_date_delimiter" />
+                    android:text="~"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/quest_make_start_date"
+                    app:layout_constraintEnd_toStartOf="@+id/quest_make_end_date"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/quest_make_start_date"
+                    app:layout_constraintTop_toTopOf="@+id/quest_make_start_date" />
+
+            <TextView
+                android:id="@+id/quest_make_end_date"
+                android:layout_width="0dp"
+                android:layout_height="37.5dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:hint="종료 날짜"
+                android:drawableRight="@drawable/ic_arrow_down_half"
+                app:layout_constraintBottom_toBottomOf="@+id/quest_make_date_delimiter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/quest_make_date_delimiter"
+                app:layout_constraintTop_toTopOf="@+id/quest_make_date_delimiter" />
 
             <EditText
                     android:id="@+id/quest_make_title"

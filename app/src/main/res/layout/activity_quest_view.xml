@@ -266,8 +266,13 @@
                         android:id="@+id/quest_view_reward_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="보상" app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="20dp"
+                        android:text="보상"
+                        android:textSize="15sp"
+                        android:textColor="#383635"
+                        android:lineSpacingExtra="2.5sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="14dp"/>
 
                 <com.google.android.material.button.MaterialButton
@@ -334,8 +339,14 @@
                         android:id="@+id/quest_view_review_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="후기" app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="20dp"
+                        android:text="후기"
+                        android:textSize="15sp"
+                        android:textColor="#383635"
+                        android:textStyle="bold"
+                        android:lineSpacingExtra="2.5sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="14dp"/>
 
                 <com.google.android.material.button.MaterialButton
@@ -344,35 +355,62 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="12345 건"
-                        android:textSize="11.5sp"
-                        android:textColor="#5956b7"
+                        android:textSize="10sp"
+                        android:textColor="#b8b8b8"
                         android:letterSpacing="-0.05"
-                        android:lineSpacingExtra="6sp"
-                        android:backgroundTint="#FFFFFF"
+                        android:lineSpacingExtra="7.5sp"
+                        android:backgroundTint="#ffffff"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:paddingTop="1dp"
+                        android:paddingBottom="1dp"
+                        app:strokeWidth="0.2dp"
+                        app:strokeColor="#707070"
+                        app:cornerRadius="8dp"
                         app:layout_constraintStart_toEndOf="@+id/quest_view_review_title"
                         android:layout_marginStart="8dp"
                         app:layout_constraintTop_toTopOf="@+id/quest_view_review_title"
                         app:layout_constraintBottom_toBottomOf="@+id/quest_view_review_title"/>
 
                 <TextView
-                        android:id="@+id/quest_view_review_rating_count"
+                    android:id="@+id/quest_view_review_rating_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="4.4"
+                    android:textStyle="bold"
+                    android:textColor="#5956b7"
+                    android:textSize="15sp"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="2.5sp"
+                    app:layout_constraintEnd_toStartOf="@+id/quest_view_review_rating_count_total"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                        android:id="@+id/quest_view_review_rating_count_total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="4.4  / 5.0"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="18dp"
+                        android:letterSpacing="-0.62"
+                        android:lineSpacingExtra="2.5sp"
+                        android:text=" / 5.0"
+                        android:textColor="#5e5e5e"
+                        android:textSize="12.5sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/quest_view_review_rating_count"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginEnd="18dp"/>
+                        app:layout_constraintTop_toTopOf="parent" />
+
                 <View
-                        android:id="@+id/quest_view_review_divider"
-                        android:layout_width="373dp"
-                        android:layout_height="1dp"
-                        android:background="?android:attr/listDivider"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginStart="13dp"
-                        app:layout_constraintTop_toBottomOf="@+id/quest_view_review_count_btn"
-                        android:layout_marginTop="10dp" app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginEnd="13dp"/>
+                    android:id="@+id/quest_view_review_divider"
+                    android:layout_width="373dp"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="13dp"
+                    app:layout_constraintTop_toBottomOf="@+id/quest_view_review_count_btn"
+                    android:layout_marginTop="10dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="13dp"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/quest_view_review_list"

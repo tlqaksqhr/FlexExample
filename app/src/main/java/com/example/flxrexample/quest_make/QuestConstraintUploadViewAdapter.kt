@@ -42,8 +42,6 @@ class QuestConstraintUploadViewAdapter(val questMakeEventListener: QuestMakeEven
         return contentTable
     }
 
-    // TODO : content 저장이 안되는 문제 해결해야함
-
     inner class ViewHolder(v: View, questMakeEventListener: QuestMakeEventListener) : RecyclerView.ViewHolder(v) {
 
         val questMakeEventListener = questMakeEventListener

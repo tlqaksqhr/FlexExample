@@ -74,13 +74,13 @@ data class Review(
 )
 
 @Entity(tableName="quest_auth_image_table", foreignKeys = [
-    (ForeignKey(entity = Quest::class,
+    (ForeignKey(entity = QuestConstraint::class,
         parentColumns = ["id"],
-        childColumns = ["quest_id"],
+        childColumns = ["quest_constraint_id"],
         onDelete = CASCADE))])
 data class QuestAuthImage(
     val pictureURL: String,
-    @ColumnInfo(name = "quest_id")
+    @ColumnInfo(name = "quest_constraint_id")
     val questID: Int = 0,
     @PrimaryKey(autoGenerate = true)
     val id: Int = globalId.getAndIncrement()

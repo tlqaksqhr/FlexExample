@@ -62,16 +62,29 @@
                 android:id="@+id/quest_review_item_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="7.5sp"
-                android:textColor="#919191"
+                android:layout_marginEnd="32dp"
                 android:letterSpacing="-0.05"
                 android:lineSpacingExtra="10sp"
                 android:text="2019.09.30"
-                app:layout_constraintTop_toTopOf="@+id/quest_review_item_rating"
-                app:layout_constraintBottom_toBottomOf="@+id/quest_review_item_rating"
+                android:textColor="#919191"
+                android:textSize="7.5sp"
+                app:layout_constraintBottom_toBottomOf="@+id/quest_review_item_user_id"
                 app:layout_constraintEnd_toStartOf="@+id/quest_review_item_rating"
-                android:layout_marginEnd="9dp"/>
+                app:layout_constraintTop_toTopOf="@+id/quest_review_item_user_id" />
 
+        <RatingBar
+                android:id="@+id/quest_review_item_rating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:numStars="5"
+                android:rating="2.5"
+                android:stepSize="0.5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/quest_review_item_date" />
+
+        <!--
         <RatingBar
                 android:id="@+id/quest_review_item_rating"
                 style="@style/Widget.AppCompat.RatingBar.Small"
@@ -79,6 +92,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="@+id/quest_review_item_user_id"
                 app:layout_constraintEnd_toEndOf="@+id/quest_review_item_content"/>
+        -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

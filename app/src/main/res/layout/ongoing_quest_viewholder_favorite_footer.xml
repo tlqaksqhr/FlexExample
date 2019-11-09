@@ -5,13 +5,16 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.example.flxrexample.quest_ongoing.QuestOngoingBindingAdapter" />
+        <variable name="favoriteQuestHeader" type="com.example.flxrexample.quest_model.FavoriteQuestHeader"/>
         <variable name="questConstraint" type="com.example.flxrexample.quest_model.QuestConstraint"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ongoing_favorite_quest_item_footer_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@{favoriteQuestHeader.expanded ? @dimen/item_padding_expanded : @dimen/item_padding_not_expanded}">
 
         <Button
             android:id="@+id/ongoing_favorite_quest_item_footer_complete_btn"

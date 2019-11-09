@@ -14,7 +14,9 @@
         tools:context=".quest_ongoing.QuestOngoingReviewActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/quest_ongoing_review_toolbar"
             android:layout_width="match_parent"

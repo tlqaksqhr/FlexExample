@@ -1,5 +1,6 @@
 package com.example.flxrexample.quest
 
+import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -25,6 +26,16 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.quest_main_fragment.*
 import kotlinx.android.synthetic.main.quest_ongoing_fragment.*
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import androidx.core.content.ContextCompat
+import android.graphics.drawable.Drawable
+import android.os.Build
+import androidx.annotation.DrawableRes
+import androidx.core.graphics.drawable.DrawableCompat
+import com.google.android.gms.maps.model.BitmapDescriptor
+
+
 
 class QuestMainFragment : Fragment(), OnMapReadyCallback,
     QuestMainEventListener{
@@ -97,16 +108,35 @@ class QuestMainFragment : Fragment(), OnMapReadyCallback,
 
     override fun showMarkerDialog(quest: Quest, marker: Marker){
         questInfoWindowAdapter.bind(quest)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quest.latLng, 12.toFloat()))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quest.latLng, 20.toFloat()))
         marker.showInfoWindow()
         this.quest = quest
     }
 
     override fun addMarker(quest: Quest) : Marker{
         val markerOptions = MarkerOptions()
-        //markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_icon))
+        markerOptions.icon(bitmapDescriptorFromVector(this.context!!, R.drawable.ic_map_off))
         val marker = googleMap.addMarker(markerOptions.position(quest.latLng))
-
         return marker
+    }
+
+
+    private fun bitmapDescriptorFromVector(context: Context, @DrawableRes vectorDrawableResourceId: Int): BitmapDescriptor {
+
+        var drawable = ContextCompat.getDrawable(context, vectorDrawableResourceId)
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            drawable = DrawableCompat.wrap(drawable!!).mutate()
+        }
+
+        val bitmap = Bitmap.createBitmap(
+            drawable?.intrinsicWidth!!,
+            drawable?.intrinsicHeight!!,
+            Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        drawable.setBounds(0, 0, canvas.width, canvas.height)
+        drawable.draw(canvas)
+
+        return BitmapDescriptorFactory.fromBitmap(bitmap)
     }
 }

@@ -69,7 +69,7 @@ class DataQuestApplication : Application(){
 
 
             val quest2 = Quest("제주로!","rororororororor!",false,
-                12345,3000,9989, "제주특별자치도 제주시 공항로 3", LatLng(33.253550, 126.564733),
+                12345,3000,9989, "제주특별자치도 제주시 공항로 3", LatLng(32.253550, 123.564733),
                 "2019-10-20","2019-10-28")
             questDao.insert(quest2)
 

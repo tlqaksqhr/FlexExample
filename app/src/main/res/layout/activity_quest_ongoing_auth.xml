@@ -90,7 +90,7 @@
                         android:text="물고기 한마리 나오게 하기"/>
             </com.google.android.material.card.MaterialCardView>
 
-            <ImageView
+            <com.synnapps.carouselview.CarouselView
                     android:id="@+id/quest_ongoing_main_image_view"
                     android:layout_width="match_parent"
                     android:layout_height="360dp"

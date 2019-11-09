@@ -1,10 +1,15 @@
 package com.example.flxrexample.quest_ongoing
 
 import android.content.Intent
+import android.view.View
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel;
 import com.example.flxrexample.quest_model.*
+import android.view.ViewGroup.MarginLayoutParams
+
+
 
 class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : ViewModel() {
     val ongoingQuestLiveData: LiveData<Container>

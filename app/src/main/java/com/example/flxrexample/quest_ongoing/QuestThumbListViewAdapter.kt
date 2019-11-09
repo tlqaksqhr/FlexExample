@@ -11,20 +11,26 @@ import com.example.flxrexample.quest_model.QuestAuthImage
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.quest_auth_image_item.view.*
 
-class QuestThumbListViewAdapter() : ListAdapter<QuestAuthImage, QuestThumbListViewAdapter.ViewHolder>(QuestAuthItemDiffCallback()) {
+class QuestThumbListViewAdapter(val questAuthEventListener: QuestAuthEventListener) : ListAdapter<QuestAuthImage, QuestThumbListViewAdapter.ViewHolder>(QuestAuthItemDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.quest_auth_image_item,parent,false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.quest_auth_image_item,parent,false), questAuthEventListener)
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    class ViewHolder(v: View) : RecyclerView.ViewHolder(v){
+    class ViewHolder(v: View, questAuthEventListener: QuestAuthEventListener) : RecyclerView.ViewHolder(v){
+
+        val questAuthEventListener = questAuthEventListener
 
         fun bind(item: QuestAuthImage){
             if(item.pictureURL != "") {
                 Picasso.get().load("file://${item.pictureURL}").into(itemView.quest_auth_item_imageview)
+            }
+
+            itemView.quest_auth_item_imageview.setOnClickListener {
+                questAuthEventListener.addPicture(item)
             }
         }
     }

@@ -8,6 +8,7 @@ class QuestRepository{
     private val questDao: QuestDao = DataQuestApplication.database.questDao()
     private val questConstraintDao: QuestConstraintDao = DataQuestApplication.database.questConstraintDao()
     private val reviewDao: ReviewDao = DataQuestApplication.database.reviewDao()
+    private val questAuthImageDao: QuestAuthImageDao = DataQuestApplication.database.questAuthImageDao()
 
     private val allQuests: LiveData<List<Quest>>
     init{
@@ -24,12 +25,18 @@ class QuestRepository{
 
     fun getRecentQuestID() = questDao.getRecentQuestID()
 
+    fun getQuestConstraintsCount(id: Int) = questConstraintDao.getQuestConstraintsCount(id)
+
     fun addQuestViewItem(questViewItem: QuestViewItem){
         AsyncTask.execute {
             InsertQuestAsyncTask(questDao).execute(questViewItem.quest)
             val id = getRecentQuestID() + 1
             InsertQuestConstraintsAsyncTask(questConstraintDao, id).execute(questViewItem.questConstraints)
         }
+    }
+
+    fun addQuestAuthImages(questAuthImages: List<QuestAuthImage>) {
+        InsertQuestAuthImagesAsyncTask(questAuthImageDao).execute(questAuthImages)
     }
 
     fun addReview(review: Review) {
@@ -39,6 +46,13 @@ class QuestRepository{
     private class InsertReviewAsyncTask internal constructor(private val reviewDao: ReviewDao) : AsyncTask<Review, Void, Void>() {
         override fun doInBackground(vararg params: Review): Void? {
             reviewDao.insert(params[0])
+            return null
+        }
+    }
+
+    private class InsertQuestAuthImagesAsyncTask internal constructor(private val questAuthImageDao: QuestAuthImageDao) : AsyncTask<List<QuestAuthImage>, Void, Void>() {
+        override fun doInBackground(vararg params: List<QuestAuthImage>): Void? {
+            questAuthImageDao.insertAll(params[0])
             return null
         }
     }
