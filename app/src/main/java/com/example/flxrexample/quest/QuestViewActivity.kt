@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.flxrexample.MainActivity
 import com.example.flxrexample.R
 import com.example.flxrexample.databinding.ActivityQuestViewBinding
 import com.example.flxrexample.quest_model.QuestListFactory
@@ -54,6 +55,10 @@ class QuestViewActivity : AppCompatActivity() {
             val intent = Intent(this,QuestOngoingAuthActivity::class.java)
             intent.putExtra("id",questID)
             startActivity(intent)
+        }
+
+        binding.questViewCancelBtn.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
         questID = intent.extras?.getInt("id")!!

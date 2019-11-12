@@ -9,8 +9,10 @@ class QuestRepository{
     private val questConstraintDao: QuestConstraintDao = DataQuestApplication.database.questConstraintDao()
     private val reviewDao: ReviewDao = DataQuestApplication.database.reviewDao()
     private val questAuthImageDao: QuestAuthImageDao = DataQuestApplication.database.questAuthImageDao()
+    private val starAccountDao: StarAccountDao = DataQuestApplication.database.starAccountDao()
 
     private val allQuests: LiveData<List<Quest>>
+
     init{
         allQuests = questDao.getAllQuests()
     }
@@ -35,6 +37,8 @@ class QuestRepository{
         }
     }
 
+    fun getQuestAuthImages(id: Int) = questAuthImageDao.getQuestAuthImages(id)
+
     fun addQuestAuthImages(questAuthImages: List<QuestAuthImage>) {
         InsertQuestAuthImagesAsyncTask(questAuthImageDao).execute(questAuthImages)
     }
@@ -42,6 +46,31 @@ class QuestRepository{
     fun addReview(review: Review) {
         InsertReviewAsyncTask(reviewDao).execute(review)
     }
+
+    fun getStarAccount() = starAccountDao.getStarAccount()
+
+    fun updateStarAccount(starAccount: StarAccount){
+        UpdateStarAccountAsyncTask(starAccountDao).execute(starAccount)
+    }
+
+    fun insertStarAccount(starAccount: StarAccount){
+        InsertStarAccountAsyncTask(starAccountDao).execute(starAccount)
+    }
+
+    private class UpdateStarAccountAsyncTask internal constructor(private val starAccountDao: StarAccountDao) : AsyncTask<StarAccount, Void, Void>() {
+        override fun doInBackground(vararg params: StarAccount): Void? {
+            starAccountDao.update(params[0])
+            return null
+        }
+    }
+
+    private class InsertStarAccountAsyncTask internal constructor(private val starAccountDao: StarAccountDao) : AsyncTask<StarAccount, Void, Void>() {
+        override fun doInBackground(vararg params: StarAccount): Void? {
+            starAccountDao.insert(params[0])
+            return null
+        }
+    }
+
 
     private class InsertReviewAsyncTask internal constructor(private val reviewDao: ReviewDao) : AsyncTask<Review, Void, Void>() {
         override fun doInBackground(vararg params: Review): Void? {

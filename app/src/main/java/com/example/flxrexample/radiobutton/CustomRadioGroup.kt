@@ -18,8 +18,10 @@ class CustomRadioGroup @JvmOverloads constructor(
 
     companion object {
 
+        @JvmStatic
         private var onClickListener: OnCustomRadioButtonListener? = null
 
+        @JvmStatic
         fun setOnClickListener(onClickListener: OnCustomRadioButtonListener) {
             CustomRadioGroup.onClickListener = onClickListener
         }
@@ -30,7 +32,7 @@ class CustomRadioGroup @JvmOverloads constructor(
 
         if(child is BaseCustomRadioButton) {
             child.setOnClickListener { view ->
-                val selectedButton = child
+                val selectedButton = child as BaseCustomRadioButton
 
                 setAllButtonsToUnselectedState()
                 setSelectedButtonToSelectedState(selectedButton)

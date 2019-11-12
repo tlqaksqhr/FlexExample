@@ -8,9 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 
 import com.example.flxrexample.R
 import com.example.flxrexample.charge.StarChargeActivity
+import com.example.flxrexample.databinding.MyProfileFragmentBinding
+import com.example.flxrexample.quest_model.StarAccount
 import kotlinx.android.synthetic.main.activity_my_profile_star_history.*
 import kotlinx.android.synthetic.main.my_profile_fragment.*
 import com.synnapps.carouselview.ImageListener
@@ -22,7 +26,9 @@ class MyProfileFragment : Fragment() {
         fun newInstance() = MyProfileFragment()
     }
 
+    private lateinit var binding: MyProfileFragmentBinding
     private lateinit var viewModel: MyProfileViewModel
+
     val sampleImages: Array<Int> = arrayOf(
         R.drawable.sample_image,
         R.drawable.sample_image,
@@ -35,38 +41,43 @@ class MyProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.my_profile_fragment, container, false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.my_profile_fragment, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MyProfileViewModel::class.java)
 
-        myprofile_star_charge_btn.setOnClickListener {
+        binding.myprofileStarChargeBtn.setOnClickListener {
             val starChargeIntent = Intent(activity, StarChargeActivity::class.java)
             startActivity(starChargeIntent)
         }
 
-        myprofile_history_btn.setOnClickListener {
+        binding.myprofileHistoryBtn.setOnClickListener {
             val historyIntent = Intent(activity, MyProfileHistoryActivity::class.java)
             startActivity(historyIntent)
         }
 
-        myprofile_help_btn.setOnClickListener {
+        binding.myprofileHelpBtn.setOnClickListener {
             val helpIntent = Intent(activity, MyProfileHelpActivity::class.java)
             startActivity(helpIntent)
         }
 
-        myprofile_star_btn.setOnClickListener {
+        binding.myprofileStarBtn.setOnClickListener {
             val starHistoryIntent = Intent(activity, MyProfileStarHistoryActivity::class.java)
             startActivity(starHistoryIntent)
         }
 
-        myprofile_ad_carousel_view.setImageListener { position, imageView ->
+        binding.myprofileAdCarouselView.setImageListener { position, imageView ->
             imageView.setImageResource(sampleImages[position])
         }
 
-        myprofile_ad_carousel_view.pageCount = sampleImages.size
+        binding.myprofileAdCarouselView.pageCount = sampleImages.size
+
+        viewModel.getStarAccount().observe(this, Observer<StarAccount> { starAccount ->
+            binding.myprofileHaveStarText.text = "${starAccount.starAmount} 스타 보유중"
+        })
     }
 
 }

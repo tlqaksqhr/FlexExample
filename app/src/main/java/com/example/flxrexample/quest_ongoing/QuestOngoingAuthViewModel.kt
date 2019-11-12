@@ -52,7 +52,7 @@ class QuestOngoingAuthViewModel : ViewModel() {
             ))
         }
 
-        repository.addQuestAuthImages(newItems)
+        repository.addQuestAuthImages(newItems.toList())
     }
 
 

@@ -24,11 +24,11 @@ class DataQuestApplication : Application(){
         instance = this
         super.onCreate()
 
-        //database = Room.databaseBuilder(this, QuestDatabase::class.java, "quest_database")
-        //    .addCallback(roomDatabaseCallback).build()
-
         database = Room.inMemoryDatabaseBuilder(this, QuestDatabase::class.java)
             .addCallback(roomDatabaseCallback).build()
+
+        //database = Room.databaseBuilder(this, QuestDatabase::class.java, "quest_database")
+        //    .addCallback(roomDatabaseCallback).build()
     }
 
     private val roomDatabaseCallback = object : RoomDatabase.Callback() {
@@ -42,10 +42,13 @@ class DataQuestApplication : Application(){
         private val questDao: QuestDao = db.questDao()
         private val reviewDao: ReviewDao = db.reviewDao()
         private val questConstraintDao: QuestConstraintDao = db.questConstraintDao()
+        private val starAccountDao: StarAccountDao = db.starAccountDao()
 
         override fun doInBackground(vararg params: Void): Void? {
 
             questDao.deleteAll()
+
+            starAccountDao.insert(StarAccount(1,4000))
 
             val quest = Quest("제주로, 해녀로","바다속 풍경을 사진으로 찍고 인증하세요!",false,
                 12345,3000,9989, "제주특별자치도 제주시 공항로 2", LatLng(33.253550, 126.564733),

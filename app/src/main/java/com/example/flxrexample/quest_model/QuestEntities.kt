@@ -86,6 +86,13 @@ data class QuestAuthImage(
     val id: Int = globalId.getAndIncrement()
 )
 
+@Entity(tableName="star_account_table")
+data class StarAccount(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
+    val starAmount: Int,
+    val userID: Int = 0
+)
 
 data class Container(
     val ongoingQuests: List<OngoingQuest>,
