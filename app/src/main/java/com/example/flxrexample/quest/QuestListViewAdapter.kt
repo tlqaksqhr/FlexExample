@@ -36,11 +36,11 @@ class QuestListViewAdapter(val questMainEventListener: QuestMainEventListener) :
         fun bind(item: Quest){
             itemView.quest_item_title.text = item.title
             itemView.quest_item_desc.text = item.desc
-            itemView.quest_item_star.text = item.questStar.toString() + " 스타"
+            itemView.quest_item_star.text = item.totalStar.toString() + " 스타"
             itemView.quest_item_challenge_count.text = item.numOfComplete.toString() + "명 도전중"
 
-            itemView.quest_item_cardview.strokeColor = Color.rgb(0xd6,0xd6,0xd6)
-            itemView.quest_item_cardview.strokeWidth = 3
+            itemView.quest_item_cardview.strokeColor = Color.argb(0,0xd6,0xd6,0xd6)
+            itemView.quest_item_cardview.strokeWidth = 0
 
             val marker = questMainEventListener.addMarker(item)
 

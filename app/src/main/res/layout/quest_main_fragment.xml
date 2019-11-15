@@ -64,29 +64,41 @@
                 android:layout_marginStart="33dp"/>
 
             <com.google.android.material.button.MaterialButtonToggleGroup
-                android:id="@+id/quest_toggle_btn_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginEnd="16dp"
-                app:checkedButton="@+id/quest_recent_btn"
-                app:singleSelection="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
-                <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:id="@+id/quest_recent_btn"
+                    android:id="@+id/quest_toggle_btn_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cornerRadius="8dp"
-                    android:text="최신순"/>
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="16dp"
+                    app:checkedButton="@+id/quest_recent_btn"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:singleSelection="true">
+
                 <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:id="@+id/quest_favorite_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="인기순"/>
+                        android:id="@+id/quest_recent_btn"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="최신순"
+                        android:textColor="#707070"
+                        app:backgroundTint="#ffffff"
+                        app:cornerRadius="8dp"
+                        app:iconTint="#ffffff"
+                        app:rippleColor="#5956b7"
+                        app:strokeColor="#707070" />
+
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/quest_favorite_btn"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="인기순"
+                        android:textColor="#707070"
+                        app:backgroundTint="#ffffff"
+                        app:iconTint="#5956b7"
+                        app:rippleColor="#5956b7"
+                        app:strokeColor="#707070" />
             </com.google.android.material.button.MaterialButtonToggleGroup>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

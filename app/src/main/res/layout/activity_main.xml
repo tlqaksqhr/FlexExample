@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:background="?android:attr/windowBackground"
         app:menu="@menu/botton_navigation_menu"
-        app:itemIconTint="@drawable/ic_quest_list_selector"
+        app:itemIconTint="@color/bottom_color"
         app:itemTextColor="@drawable/ic_quest_list_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

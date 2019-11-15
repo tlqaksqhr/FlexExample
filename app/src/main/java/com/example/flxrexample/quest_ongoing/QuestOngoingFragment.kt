@@ -54,6 +54,8 @@ class QuestOngoingFragment : Fragment() {
         viewModel.ongoingQuestLiveData.observe(this, Observer { container ->
             questOngoingListController.setData(container)
             questFavoriteListController.setData(container)
+            binding.questOngoingCountBtn.text = "${container.ongoingQuests.size}/5"
+            binding.questOngoingFavoriteCountBtn.text = "${container.favoriteQuests.size}/15"
         })
     }
 

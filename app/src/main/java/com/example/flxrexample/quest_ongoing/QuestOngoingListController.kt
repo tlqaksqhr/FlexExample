@@ -11,6 +11,8 @@ class QuestOngoingListController() : TypedEpoxyController<Container>() {
         container?.ongoingQuests?.forEach {
             header {
                 id(it.ongoingQuestHeader.id)
+                size(it.questConstraints.size)
+                completedCount(it.questConstraints.filter { constraint -> constraint.isCompleted }.size)
                 ongoingQuestHeader(it.ongoingQuestHeader)
                 ongoingQuestHeaderExpanded { model, _, _, _ ->
                     container.ongoingQuestHeaderExpanded(model.ongoingQuestHeader())

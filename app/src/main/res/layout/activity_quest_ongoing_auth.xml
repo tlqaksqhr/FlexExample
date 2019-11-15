@@ -95,6 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="360dp"
                     android:src="@drawable/sample_image"
+                    app:fillColor="#634ac8"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="14dp"

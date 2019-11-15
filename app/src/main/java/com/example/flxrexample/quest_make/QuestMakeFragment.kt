@@ -167,15 +167,17 @@ class QuestMakeFragment : Fragment(), OnMapReadyCallback, QuestMakeEventListener
                 ),entry)
             }
 
-            val star_count = quest_make_reward_star_person_total_text.text.toString()
+            val totalStar = quest_make_reward_star_person_total_text.text.toString()
+            val perStar = quest_make_reward_star_count_text.text.toString()
 
-            if(star_count.isDigitsOnly()){
+            if(totalStar.isDigitsOnly() && perStar.isDigitsOnly()){
                 val quest = Quest(
                     quest_make_title.text.toString(),
                     quest_make_desc.text.toString(),
                     false,
                     0,
-                    parseInt(star_count),
+                    parseInt(totalStar),
+                    parseInt(perStar),
                     0,
                     "",
                     mapPos,
@@ -183,11 +185,11 @@ class QuestMakeFragment : Fragment(), OnMapReadyCallback, QuestMakeEventListener
                     quest_make_end_date.text.toString())
 
                 viewModel.addQuest(quest)
-            }
 
-            val transaction = this.fragmentManager?.beginTransaction()
-            transaction?.replace(R.id.main_container,QuestMainFragment())
-            transaction?.commit()
+                val transaction = this.fragmentManager?.beginTransaction()
+                transaction?.replace(R.id.main_container,QuestMainFragment())
+                transaction?.commit()
+            }
         }
     }
 

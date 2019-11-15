@@ -27,7 +27,7 @@
             android:lineSpacingExtra="7sp"
             android:text="@{favoriteQuestHeader.title}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-            android:textColor="@{favoriteQuestHeader.expanded ? @color/colorOngoingQuestHeaderTextExpanded : @color/colorOngoingQuestHeaderTextNotExpanded }"
+            android:textColor="@{favoriteQuestHeader.expanded ? @color/colorOngoingQuestFavoriteHeaderTextExpanded : @color/colorOngoingQuestFavoriteHeaderTextNotExpanded }"
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"

@@ -16,9 +16,6 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
         get() = _liveData
     private val _liveData = MutableLiveData<Container>()
 
-    val ongoingQuestCount: Int
-        get() = _liveData.value?.ongoingQuests!!.size
-
     private val ongoingQuestHeaderExpanded: OngoingQuestHeaderExpanded = { ongoingQuestHeader: OngoingQuestHeader ->
         val oldContainer = _liveData.value
         if (oldContainer != null) {

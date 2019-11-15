@@ -20,6 +20,8 @@ class QuestOngoingAuthViewModel : ViewModel() {
 
     fun getAllAuthImageLiveData() = questAuthImageLiveData
 
+    fun getQuestConstraints(id: Int) = repository.getQuestConstraints(id)
+
     fun getQuestConstraintsCount(id: Int) = repository.getQuestConstraintsCount(id)
 
     fun addQuestAuthImage(questAuthImage: QuestAuthImage) {

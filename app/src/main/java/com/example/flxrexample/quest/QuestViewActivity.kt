@@ -13,6 +13,7 @@ import com.example.flxrexample.databinding.ActivityQuestViewBinding
 import com.example.flxrexample.quest_model.QuestListFactory
 import com.example.flxrexample.quest_model.QuestViewItem
 import com.example.flxrexample.quest_ongoing.QuestOngoingAuthActivity
+import com.squareup.picasso.Picasso
 
 class QuestViewActivity : AppCompatActivity() {
 
@@ -22,14 +23,6 @@ class QuestViewActivity : AppCompatActivity() {
     private lateinit var questReviewListAdapter: QuestReviewListViewAdapter
 
     private var questID: Int = 0
-
-    val sampleImages: Array<Int> = arrayOf(
-        R.drawable.sample_image,
-        R.drawable.sample_image,
-        R.drawable.sample_image,
-        R.drawable.sample_image,
-        R.drawable.sample_image
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,11 +74,20 @@ class QuestViewActivity : AppCompatActivity() {
 
                     this.questViewReviewRatingCount.text = "${avgRating} / 5.0"
 
+                    this.questViewReviewCountBtn.text = "${questViewItem.questReviews.size}건"
+
                     this.questViewContentImage.setImageListener { position, imageView ->
-                        imageView.setImageResource(sampleImages[position])
+                        if(!questViewItem.questConstraints[position].pictureURL.startsWith("http")) {
+                            Picasso.get().load("file://${questViewItem.
+                                questConstraints[position].pictureURL}").into(imageView)
+                        }
+                        else {
+                            Picasso.get().load(questViewItem.questConstraints[position]
+                                .pictureURL).into(imageView)
+                        }
                     }
 
-                    this.questViewContentImage.pageCount = sampleImages.size
+                    this.questViewContentImage.pageCount = questViewItem.questConstraints.size
                 }
 
                 questConstraintAdapter.submitList(questViewItem.questConstraints)

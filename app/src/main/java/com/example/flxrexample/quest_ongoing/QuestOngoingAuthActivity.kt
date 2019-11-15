@@ -23,6 +23,7 @@ import com.example.flxrexample.databinding.ActivityQuestOngoingAuthBinding
 import com.example.flxrexample.quest_model.QuestAuthImage
 import com.example.flxrexample.quest_model.QuestConstraint
 import com.example.flxrexample.quest_model.QuestListFactory
+import com.squareup.picasso.Picasso
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -42,16 +43,6 @@ class QuestOngoingAuthActivity : AppCompatActivity(), QuestAuthEventListener {
     private var mCurrentPhotoPath: String? = null
     private var questID: Int = 0
     private lateinit var questAuthImageItem: QuestAuthImage
-
-
-
-    val sampleImages: Array<Int> = arrayOf(
-        R.drawable.sample_image,
-        R.drawable.sample_image,
-        R.drawable.sample_image,
-        R.drawable.sample_image,
-        R.drawable.sample_image
-    )
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,13 +68,16 @@ class QuestOngoingAuthActivity : AppCompatActivity(), QuestAuthEventListener {
             startActivity(intent)
         }
 
-
-        binding.questOngoingMainImageView.setImageListener { position, imageView ->
-            imageView.setImageResource(sampleImages[position])
-        }
-        binding.questOngoingMainImageView.pageCount = sampleImages.size
-
         questID = intent.extras?.getInt("id")!!
+
+        viewModel.getQuestConstraints(questID).observe(this, Observer<List<QuestConstraint>> { questConstraints ->
+            binding.questOngoingMainImageView.setImageListener { position, imageView ->
+                Picasso.get().load(questConstraints[position].pictureURL).into(imageView)
+                //imageView.setImageResource(sampleImages[position])
+            }
+            binding.questOngoingMainImageView.pageCount = questConstraints.size
+            //binding.questOngoingMainImageView.pageCount = sampleImages.size
+        })
 
         viewModel.getQuestConstraintsCount(questID).observe(this, Observer<Int> { authImageSize ->
             val tmp = QuestListFactory.questDummyAuthItemFactory(authImageSize)

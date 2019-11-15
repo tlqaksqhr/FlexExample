@@ -29,6 +29,8 @@ class QuestRepository{
 
     fun getQuestConstraintsCount(id: Int) = questConstraintDao.getQuestConstraintsCount(id)
 
+    fun getQuestConstraints(id: Int) = questConstraintDao.getQuestConstraints(id)
+
     fun addQuestViewItem(questViewItem: QuestViewItem){
         AsyncTask.execute {
             InsertQuestAsyncTask(questDao).execute(questViewItem.quest)

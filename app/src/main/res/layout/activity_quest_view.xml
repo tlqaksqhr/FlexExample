@@ -181,6 +181,7 @@
                     android:id="@+id/quest_view_content_image"
                     android:src="@drawable/sample_image"
                     android:layout_width="match_parent"
+                    app:fillColor="#634ac8"
                     android:layout_height="300dp"
                     android:scaleType="fitXY"/>
 
@@ -226,6 +227,7 @@
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
 
                 <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/quest_view_condition_list"
@@ -295,27 +297,72 @@
                         android:id="@+id/quest_view_reward_star_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="300스타 지급 / 884명 남음"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginTop="14dp" app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginEnd="18dp"/>
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="2.5sp"
+                        android:text="300스타 지급"
+                        android:textColor="#5956b7"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/quest_view_reward_star_count_remaining"
+                        app:layout_constraintEnd_toStartOf="@+id/quest_view_reward_star_count_remaining"
+                        app:layout_constraintTop_toTopOf="@+id/quest_view_reward_star_count_remaining" />
 
-                <ProgressBar
+                <TextView
+                    android:id="@+id/quest_view_reward_star_count_remaining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" / 884명 남음"
+                    android:textSize="12.5sp"
+                    android:textColor="#5e5e5e"
+                    android:letterSpacing="-0.62"
+                    android:lineSpacingExtra="1.5sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="14dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="18dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/quest_view_reward_progress_bar_container"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:id="@+id/quest_view_reward_progress_bar"
-                        style="@android:style/Widget.ProgressBar.Horizontal"
-                        android:progressDrawable="@drawable/quest_view_progressbar_style"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/quest_view_reward_shop_btn"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:cardCornerRadius="18dp"
+                        app:strokeWidth="0.2dp"
+                        app:strokeColor="#707070"
+                        app:cardBackgroundColor="#ffffff"
                         android:layout_marginTop="14dp"
                         android:layout_marginStart="19dp"
-                        app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginEnd="19dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="16dp">
+
+                    <ProgressBar
+                        android:id="@+id/quest_view_reward_progress_bar"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="3.8dp"
+                        android:layout_marginTop="3.2dp"
+                        android:layout_marginEnd="3.2dp"
+                        android:layout_marginBottom="3.8dp"
                         android:max="100"
-                        android:progress="40"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        android:progress="100"
+                        android:progressDrawable="@drawable/quest_view_progressbar_style" />
+
+                    <TextView
+                        android:id="@+id/quest_view_reward_progress_bar_percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="20dp"
+                        android:textSize="12.5sp"
+                        android:textColor="#b8b8b8"
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="5sp"
+                        android:text="100%" />
+
+                </com.google.android.material.card.MaterialCardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -336,41 +383,41 @@
                     android:layout_height="match_parent">
 
                 <TextView
-                        android:id="@+id/quest_view_review_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="후기"
-                        android:textSize="15sp"
-                        android:textColor="#383635"
-                        android:textStyle="bold"
-                        android:lineSpacingExtra="2.5sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="14dp"/>
+                    android:id="@+id/quest_view_review_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="후기"
+                    android:textSize="15sp"
+                    android:textColor="#383635"
+                    android:textStyle="bold"
+                    android:lineSpacingExtra="2.5sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="14dp"/>
 
                 <com.google.android.material.button.MaterialButton
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-                        android:id="@+id/quest_view_review_count_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="12345 건"
-                        android:textSize="10sp"
-                        android:textColor="#b8b8b8"
-                        android:letterSpacing="-0.05"
-                        android:lineSpacingExtra="7.5sp"
-                        android:backgroundTint="#ffffff"
-                        android:paddingLeft="4dp"
-                        android:paddingRight="4dp"
-                        android:paddingTop="1dp"
-                        android:paddingBottom="1dp"
-                        app:strokeWidth="0.2dp"
-                        app:strokeColor="#707070"
-                        app:cornerRadius="8dp"
-                        app:layout_constraintStart_toEndOf="@+id/quest_view_review_title"
-                        android:layout_marginStart="8dp"
-                        app:layout_constraintTop_toTopOf="@+id/quest_view_review_title"
-                        app:layout_constraintBottom_toBottomOf="@+id/quest_view_review_title"/>
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                    android:id="@+id/quest_view_review_count_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12345 건"
+                    android:textSize="10sp"
+                    android:textColor="#b8b8b8"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="7.5sp"
+                    android:backgroundTint="#ffffff"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"
+                    app:strokeWidth="0.2dp"
+                    app:strokeColor="#707070"
+                    app:cornerRadius="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/quest_view_review_title"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toTopOf="@+id/quest_view_review_title"
+                    app:layout_constraintBottom_toBottomOf="@+id/quest_view_review_title"/>
 
                 <TextView
                     android:id="@+id/quest_view_review_rating_count"
@@ -387,19 +434,19 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                        android:id="@+id/quest_view_review_rating_count_total"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="18dp"
-                        android:letterSpacing="-0.62"
-                        android:lineSpacingExtra="2.5sp"
-                        android:text=" / 5.0"
-                        android:textColor="#5e5e5e"
-                        android:textSize="12.5sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/quest_view_review_rating_count"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    android:id="@+id/quest_view_review_rating_count_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="18dp"
+                    android:letterSpacing="-0.62"
+                    android:lineSpacingExtra="2.5sp"
+                    android:text=" / 5.0"
+                    android:textColor="#5e5e5e"
+                    android:textSize="12.5sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/quest_view_review_rating_count"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <View
                     android:id="@+id/quest_view_review_divider"

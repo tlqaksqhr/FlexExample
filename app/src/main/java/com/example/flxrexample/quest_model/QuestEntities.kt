@@ -18,6 +18,7 @@ data class Quest(
     val desc: String,
     val isCompleted: Boolean,
     val challengingCount: Int,
+    val totalStar: Int,
     val questStar: Int,
     val numOfComplete: Int,
     val address: String,

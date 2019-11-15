@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.example.flxrexample.quest_ongoing.QuestOngoingBindingAdapter" />
         <variable name="questConstraint" type="com.example.flxrexample.quest_model.QuestConstraint"/>
         <variable name="ongoingQuestAuthClick" type="android.view.View.OnClickListener"/>
     </data>
@@ -27,54 +28,80 @@
                 android:layout_marginStart="17dp"
                 app:layout_constraintBottom_toBottomOf="parent"/>
             <TextView
-                    android:id="@+id/ongoing_quest_viewholder_content_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="11.5sp"
-                    android:textColor="#919191"
-                    android:letterSpacing="-0.05"
-                    android:lineSpacingExtra="6sp"
-                    android:text="@{`조건 `+ questConstraint.constraintNum}"
-                    tools:text="조건 01"
-                    app:layout_constraintStart_toEndOf="@+id/ongoing_quest_viewholder_content_image"
-                    android:layout_marginStart="8dp" android:layout_marginTop="14dp"
-                    app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="14dp"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                android:id="@+id/ongoing_quest_viewholder_content_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11.5sp"
+                android:textColor="#919191"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="6sp"
+                android:text="@{`조건 `+ questConstraint.constraintNum}"
+                tools:text="조건 01"
+                app:layout_constraintStart_toEndOf="@+id/ongoing_quest_viewholder_content_image"
+                android:layout_marginStart="8dp" android:layout_marginTop="14dp"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <TextView
-                    android:id="@+id/ongoing_quest_viewholder_content_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{questConstraint.content}"
-                    tools:text="해녀 슈트 입고 인증사진 찍기 두줄 표현 예시"
-                    app:layout_constraintStart_toEndOf="@+id/ongoing_quest_viewholder_content_count"
-                    android:layout_marginStart="8dp"
-                    android:textSize="12.5sp"
-                    android:textColor="#5e5e5e"
-                    android:letterSpacing="-0.05"
-                    android:lineSpacingExtra="5sp"
-                    android:layout_marginTop="14dp" app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginBottom="14dp" app:layout_constraintBottom_toBottomOf="parent"/>
+                android:id="@+id/ongoing_quest_viewholder_content_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{questConstraint.content}"
+                tools:text="해녀 슈트 입고 인증사진 찍기 두줄 표현 예시"
+                app:layout_constraintStart_toEndOf="@+id/ongoing_quest_viewholder_content_count"
+                android:layout_marginStart="8dp"
+                android:textSize="12.5sp"
+                android:textColor="#5e5e5e"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="5sp"
+                android:layout_marginTop="14dp" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="14dp" app:layout_constraintBottom_toBottomOf="parent"/>
 
             <com.google.android.material.button.MaterialButton
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-                    android:id="@+id/ongoing_quest_viewholder_content_complete_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{ongoingQuestAuthClick}"
-                    app:cornerRadius="7.5dp"
-                    app:strokeColor="#b8b8b8"
-                    app:strokeWidth="0.5dp"
-                    android:backgroundTint="#f5f5f5"
-                    android:textSize="11.5sp"
-                    android:textColor="#5e5e5e"
-                    android:lineSpacingExtra="-1sp"
-                    android:padding="4dp"
-                    android:text="인증하기"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="14dp"
-                    app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="14dp"/>
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                android:id="@+id/ongoing_quest_viewholder_content_complete_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ongoingQuestAuthClick}"
+                app:cornerRadius="7.5dp"
+                app:strokeColor="#b8b8b8"
+                app:strokeWidth="0.5dp"
+                android:backgroundTint="#f5f5f5"
+                android:textSize="11.5sp"
+                android:textColor="@{questConstraint.completed ? @color/colorOngoingQuestConstraintCompleted : @color/colorOngoingQuestConstraintNotCompleted}"
+                android:lineSpacingExtra="-1sp"
+                android:padding="4dp"
+                android:text="@{questConstraint.completed ? `인증완료` : `인증하기`}"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="14dp"/>
+
+            <!--
+            <com.google.android.material.button.MaterialButton
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                android:id="@+id/ongoing_quest_viewholder_content_complete_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ongoingQuestAuthClick}"
+                app:cornerRadius="7.5dp"
+                app:strokeColor="#b8b8b8"
+                app:strokeWidth="0.5dp"
+                android:backgroundTint="#f5f5f5"
+                android:textSize="11.5sp"
+                android:textColor="#5e5e5e"
+                android:lineSpacingExtra="-1sp"
+                android:padding="4dp"
+                android:text="인증하기"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="14dp"/>
+            -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

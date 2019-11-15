@@ -4,6 +4,8 @@
         xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="com.example.flxrexample.quest_ongoing.QuestOngoingBindingAdapter" />
+        <variable name="size" type="int"/>
+        <variable name="completedCount" type="int"/>
         <variable name="ongoingQuestHeader" type="com.example.flxrexample.quest_model.OngoingQuestHeader"/>
         <variable name="ongoingQuestHeaderExpanded" type="android.view.View.OnClickListener"/>
     </data>
@@ -38,7 +40,7 @@
             android:gravity="center_vertical"
             android:letterSpacing="-0.05"
             android:lineSpacingExtra="5sp"
-            android:text="@{ongoingQuestHeader.title}"
+            android:text="@{ongoingQuestHeader.title + ` (` + completedCount + `/` + size + `)`}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             android:textColor="@{ongoingQuestHeader.expanded ? @color/colorOngoingQuestHeaderTextExpanded : @color/colorOngoingQuestHeaderTextNotExpanded }"
             android:textStyle="bold"

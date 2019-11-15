@@ -27,7 +27,14 @@ class QuestReviewPictureListViewAdapter : ListAdapter<QuestAuthImage, QuestRevie
             itemView.quest_review_auth_item_text.text = "인증사진 ${adapterPosition + 1}"
 
             if(item.pictureURL != "") {
-                Picasso.get().load("file://${item.pictureURL}").into(itemView.quest_review_auth_item_imageview)
+                if(!item.pictureURL.startsWith("http")) {
+                    Picasso.get().load("file://${item.pictureURL}")
+                        .into(itemView.quest_review_auth_item_imageview)
+                }
+                else {
+                    Picasso.get().load(item.pictureURL)
+                        .into(itemView.quest_review_auth_item_imageview)
+                }
             }
 
         }

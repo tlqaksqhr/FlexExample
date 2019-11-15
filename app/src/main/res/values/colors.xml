@@ -6,6 +6,10 @@
 
     <color name="colorOngoingQuestHeaderExpanded">#5956b7</color>
     <color name="colorOngoingQuestHeaderNotExpanded">#ffffff</color>
-    <color name="colorOngoingQuestHeaderTextExpanded">#5956b7</color>
+    <color name="colorOngoingQuestHeaderTextExpanded">#ffffff</color>
     <color name="colorOngoingQuestHeaderTextNotExpanded">#000000</color>
+    <color name="colorOngoingQuestFavoriteHeaderTextExpanded">#5956b7</color>
+    <color name="colorOngoingQuestFavoriteHeaderTextNotExpanded">#000000</color>
+    <color name="colorOngoingQuestConstraintCompleted">#D81B60</color>
+    <color name="colorOngoingQuestConstraintNotCompleted">#5e5e5e</color>
 </resources>

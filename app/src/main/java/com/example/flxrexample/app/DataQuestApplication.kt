@@ -51,17 +51,17 @@ class DataQuestApplication : Application(){
             starAccountDao.insert(StarAccount(1,4000))
 
             val quest = Quest("제주로, 해녀로","바다속 풍경을 사진으로 찍고 인증하세요!",false,
-                12345,3000,9989, "제주특별자치도 제주시 공항로 2", LatLng(33.253550, 126.564733),
+                12345,10000,100,0, "제주특별자치도 제주시 공항로 2", LatLng(33.253550, 126.564733),
                 "2019-10-20","2019-10-28")
             questDao.insert(quest)
 
             var constraint = QuestConstraint(10,"바다속 풍경을 사진으로 찍고 인증하세요!",false,
-                "",1)
+                "https://d3h30waly5w5yx.cloudfront.net/images/tour/pictures/jeju-discover-scuba-diving3.jpg",1)
 
             questConstraintDao.insert(constraint)
 
             constraint = QuestConstraint(20,"호롷롷로홀홀홀홀호롷롷ㄹ",false,
-                "",1)
+                "https://d3h30waly5w5yx.cloudfront.net/images/tour/pictures/jeju-discover-scuba-diving3.jpg",1)
 
             questConstraintDao.insert(constraint)
 
@@ -72,17 +72,17 @@ class DataQuestApplication : Application(){
 
 
             val quest2 = Quest("제주로!","rororororororor!",false,
-                12345,3000,9989, "제주특별자치도 제주시 공항로 3", LatLng(32.253550, 123.564733),
+                12345,10000,100, 0,"제주특별자치도 제주시 공항로 3", LatLng(32.253550, 123.564733),
                 "2019-10-20","2019-10-28")
             questDao.insert(quest2)
 
             var constraint2 = QuestConstraint(10,"zkzkzkzkzkzkzkzzk!",false,
-                "",2)
+                "https://d3h30waly5w5yx.cloudfront.net/images/tour/pictures/jeju-discover-scuba-diving3.jpg",2)
 
             questConstraintDao.insert(constraint2)
 
             constraint2 = QuestConstraint(20,"gkgkgkgkgkgkgkgk",false,
-                "",2)
+                "https://d3h30waly5w5yx.cloudfront.net/images/tour/pictures/jeju-discover-scuba-diving3.jpg",2)
 
             questConstraintDao.insert(constraint2)
 
