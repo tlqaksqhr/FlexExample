@@ -25,6 +25,8 @@ data class Quest(
     val latLng: LatLng,
     val startDate: String,
     val endDate: String,
+    val isFavorite: Boolean = false,
+    val isOngoing: Boolean = false,
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0
 )

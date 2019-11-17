@@ -52,6 +52,8 @@ class QuestOngoingAuthActivity : AppCompatActivity(), QuestAuthEventListener {
         binding = DataBindingUtil.setContentView<ActivityQuestOngoingAuthBinding>(this,
             R.layout.activity_quest_ongoing_auth)
 
+        questID = intent.extras?.getInt("id")!!
+
         questAuthImageListViewAdapter = QuestThumbListViewAdapter(this)
 
         binding.questOngoingAuthThumbnailList.layoutManager = GridLayoutManager(this, 3, LinearLayoutManager.VERTICAL, false)
@@ -68,21 +70,17 @@ class QuestOngoingAuthActivity : AppCompatActivity(), QuestAuthEventListener {
             startActivity(intent)
         }
 
-        questID = intent.extras?.getInt("id")!!
-
-        viewModel.getQuestConstraints(questID).observe(this, Observer<List<QuestConstraint>> { questConstraints ->
-            binding.questOngoingMainImageView.setImageListener { position, imageView ->
-                Picasso.get().load(questConstraints[position].pictureURL).into(imageView)
-                //imageView.setImageResource(sampleImages[position])
-            }
-            binding.questOngoingMainImageView.pageCount = questConstraints.size
-            //binding.questOngoingMainImageView.pageCount = sampleImages.size
-        })
-
         viewModel.getQuestConstraintsCount(questID).observe(this, Observer<Int> { authImageSize ->
             val tmp = QuestListFactory.questDummyAuthItemFactory(authImageSize)
             tmp.forEach { viewModel.addQuestAuthImage(it) }
             questAuthImageListViewAdapter.submitList(tmp)
+        })
+
+        viewModel.getQuestConstraints(questID).observe(this, Observer<List<QuestConstraint>> { questConstraints ->
+            binding.questOngoingMainImageView.setImageListener { position, imageView ->
+                Picasso.get().load(questConstraints[position].pictureURL).into(imageView)
+            }
+            binding.questOngoingMainImageView.pageCount = questConstraints.size
         })
 
         viewModel.getImageURL().observe(this, Observer<String> {url ->

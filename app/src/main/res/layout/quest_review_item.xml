@@ -74,7 +74,7 @@
 
         <RatingBar
                 android:id="@+id/quest_review_item_rating"
-                style="@style/Widget.AppCompat.RatingBar.Small"
+                style="@style/HeartRatingMini"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"

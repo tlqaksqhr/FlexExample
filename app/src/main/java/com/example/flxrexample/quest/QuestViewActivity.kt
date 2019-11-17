@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.flxrexample.MainActivity
 import com.example.flxrexample.R
 import com.example.flxrexample.databinding.ActivityQuestViewBinding
+import com.example.flxrexample.quest_model.Quest
 import com.example.flxrexample.quest_model.QuestListFactory
 import com.example.flxrexample.quest_model.QuestViewItem
 import com.example.flxrexample.quest_ongoing.QuestOngoingAuthActivity
@@ -23,6 +24,7 @@ class QuestViewActivity : AppCompatActivity() {
     private lateinit var questReviewListAdapter: QuestReviewListViewAdapter
 
     private var questID: Int = 0
+    private lateinit var quest: Quest
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,12 +47,47 @@ class QuestViewActivity : AppCompatActivity() {
         questReviewListAdapter.submitList(QuestListFactory.questReviewFactory())
 
         binding.questViewChallengeBtn.setOnClickListener {
+            viewModel.updateQuest(Quest(
+                quest.title,
+                quest.desc,
+                quest.isCompleted,
+                quest.challengingCount,
+                quest.totalStar,
+                quest.questStar,
+                quest.numOfComplete,
+                quest.address,
+                quest.latLng,
+                quest.startDate,
+                quest.endDate,
+                quest.isFavorite,
+                true,
+                quest.id
+            ))
+
             val intent = Intent(this,QuestOngoingAuthActivity::class.java)
             intent.putExtra("id",questID)
             startActivity(intent)
         }
 
         binding.questViewCancelBtn.setOnClickListener {
+
+            viewModel.updateQuest(Quest(
+                quest.title,
+                quest.desc,
+                quest.isCompleted,
+                quest.challengingCount,
+                quest.totalStar,
+                quest.questStar,
+                quest.numOfComplete,
+                quest.address,
+                quest.latLng,
+                quest.startDate,
+                quest.endDate,
+                quest.isFavorite,
+                false,
+                quest.id
+            ))
+
             startActivity(Intent(this, MainActivity::class.java))
         }
 
@@ -58,6 +95,9 @@ class QuestViewActivity : AppCompatActivity() {
 
         viewModel.getQuestViewItem(questID).observe(this, Observer<QuestViewItem>{ questViewItem ->
             if(questViewItem != null) {
+
+                quest = questViewItem.quest
+
                 binding.apply {
                     this.questViewPageTitle.text = questViewItem.quest.title
                     this.questViewPageCount.text = "${questViewItem.quest.challengingCount} 명 도전 중"

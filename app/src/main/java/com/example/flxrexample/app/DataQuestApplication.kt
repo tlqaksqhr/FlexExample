@@ -52,7 +52,7 @@ class DataQuestApplication : Application(){
 
             val quest = Quest("제주로, 해녀로","바다속 풍경을 사진으로 찍고 인증하세요!",false,
                 12345,10000,100,0, "제주특별자치도 제주시 공항로 2", LatLng(33.253550, 126.564733),
-                "2019-10-20","2019-10-28")
+                "2019-10-20","2019-10-28",false,false,1)
             questDao.insert(quest)
 
             var constraint = QuestConstraint(10,"바다속 풍경을 사진으로 찍고 인증하세요!",false,
@@ -70,10 +70,9 @@ class DataQuestApplication : Application(){
             reviewDao.insert(Review("리뷰3",4.5.toFloat(),false,1))
             reviewDao.insert(Review("리뷰4",2.0.toFloat(),false,1))
 
-
             val quest2 = Quest("제주로!","rororororororor!",false,
                 12345,10000,100, 0,"제주특별자치도 제주시 공항로 3", LatLng(32.253550, 123.564733),
-                "2019-10-20","2019-10-28")
+                "2019-10-20","2019-10-28",false,false,2)
             questDao.insert(quest2)
 
             var constraint2 = QuestConstraint(10,"zkzkzkzkzkzkzkzzk!",false,

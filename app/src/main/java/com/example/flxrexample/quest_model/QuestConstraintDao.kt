@@ -22,6 +22,8 @@ interface QuestConstraintDao{
     @Query("SELECT COUNT(quest_constraint_table.id) FROM quest_constraint_table WHERE quest_id = :id")
     fun getQuestConstraintsCount(id: Int) : LiveData<Int>
 
+    //@Query("SELECT * FROM quest_constraint_table WHERE quest_constraint_table.quest_id = :id")
+
     @Query("SELECT * FROM quest_constraint_table INNER JOIN quest_table ON quest_table.id = quest_constraint_table.quest_id WHERE quest_table.id = :id")
     fun getQuestConstraints(id: Int): LiveData<List<QuestConstraint>>
 }

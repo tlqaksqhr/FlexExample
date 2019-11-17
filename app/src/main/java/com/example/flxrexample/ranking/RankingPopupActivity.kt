@@ -15,6 +15,8 @@ class RankingPopupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ranking_popup)
 
+        val cityName = intent.extras?.get("CityName")!!
+
         rankingListViewAdapter = RankingListViewAdapter()
 
         ranking_popup_ranking_list.layoutManager = LinearLayoutManager(this)
@@ -22,5 +24,6 @@ class RankingPopupActivity : AppCompatActivity() {
 
         rankingListViewAdapter.submitList(UserRepository.getUsers())
 
+        ranking_popup_toolbar_text.text = cityName.toString()
     }
 }

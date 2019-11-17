@@ -55,9 +55,22 @@ class QuestRepository{
         UpdateStarAccountAsyncTask(starAccountDao).execute(starAccount)
     }
 
+    fun updateQuest(quest: Quest){
+        UpdateQuestAsyncTask(questDao).execute(quest)
+    }
+
     fun insertStarAccount(starAccount: StarAccount){
         InsertStarAccountAsyncTask(starAccountDao).execute(starAccount)
     }
+    
+
+    private class UpdateQuestAsyncTask internal constructor(private val questDao: QuestDao) : AsyncTask<Quest, Void, Void>() {
+        override fun doInBackground(vararg params: Quest): Void? {
+            questDao.update(params[0])
+            return null
+        }
+    }
+
 
     private class UpdateStarAccountAsyncTask internal constructor(private val starAccountDao: StarAccountDao) : AsyncTask<StarAccount, Void, Void>() {
         override fun doInBackground(vararg params: StarAccount): Void? {

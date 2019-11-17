@@ -1,7 +1,10 @@
 package com.example.flxrexample
 
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
+import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import com.example.flxrexample.profile.MyProfileFragment
 import com.example.flxrexample.quest.QuestMainFragment
@@ -21,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupUI(){
-        navigation.itemIconTintList = null
         selectedFragment = QuestMainFragment()
         navigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId){

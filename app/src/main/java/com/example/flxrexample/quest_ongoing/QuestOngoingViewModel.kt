@@ -12,6 +12,8 @@ import android.view.ViewGroup.MarginLayoutParams
 
 
 class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : ViewModel() {
+    private val repository: QuestRepository = QuestRepository()
+
     val ongoingQuestLiveData: LiveData<Container>
         get() = _liveData
     private val _liveData = MutableLiveData<Container>()
