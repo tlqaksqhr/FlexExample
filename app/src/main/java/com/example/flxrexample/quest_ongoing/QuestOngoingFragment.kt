@@ -57,6 +57,12 @@ class QuestOngoingFragment : Fragment() {
             binding.questOngoingCountBtn.text = "${container.ongoingQuests.size}/5"
             binding.questOngoingFavoriteCountBtn.text = "${container.favoriteQuests.size}/15"
         })
+
+        viewModel.getQuestViewItems().observe(this, Observer { questViewItems ->
+            if(questViewItems != null){
+                viewModel.mappingLiveData(questViewItems)
+            }
+        })
     }
 
     private fun transitionQuestAuthPage(){

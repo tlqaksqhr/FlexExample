@@ -55,12 +55,15 @@ class DataQuestApplication : Application(){
                 "2019-10-20","2019-10-28",false,false,1)
             questDao.insert(quest)
 
-            var constraint = QuestConstraint(10,"바다속 풍경을 사진으로 찍고 인증하세요!",false,
+            var constraint = QuestConstraint(0,"바다속 풍경을 사진으로 찍고 인증하세요!",false,
                 "https://d3h30waly5w5yx.cloudfront.net/images/tour/pictures/jeju-discover-scuba-diving3.jpg",1)
 
             questConstraintDao.insert(constraint)
 
-            constraint = QuestConstraint(20,"호롷롷로홀홀홀홀호롷롷ㄹ",false,
+            constraint = QuestConstraint(1,"호롷롷로홀홀홀홀호롷롷ㄹ",false,
+                "https://d3h30waly5w5yx.cloudfront.net/images/tour/pictures/jeju-discover-scuba-diving3.jpg",1)
+
+            constraint = QuestConstraint(2,"호롷롷로홀홀홀홀호롷롷ㄹ",true,
                 "https://d3h30waly5w5yx.cloudfront.net/images/tour/pictures/jeju-discover-scuba-diving3.jpg",1)
 
             questConstraintDao.insert(constraint)

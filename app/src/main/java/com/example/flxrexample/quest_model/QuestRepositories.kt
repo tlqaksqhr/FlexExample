@@ -62,6 +62,8 @@ class QuestRepository{
     fun insertStarAccount(starAccount: StarAccount){
         InsertStarAccountAsyncTask(starAccountDao).execute(starAccount)
     }
+
+    fun getAllQuestConstraints() = questConstraintDao.getAllQuestConstraints()
     
 
     private class UpdateQuestAsyncTask internal constructor(private val questDao: QuestDao) : AsyncTask<Quest, Void, Void>() {

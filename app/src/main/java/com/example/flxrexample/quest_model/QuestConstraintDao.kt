@@ -11,7 +11,7 @@ import androidx.room.Query
 interface QuestConstraintDao{
 
     @Query("SELECT * FROM quest_constraint_table")
-    fun getAllRepos(): List<QuestConstraint>
+    fun getAllQuestConstraints(): LiveData<List<QuestConstraint>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(questConstraint: QuestConstraint)
@@ -23,7 +23,6 @@ interface QuestConstraintDao{
     fun getQuestConstraintsCount(id: Int) : LiveData<Int>
 
     //@Query("SELECT * FROM quest_constraint_table WHERE quest_constraint_table.quest_id = :id")
-
     //@Query("SELECT * FROM quest_constraint_table INNER JOIN quest_table ON quest_table.id = quest_constraint_table.quest_id WHERE quest_table.id = :id")
 
     @Query("SELECT * FROM quest_constraint_table WHERE quest_constraint_table.quest_id = :id")

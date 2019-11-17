@@ -3,12 +3,9 @@ package com.example.flxrexample.quest_ongoing
 import android.content.Intent
 import android.view.View
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel;
 import com.example.flxrexample.quest_model.*
 import android.view.ViewGroup.MarginLayoutParams
-
+import androidx.lifecycle.*
 
 
 class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : ViewModel() {
@@ -18,7 +15,7 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
         get() = _liveData
     private val _liveData = MutableLiveData<Container>()
 
-    private val ongoingQuestHeaderExpanded: OngoingQuestHeaderExpanded = { ongoingQuestHeader: OngoingQuestHeader ->
+    val ongoingQuestHeaderExpanded: OngoingQuestHeaderExpanded = { ongoingQuestHeader: OngoingQuestHeader ->
         val oldContainer = _liveData.value
         if (oldContainer != null) {
             val newOngoingQuests = oldContainer.ongoingQuests.map {
@@ -47,6 +44,90 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
         }
     }
 
+    private fun combineLatestData(liveData1: LiveData<List<Quest>>, liveData2: LiveData<List<QuestConstraint>>) : List<QuestViewItem>? {
+        val questList = liveData1.value
+        val questConstraintsList = liveData2.value
+
+        if (questList == null || questConstraintsList == null){
+            return null
+        }else {
+            val newItemList = mutableListOf<QuestViewItem>()
+            questList.forEach { quest ->
+                newItemList.add(
+                    QuestViewItem(
+                        quest,
+                        questConstraintsList.filter { it.questID == quest.id},
+                        listOf()
+                    )
+                )
+            }
+            return newItemList
+        }
+    }
+
+    fun getQuestViewItems() : MediatorLiveData<List<QuestViewItem>> {
+
+        val liveData1: LiveData<List<Quest>> = repository.getQuests()
+        val liveData2: LiveData<List<QuestConstraint>> = repository.getAllQuestConstraints()
+
+        val result = MediatorLiveData<List<QuestViewItem>>()
+
+        result.addSource(liveData1) { value ->
+            result.value = combineLatestData(liveData1, liveData2)
+        }
+
+        result.addSource(liveData2) { value ->
+            result.value = combineLatestData(liveData1, liveData2)
+        }
+
+        return result
+    }
+
+    fun mappingLiveData(questViewItems: List<QuestViewItem>){
+
+        var ongoingQuestList = mutableListOf<OngoingQuest>()
+        var favoriteQuestList = mutableListOf<FavoriteQuest>()
+
+        questViewItems.forEach{questViewItem ->
+
+            if(questViewItem.quest.isOngoing) {
+                val ongoingQuest = OngoingQuest(
+                    OngoingQuestHeader(
+                        title = questViewItem.quest.title,
+                        isCompleted = questViewItem.quest.isCompleted,
+                        numOfComplete = questViewItem.quest.numOfComplete
+                    ),
+                    questViewItem.questConstraints,
+                    OngoingQuestFooter(),
+                    ongoingQuestAuthClick
+                )
+                ongoingQuestList.add(ongoingQuest)
+            }
+
+            if(questViewItem.quest.isFavorite){
+                val favoriteQuest = FavoriteQuest(
+                    FavoriteQuestHeader(
+                        title = questViewItem.quest.title,
+                        desc = questViewItem.quest.desc,
+                        isCompleted = questViewItem.quest.isCompleted,
+                        numOfComplete = questViewItem.quest.numOfComplete
+                    ),
+                    questViewItem.questConstraints,
+                    FavoriteQuestFooter()
+                )
+                favoriteQuestList.add(favoriteQuest)
+            }
+        }
+
+        _liveData.value =  Container(
+            ongoingQuestList.toList(),
+            ongoingQuestHeaderExpanded,
+            favoriteQuestList.toList(),
+            favoriteQuestHeaderExpanded
+        )
+    }
+
+    /*
     init {
         _liveData.value = Container(
             listOf(
@@ -113,4 +194,5 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
             favoriteQuestHeaderExpanded
         )
     }
+     */
 }

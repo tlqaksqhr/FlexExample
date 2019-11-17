@@ -98,36 +98,35 @@ class QuestMainFragment : Fragment(), OnMapReadyCallback,
             if(!quests.isEmpty())
                 googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quests.last().latLng, 20.toFloat()))
         })
+    }
 
-        quest_favorite_btn.setOnClickListener {
+    override fun favoriteBtnClickEvent(quest: Quest){
+        var isFavorite = quest.isFavorite
 
-            var isFavorite = quest.isFavorite
-
-            if(!quest.isOngoing){
-                isFavorite = true
-            }else{
-                Toast.makeText(this.context,"찜 목록에 추가할 수 없습니다.",Toast.LENGTH_SHORT)
-            }
-
-            viewModel.updateQuest(Quest(
-                quest.title,
-                quest.desc,
-                quest.isCompleted,
-                quest.challengingCount,
-                quest.totalStar,
-                quest.questStar,
-                quest.numOfComplete,
-                quest.address,
-                quest.latLng,
-                quest.startDate,
-                quest.endDate,
-                isFavorite,
-                quest.isOngoing,
-                quest.id
-            ))
+        if(!quest.isOngoing){
+            isFavorite = true
+        }else{
+            Toast.makeText(this.context,"찜 목록에 추가할 수 없습니다.",Toast.LENGTH_SHORT)
         }
 
+        viewModel.updateQuest(Quest(
+            quest.title,
+            quest.desc,
+            quest.isCompleted,
+            quest.challengingCount,
+            quest.totalStar,
+            quest.questStar,
+            quest.numOfComplete,
+            quest.address,
+            quest.latLng,
+            quest.startDate,
+            quest.endDate,
+            isFavorite,
+            quest.isOngoing,
+            quest.id
+        ))
     }
+
     override fun transitToQuestView(id: Int){
         val intent = Intent(this.context, QuestViewActivity::class.java)
         intent.putExtra("id",id)

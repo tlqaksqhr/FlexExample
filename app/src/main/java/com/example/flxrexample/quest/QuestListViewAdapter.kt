@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.flxrexample.R
 import com.example.flxrexample.quest_model.Quest
 import kotlinx.android.synthetic.main.quest_list_item.view.*
+import kotlinx.android.synthetic.main.quest_main_fragment.view.*
 
 class QuestListViewAdapter(val questMainEventListener: QuestMainEventListener) : ListAdapter<Quest, QuestListViewAdapter.ViewHolder>(QuestDiffCallback()) {
 
@@ -43,6 +44,10 @@ class QuestListViewAdapter(val questMainEventListener: QuestMainEventListener) :
             itemView.quest_item_cardview.strokeWidth = 0
 
             val marker = questMainEventListener.addMarker(item)
+
+            itemView.quest_item_favorite_btn.setOnClickListener {
+                questMainEventListener.favoriteBtnClickEvent(item)
+            }
 
             itemView.setOnClickListener {
                 if(adapterPosition != RecyclerView.NO_POSITION){

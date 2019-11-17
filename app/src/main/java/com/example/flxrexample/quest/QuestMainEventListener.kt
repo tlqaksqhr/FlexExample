@@ -7,4 +7,5 @@ interface QuestMainEventListener {
     fun showMarkerDialog(quest: Quest, marker: Marker)
     fun transitToQuestView(id: Int)
     fun addMarker(quest : Quest) : Marker
+    fun favoriteBtnClickEvent(quest: Quest)
 }
