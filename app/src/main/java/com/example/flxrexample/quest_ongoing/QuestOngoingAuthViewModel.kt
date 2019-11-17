@@ -41,19 +41,21 @@ class QuestOngoingAuthViewModel : ViewModel() {
         questAuthImageLiveData.notifyObserver()
     }
 
-    fun addQuestAuthImages(id: Int) {
+    fun addQuestAuthImages(id: Int, questConstraints: List<QuestConstraint>) {
 
         val questAuthImages = questAuthImageLiveData?.value!!
         val newItems = ArrayList<QuestAuthImage>()
 
+        var cnt = 0
+
         questAuthImages.forEach {
             newItems.add(QuestAuthImage(
                 it.pictureURL,
-                id,
+                questConstraints[cnt].id,
                 it.id
             ))
+            cnt += 1
         }
-
         repository.addQuestAuthImages(newItems.toList())
     }
 

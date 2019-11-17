@@ -43,6 +43,7 @@ class QuestOngoingAuthActivity : AppCompatActivity(), QuestAuthEventListener {
     private var mCurrentPhotoPath: String? = null
     private var questID: Int = 0
     private lateinit var questAuthImageItem: QuestAuthImage
+    private lateinit var questConstraints: List<QuestConstraint>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +65,7 @@ class QuestOngoingAuthActivity : AppCompatActivity(), QuestAuthEventListener {
         questAuthImageListViewAdapter.submitList(QuestListFactory.questAuthItemFactory())
 
         binding.questOngoingAuthSubmitBtn.setOnClickListener {
-            viewModel.addQuestAuthImages(questID)
+            viewModel.addQuestAuthImages(questID, questConstraints)
             val intent = Intent(this,QuestOngoingReviewActivity::class.java)
             intent.putExtra("id",questID)
             startActivity(intent)
@@ -77,8 +78,14 @@ class QuestOngoingAuthActivity : AppCompatActivity(), QuestAuthEventListener {
         })
 
         viewModel.getQuestConstraints(questID).observe(this, Observer<List<QuestConstraint>> { questConstraints ->
+
+            this.questConstraints = questConstraints
+
             binding.questOngoingMainImageView.setImageListener { position, imageView ->
-                Picasso.get().load(questConstraints[position].pictureURL).into(imageView)
+                if(questConstraints[position].pictureURL.startsWith("https"))
+                    Picasso.get().load(questConstraints[position].pictureURL).into(imageView)
+                else
+                    Picasso.get().load("file://${questConstraints[position].pictureURL}").into(imageView)
             }
             binding.questOngoingMainImageView.pageCount = questConstraints.size
         })
