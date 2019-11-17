@@ -71,6 +71,7 @@ class QuestMakeFragment : Fragment(), OnMapReadyCallback, QuestMakeEventListener
     private lateinit var questConstraintItem: QuestConstraint
 
     private lateinit var mapPos : LatLng
+    private lateinit var strAddr: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -179,10 +180,12 @@ class QuestMakeFragment : Fragment(), OnMapReadyCallback, QuestMakeEventListener
                     parseInt(totalStar),
                     parseInt(perStar),
                     0,
-                    "",
+                    strAddr,
                     mapPos,
                     quest_make_start_date.text.toString(),
-                    quest_make_end_date.text.toString())
+                    quest_make_end_date.text.toString(),
+                    false,
+                    false)
 
                 viewModel.addQuest(quest)
 
@@ -212,6 +215,7 @@ class QuestMakeFragment : Fragment(), OnMapReadyCallback, QuestMakeEventListener
     override fun addMarker(addr: Address) : Marker {
 
         val mapPos = LatLng(addr.latitude,addr.longitude)
+        strAddr = addr.getAddressLine(0)
 
         val markerOptions = MarkerOptions()
         //markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_icon))

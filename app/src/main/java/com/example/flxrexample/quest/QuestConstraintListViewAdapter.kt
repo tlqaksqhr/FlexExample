@@ -25,7 +25,7 @@ class QuestConstraintListViewAdapter: ListAdapter<QuestConstraint, QuestConstrai
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v){
 
         fun bind(item: QuestConstraint){
-            itemView.quest_constraint_count.text = "조건 ${adapterPosition}"
+            itemView.quest_constraint_count.text = "조건 ${adapterPosition + 1}"
             itemView.quest_constraint_text.text = item.content
         }
     }

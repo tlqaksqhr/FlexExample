@@ -31,6 +31,8 @@ class QuestViewActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(QuestViewViewModel::class.java)
         binding = DataBindingUtil.setContentView<ActivityQuestViewBinding>(this,R.layout.activity_quest_view)
 
+        questID = intent.extras?.getInt("id")!!
+
         questConstraintAdapter = QuestConstraintListViewAdapter()
         questReviewListAdapter = QuestReviewListViewAdapter()
 
@@ -69,8 +71,8 @@ class QuestViewActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.questViewCancelBtn.setOnClickListener {
 
+        binding.questViewCancelBtn.setOnClickListener {
             viewModel.updateQuest(Quest(
                 quest.title,
                 quest.desc,
@@ -91,13 +93,8 @@ class QuestViewActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
-        questID = intent.extras?.getInt("id")!!
-
         viewModel.getQuestViewItem(questID).observe(this, Observer<QuestViewItem>{ questViewItem ->
             if(questViewItem != null) {
-
-                quest = questViewItem.quest
-
                 binding.apply {
                     this.questViewPageTitle.text = questViewItem.quest.title
                     this.questViewPageCount.text = "${questViewItem.quest.challengingCount} 명 도전 중"
@@ -117,7 +114,7 @@ class QuestViewActivity : AppCompatActivity() {
                     this.questViewReviewCountBtn.text = "${questViewItem.questReviews.size}건"
 
                     this.questViewContentImage.setImageListener { position, imageView ->
-                        if(!questViewItem.questConstraints[position].pictureURL.startsWith("http")) {
+                        if(questViewItem.questConstraints[position].pictureURL.startsWith("https")==false) {
                             Picasso.get().load("file://${questViewItem.
                                 questConstraints[position].pictureURL}").into(imageView)
                         }
@@ -132,6 +129,7 @@ class QuestViewActivity : AppCompatActivity() {
 
                 questConstraintAdapter.submitList(questViewItem.questConstraints)
                 questReviewListAdapter.submitList(questViewItem.questReviews)
+                quest = questViewItem.quest
             }
         })
     }

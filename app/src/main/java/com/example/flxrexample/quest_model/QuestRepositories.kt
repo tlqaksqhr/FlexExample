@@ -71,7 +71,6 @@ class QuestRepository{
         }
     }
 
-
     private class UpdateStarAccountAsyncTask internal constructor(private val starAccountDao: StarAccountDao) : AsyncTask<StarAccount, Void, Void>() {
         override fun doInBackground(vararg params: StarAccount): Void? {
             starAccountDao.update(params[0])

@@ -9,7 +9,8 @@ interface QuestDao {
     @Insert
     fun insert(quest: Quest)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    //@Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Update
     fun update(quest: Quest)
 
     @Query("SELECT * FROM quest_table")

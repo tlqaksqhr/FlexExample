@@ -24,6 +24,8 @@ interface QuestConstraintDao{
 
     //@Query("SELECT * FROM quest_constraint_table WHERE quest_constraint_table.quest_id = :id")
 
-    @Query("SELECT * FROM quest_constraint_table INNER JOIN quest_table ON quest_table.id = quest_constraint_table.quest_id WHERE quest_table.id = :id")
+    //@Query("SELECT * FROM quest_constraint_table INNER JOIN quest_table ON quest_table.id = quest_constraint_table.quest_id WHERE quest_table.id = :id")
+
+    @Query("SELECT * FROM quest_constraint_table WHERE quest_constraint_table.quest_id = :id")
     fun getQuestConstraints(id: Int): LiveData<List<QuestConstraint>>
 }
