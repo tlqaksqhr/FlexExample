@@ -338,17 +338,17 @@
                         android:layout_marginBottom="16dp">
 
                     <ProgressBar
-                        android:id="@+id/quest_view_reward_progress_bar"
-                        style="@android:style/Widget.ProgressBar.Horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="3.8dp"
-                        android:layout_marginTop="3.2dp"
-                        android:layout_marginEnd="3.2dp"
-                        android:layout_marginBottom="3.8dp"
-                        android:max="100"
-                        android:progress="100"
-                        android:progressDrawable="@drawable/quest_view_progressbar_style" />
+                            android:id="@+id/quest_view_reward_progress_bar"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="3.8dp"
+                            android:layout_marginTop="3.2dp"
+                            android:layout_marginEnd="3.2dp"
+                            android:layout_marginBottom="3.8dp"
+                            android:max="100"
+                            android:progress="100"
+                            android:progressDrawable="@drawable/quest_view_progressbar_style" />
 
                     <TextView
                         android:id="@+id/quest_view_reward_progress_bar_percent"

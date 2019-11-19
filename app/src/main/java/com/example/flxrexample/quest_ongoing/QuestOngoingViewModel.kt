@@ -48,19 +48,12 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
         val questList = liveData1.value
         val questConstraintsList = liveData2.value
 
-        if (questList == null || questConstraintsList == null){
-            return null
-        }else {
+        if (questList == null || questConstraintsList == null){ return null }else {
             val newItemList = mutableListOf<QuestViewItem>()
             questList.forEach { quest ->
-                newItemList.add(
-                    QuestViewItem(
-                        quest,
-                        questConstraintsList.filter { it.questID == quest.id},
-                        listOf()
-                    )
-                )
-            }
+                newItemList.add(QuestViewItem(quest,
+                    questConstraintsList.filter { it.questID == quest.id},
+                    listOf())) }
             return newItemList
         }
     }

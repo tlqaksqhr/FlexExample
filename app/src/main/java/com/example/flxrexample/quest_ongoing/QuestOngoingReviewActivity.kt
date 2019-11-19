@@ -10,10 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.flxrexample.MainActivity
 import com.example.flxrexample.R
 import com.example.flxrexample.databinding.ActivityQuestOngoingReviewBinding
-import com.example.flxrexample.quest_model.QuestAuthImage
-import com.example.flxrexample.quest_model.QuestListFactory
-import com.example.flxrexample.quest_model.Review
-import com.example.flxrexample.quest_model.StarAccount
+import com.example.flxrexample.quest_model.*
 import kotlinx.android.synthetic.main.activity_quest_ongoing_review.*
 
 class QuestOngoingReviewActivity : AppCompatActivity() {
@@ -25,6 +22,8 @@ class QuestOngoingReviewActivity : AppCompatActivity() {
     private lateinit var questReviewPictureListViewAdapter: QuestReviewPictureListViewAdapter
 
     private lateinit var starAccount: StarAccount
+
+    private lateinit var quest: Quest
 
     private var questID: Int = 0
 
@@ -41,6 +40,10 @@ class QuestOngoingReviewActivity : AppCompatActivity() {
         questReviewPictureListViewAdapter.submitList(QuestListFactory.questAuthItemFactory())
 
         questID = intent.extras?.getInt("id")!!
+
+        viewModel.getQuest(questID).observe(this, Observer<Quest> { quest ->
+            this.quest = quest
+        })
 
         viewModel.getStarAccount().observe(this, Observer<StarAccount> { starAccount ->
             this.starAccount = starAccount
@@ -60,14 +63,50 @@ class QuestOngoingReviewActivity : AppCompatActivity() {
             )
 
             viewModel.addReview(review)
-            viewModel.updateStarAccount(starAccount, 300)
+            viewModel.updateQuest(Quest(
+                quest.title,
+                quest.desc,
+                quest.isCompleted,
+                quest.challengingCount,
+                quest.totalStar,
+                quest.questStar,
+                quest.numOfComplete+1,
+                quest.address,
+                quest.latLng,
+                quest.startDate,
+                quest.endDate,
+                quest.isFavorite,
+                quest.isOngoing,
+                quest.id
+            ))
+            viewModel.updateStarAccount(starAccount, quest.questStar*2)
 
             startActivity(Intent(this,MainActivity::class.java))
         }
 
         binding.questOngoingReviewCompleteBtn.setOnClickListener {
-            viewModel.updateStarAccount(starAccount,150)
+
+            viewModel.updateQuest(Quest(
+                quest.title,
+                quest.desc,
+                quest.isCompleted,
+                quest.challengingCount,
+                quest.totalStar,
+                quest.questStar,
+                quest.numOfComplete+1,
+                quest.address,
+                quest.latLng,
+                quest.startDate,
+                quest.endDate,
+                quest.isFavorite,
+                quest.isOngoing,
+                quest.id
+            ))
+            viewModel.updateStarAccount(starAccount,quest.questStar)
             startActivity(Intent(this,MainActivity::class.java))
         }
+
+        binding.questOngoingReviewRegisterBtn.text = "등록 (${quest.questStar*2}스타)"
+        binding.questOngoingReviewCompleteBtn.text = "완료 (${quest.questStar}스타)"
     }
 }

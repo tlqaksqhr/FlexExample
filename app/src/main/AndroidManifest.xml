@@ -12,6 +12,8 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.location.gps" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
             android:name=".app.DataQuestApplication"
             android:allowBackup="true"

@@ -1,11 +1,22 @@
 package com.example.flxrexample.quest_ongoing
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.flxrexample.app.DataQuestApplication
 import com.example.flxrexample.quest_make.notifyObserver
 import com.example.flxrexample.quest_model.QuestAuthImage
 import com.example.flxrexample.quest_model.QuestConstraint
 import com.example.flxrexample.quest_model.QuestRepository
+import com.example.flxrexample.quest_model.RemoteRepository
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.File
 
 class QuestOngoingAuthViewModel : ViewModel() {
 
@@ -58,7 +69,6 @@ class QuestOngoingAuthViewModel : ViewModel() {
         }
         repository.addQuestAuthImages(newItems.toList())
     }
-
 
     fun getImageURL() : MutableLiveData<String> {
         return imageURLLiveData
