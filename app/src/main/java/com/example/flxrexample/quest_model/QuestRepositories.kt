@@ -1,8 +1,16 @@
 package com.example.flxrexample.quest_model
 
 import android.os.AsyncTask
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.flxrexample.app.DataQuestApplication
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.File
 
 class QuestRepository{
     private val questDao: QuestDao = DataQuestApplication.database.questDao()
@@ -64,6 +72,36 @@ class QuestRepository{
     }
 
     fun getAllQuestConstraints() = questConstraintDao.getAllQuestConstraints()
+
+
+    private fun uploadToServer(path: String){
+        val retrofit = DataQuestApplication.mRetrofit
+        val uploadAPIs = retrofit.create(RemoteRepository::class.java)
+
+        val file = File(path)
+
+        val fileReqBody = RequestBody.create(MediaType.parse("image/*"), file)
+        val part = MultipartBody.Part.createFormData("userfile", file.name, fileReqBody)
+
+        val call = uploadAPIs.uploadImage(part)
+
+        call.enqueue(object : Callback<String> {
+            override fun onFailure(call: Call<String>, t: Throwable) {
+
+            }
+
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                val result = response.body()
+
+                if(result != null)
+                    Log.d("Image Response","Message : " + result.toString())
+            }
+        })
+    }
+
+    private fun getImageAuthResult(filePath: String) {
+
+    }
     
 
     private class UpdateQuestAsyncTask internal constructor(private val questDao: QuestDao) : AsyncTask<Quest, Void, Void>() {

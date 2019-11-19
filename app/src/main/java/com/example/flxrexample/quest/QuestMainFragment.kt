@@ -36,7 +36,6 @@ import androidx.core.graphics.drawable.DrawableCompat
 import com.google.android.gms.maps.model.BitmapDescriptor
 
 
-
 class QuestMainFragment : Fragment(), OnMapReadyCallback,
     QuestMainEventListener{
 
@@ -53,6 +52,8 @@ class QuestMainFragment : Fragment(), OnMapReadyCallback,
     private lateinit var questInfoWindowAdapter: QuestInfoWindowAdapter
     private lateinit var quest: Quest
 
+    private var isStarted = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,6 +65,8 @@ class QuestMainFragment : Fragment(), OnMapReadyCallback,
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
+
+        isStarted = true
 
         this.googleMap = googleMap
         this.questInfoWindowAdapter = QuestInfoWindowAdapter(activity?.applicationContext!!)

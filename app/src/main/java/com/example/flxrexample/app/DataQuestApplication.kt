@@ -11,10 +11,21 @@ import com.amitshekhar.DebugDB
 import com.example.flxrexample.quest_model.*
 import com.google.android.gms.maps.model.LatLng
 import java.util.*
+import retrofit2.Retrofit
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import com.example.flxrexample.R
+import com.facebook.stetho.Stetho
+import com.facebook.stetho.okhttp3.StethoInterceptor
+import okhttp3.OkHttpClient
+import retrofit2.converter.gson.GsonConverterFactory
+
+
 
 class DataQuestApplication : Application(){
     companion object {
         lateinit var database: QuestDatabase
+        lateinit var mRetrofit: Retrofit
         private lateinit var instance: DataQuestApplication
 
         fun getAppContext(): Context = instance.applicationContext
@@ -23,6 +34,15 @@ class DataQuestApplication : Application(){
     override fun onCreate() {
         instance = this
         super.onCreate()
+
+        Stetho.initializeWithDefaults(this)
+
+        val stethoInterceptingClient = OkHttpClient.Builder()
+            .addNetworkInterceptor(StethoInterceptor())
+            .build()
+
+        mRetrofit = Retrofit.Builder().baseUrl(getString(R.string.baseUrl)).addConverterFactory(
+            GsonConverterFactory.create()).client(stethoInterceptingClient).build()
 
         database = Room.inMemoryDatabaseBuilder(this, QuestDatabase::class.java)
             .addCallback(roomDatabaseCallback).build()
