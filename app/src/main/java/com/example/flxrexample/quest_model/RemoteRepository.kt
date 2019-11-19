@@ -12,5 +12,5 @@ interface RemoteRepository {
     fun uploadImage(@Part file: MultipartBody.Part): Call<String>
 
     @POST("/result")
-    fun getAuthResult()
+    fun getAuthResult(@Body authData: ImageAuthData) : Call<ImageAuthResult>
 }

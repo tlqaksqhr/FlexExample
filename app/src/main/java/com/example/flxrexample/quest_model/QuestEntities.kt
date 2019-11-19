@@ -3,6 +3,7 @@ package com.example.flxrexample.quest_model
 import androidx.room.*
 import androidx.room.ForeignKey.CASCADE
 import com.google.android.gms.maps.model.LatLng
+import com.google.gson.annotations.SerializedName
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -140,6 +141,15 @@ data class FavoriteQuest(
 
 data class FavoriteQuestFooter(
     val id: Int = globalId.getAndIncrement()
+)
+
+data class ImageAuthData(
+    @SerializedName("filename") val filename: String
+)
+
+data class ImageAuthResult(
+    @SerializedName("filename") val filename: String,
+    @SerializedName("predicts") val predicts: String
 )
 
 /*

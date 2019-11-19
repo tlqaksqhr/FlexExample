@@ -103,15 +103,22 @@ class QuestViewActivity : AppCompatActivity() {
                     this.questViewDateText.text = "${questViewItem.quest.startDate} ~ ${questViewItem.quest.endDate}"
 
                     var avgRating = 0.0
+                    val totalGiveStar = questViewItem.quest.numOfComplete * questViewItem.quest.questStar
+                    val progress = (totalGiveStar.toFloat() / questViewItem.quest.totalStar.toFloat()) * 100
 
                     questViewItem.questReviews.forEach {
                         avgRating += it.rating
                     }
-                    avgRating /= questViewItem.questReviews.size
+
+                    if(questViewItem.questReviews.size!=0)
+                        avgRating /= questViewItem.questReviews.size
 
                     this.questViewReviewRatingCount.text = "${avgRating} / 5.0"
-
                     this.questViewReviewCountBtn.text = "${questViewItem.questReviews.size}건"
+
+                    this.questViewRewardStarCount.text = "${totalGiveStar}스타 획득"
+                    this.questViewRewardProgressBar.progress = progress.toInt()
+                    this.questViewRewardProgressBarPercent.text = "${progress}%"
 
                     this.questViewContentImage.setImageListener { position, imageView ->
                         if(questViewItem.questConstraints[position].pictureURL.startsWith("https")==false) {

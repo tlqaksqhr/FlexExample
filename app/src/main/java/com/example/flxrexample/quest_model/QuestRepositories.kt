@@ -1,6 +1,7 @@
 package com.example.flxrexample.quest_model
 
 import android.os.AsyncTask
+import android.os.Handler
 import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.flxrexample.app.DataQuestApplication
@@ -93,14 +94,34 @@ class QuestRepository{
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 val result = response.body()
 
-                if(result != null)
-                    Log.d("Image Response","Message : " + result.toString())
+                if(result != null) {
+                    Log.d("Image Response", "Message : " + result.toString())
+                    //Handler().postDelayed({
+                    //    getImageAuthResult(result.toString())
+                    //},1000*100)
+                }
             }
         })
     }
 
     private fun getImageAuthResult(filePath: String) {
+        val retrofit = DataQuestApplication.mRetrofit
+        val imageAuthAPIs = retrofit.create(RemoteRepository::class.java)
 
+        val call = imageAuthAPIs.getAuthResult(ImageAuthData(filePath))
+
+        call.enqueue(object : Callback<ImageAuthResult> {
+            override fun onFailure(call: Call<ImageAuthResult>, t: Throwable) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onResponse(
+                call: Call<ImageAuthResult>,
+                response: Response<ImageAuthResult>
+            ) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        })
     }
     
 
