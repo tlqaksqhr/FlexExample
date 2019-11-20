@@ -86,6 +86,7 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
             if(questViewItem.quest.isOngoing) {
                 val ongoingQuest = OngoingQuest(
                     OngoingQuestHeader(
+                        id = questViewItem.quest.id,
                         title = questViewItem.quest.title,
                         isCompleted = questViewItem.quest.isCompleted,
                         numOfComplete = questViewItem.quest.numOfComplete
@@ -100,6 +101,7 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
             if(questViewItem.quest.isFavorite){
                 val favoriteQuest = FavoriteQuest(
                     FavoriteQuestHeader(
+                        id = questViewItem.quest.id,
                         title = questViewItem.quest.title,
                         desc = questViewItem.quest.desc,
                         isCompleted = questViewItem.quest.isCompleted,

@@ -65,8 +65,9 @@ class QuestOngoingFragment : Fragment() {
         })
     }
 
-    private fun transitionQuestAuthPage(){
+    private fun transitionQuestAuthPage(id: Int){
         val questAuthIntent = Intent(activity, QuestOngoingAuthActivity::class.java)
+        questAuthIntent.putExtra("questID",id)
         startActivity(questAuthIntent)
     }
 

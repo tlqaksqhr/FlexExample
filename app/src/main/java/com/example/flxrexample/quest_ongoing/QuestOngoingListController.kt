@@ -24,7 +24,7 @@ class QuestOngoingListController() : TypedEpoxyController<Container>() {
                         id(constraint.id)
                         questConstraint(constraint)
                         ongoingQuestAuthClick { model ->
-                            it.ongoingQuestAuthClick()
+                            it.ongoingQuestAuthClick(it.ongoingQuestHeader.id)
                         }
                     }
                 }

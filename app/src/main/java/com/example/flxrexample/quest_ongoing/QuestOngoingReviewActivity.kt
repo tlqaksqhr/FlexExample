@@ -43,6 +43,8 @@ class QuestOngoingReviewActivity : AppCompatActivity() {
 
         viewModel.getQuest(questID).observe(this, Observer<Quest> { quest ->
             this.quest = quest
+            binding.questOngoingReviewRegisterBtn.text = "등록 (${quest.questStar*2}스타)"
+            binding.questOngoingReviewCompleteBtn.text = "완료 (${quest.questStar}스타)"
         })
 
         viewModel.getStarAccount().observe(this, Observer<StarAccount> { starAccount ->
@@ -105,8 +107,5 @@ class QuestOngoingReviewActivity : AppCompatActivity() {
             viewModel.updateStarAccount(starAccount,quest.questStar)
             startActivity(Intent(this,MainActivity::class.java))
         }
-
-        binding.questOngoingReviewRegisterBtn.text = "등록 (${quest.questStar*2}스타)"
-        binding.questOngoingReviewCompleteBtn.text = "완료 (${quest.questStar}스타)"
     }
 }

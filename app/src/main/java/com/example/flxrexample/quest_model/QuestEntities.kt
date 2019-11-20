@@ -11,7 +11,7 @@ private val globalId = AtomicInteger(1)
 
 typealias OngoingQuestHeaderExpanded = (quest: OngoingQuestHeader) -> Unit
 typealias FavoriteQuestHeaderExpanded = (favorite: FavoriteQuestHeader) -> Unit
-typealias OngoingQuestAuthClick = () -> Unit
+typealias OngoingQuestAuthClick = (id: Int) -> Unit
 
 @Entity(tableName="quest_table")
 data class Quest(
@@ -84,6 +84,7 @@ data class Review(
         onDelete = CASCADE))])
 data class QuestAuthImage(
     val pictureURL: String,
+    val predicts: Boolean = false,
     @ColumnInfo(name = "quest_constraint_id")
     val questID: Int = 0,
     @PrimaryKey(autoGenerate = true)

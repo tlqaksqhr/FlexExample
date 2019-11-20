@@ -45,6 +45,7 @@ class QuestOngoingAuthViewModel : ViewModel() {
 
         val newItem = QuestAuthImage(
             url,
+            questAuthImage.predicts,
             questAuthImage.questID,
             questAuthImage.id)
 
@@ -62,6 +63,7 @@ class QuestOngoingAuthViewModel : ViewModel() {
         questAuthImages.forEach {
             newItems.add(QuestAuthImage(
                 it.pictureURL,
+                it.predicts,
                 questConstraints[cnt].id,
                 it.id
             ))

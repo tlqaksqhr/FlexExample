@@ -75,7 +75,7 @@ class QuestRepository{
     fun getAllQuestConstraints() = questConstraintDao.getAllQuestConstraints()
 
 
-    private fun uploadToServer(path: String){
+    private fun uploadToServer(questAuthImage: QuestAuthImage, path: String){
         val retrofit = DataQuestApplication.mRetrofit
         val uploadAPIs = retrofit.create(RemoteRepository::class.java)
 
@@ -96,15 +96,15 @@ class QuestRepository{
 
                 if(result != null) {
                     Log.d("Image Response", "Message : " + result.toString())
-                    //Handler().postDelayed({
-                    //    getImageAuthResult(result.toString())
-                    //},1000*100)
+                    Handler().postDelayed({
+                        getImageAuthResult(questAuthImage,result.toString())
+                    },1000*100)
                 }
             }
         })
     }
 
-    private fun getImageAuthResult(filePath: String) {
+    private fun getImageAuthResult(questAuthImage: QuestAuthImage, filePath: String) {
         val retrofit = DataQuestApplication.mRetrofit
         val imageAuthAPIs = retrofit.create(RemoteRepository::class.java)
 
@@ -112,14 +112,19 @@ class QuestRepository{
 
         call.enqueue(object : Callback<ImageAuthResult> {
             override fun onFailure(call: Call<ImageAuthResult>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
             override fun onResponse(
                 call: Call<ImageAuthResult>,
                 response: Response<ImageAuthResult>
             ) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                val result = response.body()
+                var predictResult = false
+
+                if(result != null && result.predicts == "True"){
+                    predictResult = true
+                }
             }
         })
     }
@@ -157,6 +162,14 @@ class QuestRepository{
     private class InsertQuestAuthImagesAsyncTask internal constructor(private val questAuthImageDao: QuestAuthImageDao) : AsyncTask<List<QuestAuthImage>, Void, Void>() {
         override fun doInBackground(vararg params: List<QuestAuthImage>): Void? {
             questAuthImageDao.insertAll(params[0])
+            return null
+        }
+    }
+
+
+    private class InsertQuestAuthImageAsyncTask internal constructor(private val questAuthImageDao: QuestAuthImageDao) : AsyncTask<QuestAuthImage, Void, Void>() {
+        override fun doInBackground(vararg params: QuestAuthImage): Void? {
+            questAuthImageDao.insert(params[0])
             return null
         }
     }
