@@ -72,6 +72,23 @@
                 app:layout_constraintEnd_toStartOf="@+id/quest_review_item_rating"
                 app:layout_constraintTop_toTopOf="@+id/quest_review_item_user_id" />
 
+        <!--
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:id="@+id/quest_review_item_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:progressDrawable="@drawable/rating_bar_bg_mini"
+            app:srb_starSize="12dp"
+            app:srb_numberOfStars="5"
+            app:srb_rating="3"
+            app:srb_stepSize="0.5"
+            app:srb_borderColor="#6765B7"
+            app:srb_fillColor="#6765B7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/quest_review_item_date" />
+            -->
+
         <RatingBar
                 android:id="@+id/quest_review_item_rating"
                 style="@style/HeartRatingMini"

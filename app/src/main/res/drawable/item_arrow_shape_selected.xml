@@ -40,9 +40,9 @@
 
 
     <item
-        android:width="2dp"
+        android:width="4dp"
         android:height="56dp"
-        android:top="2dp"
+        android:top="1.8dp"
         android:left="29.5dp">
         <shape>
             <solid android:color="#ffffff"/>
@@ -50,10 +50,10 @@
     </item>
 
     <item
-        android:width="2dp"
-        android:height="56dp"
-        android:top="2dp"
-        android:left="77.5dp">
+        android:width="3dp"
+        android:height="56.3dp"
+        android:top="1.9dp"
+        android:left="77dp">
         <shape>
             <solid android:color="#ffffff"/>
         </shape>

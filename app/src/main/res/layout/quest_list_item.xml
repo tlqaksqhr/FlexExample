@@ -22,10 +22,11 @@
         android:background="@android:color/transparent">
 
         <ImageView
+            android:id="@+id/quest_item_img_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/item_arrow_shape" />
+            android:src="@drawable/item_shape_arrow_selector" />
         
         <ImageButton
             android:id="@+id/quest_item_favorite_btn"

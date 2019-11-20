@@ -49,38 +49,42 @@
 
         <com.google.android.material.card.MaterialCardView
                 android:id="@+id/ranking_list_item_rank_profile_complete_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="38.8dp"
                 android:layout_marginEnd="15dp"
                 app:cardCornerRadius="10dp"
-                app:strokeWidth="0.2dp"
-                app:strokeColor="#b8b8b8"
                 app:layout_constraintBottom_toBottomOf="@+id/ranking_list_item_rank_profile_content"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/ranking_list_item_rank_profile_content">
+                app:layout_constraintTop_toTopOf="@+id/ranking_list_item_rank_profile_content"
+                app:strokeColor="#b8b8b8"
+                app:strokeWidth="0.2dp">
 
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:gravity="center">
 
                 <TextView
-                        android:id="@+id/ranking_list_item_rank_profile_complete_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="875건 완료" />
+                    android:id="@+id/ranking_list_item_rank_profile_complete_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="875건 완료"
+                    android:textSize="10sp" />
 
                 <View
-                        android:id="@+id/ranking_list_item_rank_profile_complete_divider"
-                        android:layout_width="match_parent"
-                        android:layout_height="1.5dp"
-                        android:background="?android:attr/listDivider" />
+                    android:id="@+id/ranking_list_item_rank_profile_complete_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1.5dp"
+                    android:background="?android:attr/listDivider" />
 
                 <TextView
                         android:id="@+id/ranking_list_item_rank_profile_complete_percent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="상위 3%" />
+                        android:layout_marginTop="2dp"
+                        android:text="상위 3%"
+                        android:textSize="10sp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

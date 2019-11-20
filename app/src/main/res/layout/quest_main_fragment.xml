@@ -63,6 +63,23 @@
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="33dp"/>
 
+            <ToggleButton
+                    android:id="@+id/quest_toggle_btn_group"
+                    android:layout_width="76dp"
+                    android:layout_height="18.2dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/toggle_switch"
+                    android:checked="true"
+                    android:text="ToggleButton"
+                    android:textOn="  최신순       인기순"
+                    android:textOff="  최신순       인기순"
+                    android:textSize="8sp"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <!--
             <com.google.android.material.button.MaterialButtonToggleGroup
                     android:id="@+id/quest_toggle_btn_group"
                     android:layout_width="wrap_content"
@@ -100,6 +117,7 @@
                         app:rippleColor="#5956b7"
                         app:strokeColor="#707070" />
             </com.google.android.material.button.MaterialButtonToggleGroup>
+            -->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

@@ -33,7 +33,6 @@
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.cardview.widget.CardView
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/ranking_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
@@ -43,18 +42,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                card_view:cardCornerRadius="15dp"
-                card_view:cardElevation="2dp">
+                app:cardCornerRadius="15dp"
+                app:cardElevation="2dp">
+
             <TextView
-                android:id="@+id/ranking_info_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="이 지역의 1등은 내것! 지역별 1등을 확인해보세요."
-                android:textSize="13.5sp"
-                android:textColor="#5e5e5e"
-                android:letterSpacing="-0.05"
-                android:lineSpacingExtra="4sp"
-                android:layout_gravity="center"/>
+                    android:id="@+id/ranking_info_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:letterSpacing="-0.05"
+                    android:lineSpacingExtra="4sp"
+                    android:text="이 지역의 1등은 내것! 지역별 1등을 확인해보세요."
+                    android:textColor="#5e5e5e"
+                    android:textSize="13.5sp"
+                    android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
         <ImageView

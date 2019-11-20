@@ -26,7 +26,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="진행중인 도전과제"/>
+                    android:text="진행중인 도전과제"
+                    android:textStyle="bold"/>
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.appcompat.widget.Toolbar
