@@ -8,6 +8,7 @@ import android.util.SparseBooleanArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.util.forEach
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -18,17 +19,20 @@ import kotlinx.android.synthetic.main.quest_main_fragment.view.*
 
 class QuestListViewAdapter(val questMainEventListener: QuestMainEventListener) : ListAdapter<Quest, QuestListViewAdapter.ViewHolder>(QuestDiffCallback()) {
 
+    var selectedItems = SparseBooleanArray()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.quest_list_item,parent,false),questMainEventListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        selectedItems.clear()
         holder.bind(getItem(position))
     }
 
-    class ViewHolder(v: View, questMainEventListener: QuestMainEventListener) : RecyclerView.ViewHolder(v){
+    inner class ViewHolder(v: View, questMainEventListener: QuestMainEventListener) : RecyclerView.ViewHolder(v){
 
-        lateinit var questMainEventListener: QuestMainEventListener
+        var questMainEventListener: QuestMainEventListener
 
         init{
             this.questMainEventListener = questMainEventListener
@@ -48,9 +52,15 @@ class QuestListViewAdapter(val questMainEventListener: QuestMainEventListener) :
             itemView.quest_item_favorite_btn.setOnClickListener {
                 questMainEventListener.favoriteBtnClickEvent(item)
             }
-
             itemView.setOnClickListener {
                 if(adapterPosition != RecyclerView.NO_POSITION){
+                    if(selectedItems.get(adapterPosition, false)){
+                        selectedItems.delete(adapterPosition)
+                        itemView.quest_item_img_bg.isSelected = false
+                    }else{
+                        selectedItems.put(adapterPosition, true)
+                        itemView.quest_item_img_bg.isSelected = true
+                    }
                     questMainEventListener.showMarkerDialog(item, marker)
                 }
             }

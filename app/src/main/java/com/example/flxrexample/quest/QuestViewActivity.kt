@@ -37,13 +37,13 @@ class QuestViewActivity : AppCompatActivity() {
         questReviewListAdapter = QuestReviewListViewAdapter()
 
         binding.questViewConditionList.layoutManager = LinearLayoutManager(this)
-        binding.questViewConditionList.addItemDecoration(SpacingItemDecorator(1,20))
+        binding.questViewConditionList.addItemDecoration(SpacingItemDecorator(1,30))
         binding.questViewConditionList.setHasFixedSize(true)
         binding.questViewConditionList.adapter = questConstraintAdapter
         questConstraintAdapter.submitList(QuestListFactory.questConstraintFactory())
 
         binding.questViewReviewList.layoutManager = LinearLayoutManager(this)
-        binding.questViewReviewList.addItemDecoration(SpacingItemDecorator(1,20))
+        binding.questViewReviewList.addItemDecoration(SpacingItemDecorator(1,30))
         binding.questViewReviewList.setHasFixedSize(true)
         binding.questViewReviewList.adapter = questReviewListAdapter
         questReviewListAdapter.submitList(QuestListFactory.questReviewFactory())
@@ -105,6 +105,7 @@ class QuestViewActivity : AppCompatActivity() {
                     var avgRating = 0.0
                     val totalGiveStar = questViewItem.quest.numOfComplete * questViewItem.quest.questStar
                     val progress = (totalGiveStar.toFloat() / questViewItem.quest.totalStar.toFloat()) * 100
+                    val totalCount = questViewItem.quest.totalStar / questViewItem.quest.questStar
 
                     questViewItem.questReviews.forEach {
                         avgRating += it.rating
@@ -113,10 +114,12 @@ class QuestViewActivity : AppCompatActivity() {
                     if(questViewItem.questReviews.size!=0)
                         avgRating /= questViewItem.questReviews.size
 
-                    this.questViewReviewRatingCount.text = "${avgRating} / 5.0"
+                    this.questViewReviewRatingCount.text = "${avgRating}"
+                    this.questViewReviewRatingCountTotal.text = " /5.0"
                     this.questViewReviewCountBtn.text = "${questViewItem.questReviews.size}건"
 
-                    this.questViewRewardStarCount.text = "${totalGiveStar}스타 획득"
+                    this.questViewRewardStarCount.text = "${totalGiveStar}스타 지급"
+                    this.questViewRewardStarCountRemaining.text = " /${totalCount - questViewItem.quest.numOfComplete}명 남음"
                     this.questViewRewardProgressBar.progress = progress.toInt()
                     this.questViewRewardProgressBarPercent.text = "${progress}%"
 

@@ -1,5 +1,7 @@
 package com.example.flxrexample
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupUI(){
+
         selectedFragment = QuestMainFragment()
         navigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId){
