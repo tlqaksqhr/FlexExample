@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="0dp"
+    app:cardMaxElevation="0dp"
+    app:cardBackgroundColor="#ffffff"
+    app:strokeColor="#b8b8b8"
+    app:strokeWidth="0.2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/coupon_item_imageview"
+            android:layout_width="51dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/button_bg" />
+
+        <TextView
+            android:id="@+id/coupon_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="17dp"
+            android:letterSpacing="-0.05"
+            android:lineSpacingExtra="5sp"
+            android:text="파라세일링 성인 1인 입장권"
+            android:textColor="#5e5e5e"
+            android:textSize="12.5sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/coupon_item_imageview"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/coupon_item_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="3dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="7sp"
+                android:text="유효기간 : 2020년 10월 26일"
+                android:textColor="#5e5e5e"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/coupon_item_imageview"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_item_title" />
+
+        <ImageView
+                android:id="@+id/coupon_item_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/ic_left_arrow"
+                app:layout_constraintBottom_toTopOf="@+id/coupon_item_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/coupon_item_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

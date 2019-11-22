@@ -48,7 +48,8 @@ class QuestOngoingFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this, QuestOngoingViewModelFactory(this::transitionQuestAuthPage)).get(
+        viewModel = ViewModelProviders.of(this, QuestOngoingViewModelFactory(
+            this::transitionQuestAuthPage, this::transitionQuestReviewPage)).get(
             QuestOngoingViewModel::class.java)
 
         viewModel.ongoingQuestLiveData.observe(this, Observer { container ->
@@ -67,8 +68,14 @@ class QuestOngoingFragment : Fragment() {
 
     private fun transitionQuestAuthPage(id: Int){
         val questAuthIntent = Intent(activity, QuestOngoingAuthActivity::class.java)
-        questAuthIntent.putExtra("questID",id)
+        questAuthIntent.putExtra("id",id)
         startActivity(questAuthIntent)
+    }
+
+    private fun transitionQuestReviewPage(id: Int){
+        val questReviewIntent = Intent(activity, QuestOngoingReviewActivity::class.java)
+        questReviewIntent.putExtra("id",id)
+        startActivity(questReviewIntent)
     }
 
 }

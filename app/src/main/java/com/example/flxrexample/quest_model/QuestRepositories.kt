@@ -54,6 +54,10 @@ class QuestRepository{
         InsertQuestAuthImagesAsyncTask(questAuthImageDao).execute(questAuthImages)
     }
 
+    fun updateQuestConstraint(questConstraint: QuestConstraint) {
+        UpdateQuestConstraintsAsyncTask(questConstraintDao).execute(questConstraint)
+    }
+
     fun addReview(review: Review) {
         InsertReviewAsyncTask(reviewDao).execute(review)
     }
@@ -133,6 +137,14 @@ class QuestRepository{
     private class UpdateQuestAsyncTask internal constructor(private val questDao: QuestDao) : AsyncTask<Quest, Void, Void>() {
         override fun doInBackground(vararg params: Quest): Void? {
             questDao.update(params[0])
+            return null
+        }
+    }
+
+
+    private class UpdateQuestConstraintsAsyncTask internal constructor(private val questConstraintDao: QuestConstraintDao) : AsyncTask<QuestConstraint, Void, Void>() {
+        override fun doInBackground(vararg params: QuestConstraint): Void? {
+            questConstraintDao.update(params[0])
             return null
         }
     }

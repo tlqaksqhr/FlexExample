@@ -1,5 +1,6 @@
 package com.example.flxrexample.quest_ongoing
 
+import android.widget.Toast
 import com.airbnb.epoxy.TypedEpoxyController
 import com.example.flxrexample.*
 import com.example.flxrexample.quest_model.Container
@@ -30,6 +31,9 @@ class QuestOngoingListController() : TypedEpoxyController<Container>() {
                 }
                 footer {
                     id(it.ongoingQuestFooter.id)
+                    ongoingQuestAuthCompleteClick { model ->
+                        it.ongoingQuestAuthCompleteClick(it.ongoingQuestHeader.id)
+                    }
                 }
             }
         }

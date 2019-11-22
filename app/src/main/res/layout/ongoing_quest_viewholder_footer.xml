@@ -8,6 +8,7 @@
         <import type="com.example.flxrexample.quest_ongoing.QuestOngoingBindingAdapter" />
         <variable name="ongoingQuestHeader" type="com.example.flxrexample.quest_model.OngoingQuestHeader"/>
         <variable name="questConstraint" type="com.example.flxrexample.quest_model.QuestConstraint"/>
+        <variable name="ongoingQuestAuthCompleteClick" type="android.view.View.OnClickListener"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,24 +24,24 @@
             android:layout_gravity="fill"
             android:background="#fc4d71"
             android:text="완료"
+            android:onClick="@{ongoingQuestAuthCompleteClick}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ongoing_quest_item_footer_cancel_btn"/>
 
         <Button
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-                android:id="@+id/ongoing_quest_item_footer_cancel_btn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="fill"
-                android:background="#e9e7e7"
-                android:text="포기"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ongoing_quest_item_footer_complete_btn"
-                app:layout_constraintEnd_toEndOf="parent"
-        />
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            android:id="@+id/ongoing_quest_item_footer_cancel_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:background="#e9e7e7"
+            android:text="포기"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ongoing_quest_item_footer_complete_btn"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

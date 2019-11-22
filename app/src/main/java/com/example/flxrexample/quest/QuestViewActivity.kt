@@ -14,6 +14,7 @@ import com.example.flxrexample.quest_model.Quest
 import com.example.flxrexample.quest_model.QuestListFactory
 import com.example.flxrexample.quest_model.QuestViewItem
 import com.example.flxrexample.quest_ongoing.QuestOngoingAuthActivity
+import com.example.flxrexample.quest_ongoing.QuestOngoingFragment
 import com.squareup.picasso.Picasso
 
 class QuestViewActivity : AppCompatActivity() {
@@ -65,10 +66,13 @@ class QuestViewActivity : AppCompatActivity() {
                 true,
                 quest.id
             ))
+            startActivity(Intent(this, MainActivity::class.java))
 
+            /*
             val intent = Intent(this,QuestOngoingAuthActivity::class.java)
             intent.putExtra("id",questID)
             startActivity(intent)
+             */
         }
 
 

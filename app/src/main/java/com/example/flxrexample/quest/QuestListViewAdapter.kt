@@ -14,19 +14,20 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flxrexample.R
 import com.example.flxrexample.quest_model.Quest
+import com.google.android.gms.maps.model.Marker
 import kotlinx.android.synthetic.main.quest_list_item.view.*
 import kotlinx.android.synthetic.main.quest_main_fragment.view.*
 
 class QuestListViewAdapter(val questMainEventListener: QuestMainEventListener) : ListAdapter<Quest, QuestListViewAdapter.ViewHolder>(QuestDiffCallback()) {
 
-    var selectedItems = SparseBooleanArray()
+    private var checkedPosition = -1
+    private var markerStates = HashMap<Int, Marker>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.quest_list_item,parent,false),questMainEventListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        selectedItems.clear()
         holder.bind(getItem(position))
     }
 
@@ -47,19 +48,38 @@ class QuestListViewAdapter(val questMainEventListener: QuestMainEventListener) :
             itemView.quest_item_cardview.strokeColor = Color.argb(0,0xd6,0xd6,0xd6)
             itemView.quest_item_cardview.strokeWidth = 0
 
-            val marker = questMainEventListener.addMarker(item)
-
             itemView.quest_item_favorite_btn.setOnClickListener {
                 questMainEventListener.favoriteBtnClickEvent(item)
             }
+
+            if(checkedPosition==-1){
+                itemView.quest_item_img_bg.isSelected = false
+            }else{
+                if(checkedPosition == adapterPosition){
+                    itemView.quest_item_img_bg.isSelected = true
+                }else{
+                    itemView.quest_item_img_bg.isSelected = false
+                }
+            }
+
+            if(markerStates.containsKey(adapterPosition)) {
+                markerStates[adapterPosition]?.remove()
+            }
+            var marker = questMainEventListener.addMarker(item, itemView.quest_item_img_bg.isSelected)
+            markerStates[adapterPosition] = marker
+
             itemView.setOnClickListener {
                 if(adapterPosition != RecyclerView.NO_POSITION){
-                    if(selectedItems.get(adapterPosition, false)){
-                        selectedItems.delete(adapterPosition)
-                        itemView.quest_item_img_bg.isSelected = false
-                    }else{
-                        selectedItems.put(adapterPosition, true)
-                        itemView.quest_item_img_bg.isSelected = true
+                    itemView.quest_item_img_bg.isSelected = true
+                    if(markerStates.containsKey(adapterPosition)) {
+                        markerStates[adapterPosition]?.remove()
+                    }
+                    marker = questMainEventListener.addMarker(item, itemView.quest_item_img_bg.isSelected)
+                    markerStates[adapterPosition] = marker
+
+                    if(checkedPosition != adapterPosition) {
+                        notifyItemChanged(checkedPosition)
+                        checkedPosition = adapterPosition
                     }
                     questMainEventListener.showMarkerDialog(item, marker)
                 }

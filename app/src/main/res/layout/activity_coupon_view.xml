@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".coupon.CouponViewActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/coupon_view_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="54.5dp"
+                android:background="#ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+            <ImageButton
+                    android:id="@+id/coupon_view_toolbar_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:backgroundTint="#ffffff"
+                    android:src="@drawable/ic_left_arrow"/>
+
+            <TextView
+                    android:id="@+id/coupon_view_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:lineSpacingExtra="2.5sp"
+                    android:text="파라세일링 성인 1인 입장권"
+                    android:textColor="#383635"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    tools:layout_editor_absoluteX="182dp"
+                    tools:layout_editor_absoluteY="17dp" />
+
+            <ImageButton
+                    android:id="@+id/coupon_view_toolbar_cancel_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:layout_gravity="right"
+                    android:backgroundTint="#ffffff"
+                    android:src="@drawable/ic_exit_icon"/>
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <TextView
+                android:id="@+id/coupon_view_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="5sp"
+                android:text="QR코드를 사용처에 보여주세요"
+                android:textColor="#5e5e5e"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_toolbar" />
+
+
+        <com.google.android.material.button.MaterialButton
+                android:id="@+id/coupon_view_check_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#ffffff"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="7.5sp"
+                android:paddingLeft="16dp"
+                android:paddingTop="6dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="6dp"
+                android:scaleX="1"
+                android:scaleY="1"
+                android:text="직원 확인"
+                android:textColor="#5f43bc"
+                android:textSize="12sp"
+                app:cornerRadius="12.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/coupon_view_desc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/coupon_view_desc"
+                app:strokeColor="#5956b7"
+                app:strokeWidth="0.8dp" />
+
+        <com.google.android.material.card.MaterialCardView
+                android:id="@+id/coupon_view_qr_image_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_desc"
+                app:strokeColor="#707070"
+                app:strokeWidth="0.2dp">
+
+            <ImageView
+                    android:id="@+id/coupon_view_qr_imageview"
+                    android:layout_width="176dp"
+                    android:layout_height="169dp"
+                    android:layout_gravity="center"
+                    android:paddingLeft="9dp"
+                    android:paddingTop="13dp"
+                    android:paddingRight="9dp"
+                    android:paddingBottom="12dp"
+                    android:src="@drawable/sample_qr" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+                android:id="@+id/coupon_view_divider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="32dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_qr_image_container" />
+
+        <TextView
+                android:id="@+id/coupon_view_coupon_desc_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="41dp"
+                android:layout_marginTop="10dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="6.3sp"
+                android:text="설명"
+                android:textColor="#383635"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_divider1" />
+
+        <TextView
+                android:id="@+id/coupon_view_coupon_desc_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="41dp"
+                android:layout_marginTop="3dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="6.3sp"
+                android:text="파라세일링 성인 1인 입장권"
+                android:textColor="#919191"
+                android:textSize="12.5sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_coupon_desc_title" />
+
+        <View
+                android:id="@+id/coupon_view_divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_coupon_desc_text" />
+
+        <TextView
+                android:id="@+id/coupon_view_coupon_usage_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="41dp"
+                android:layout_marginTop="10dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="6.3sp"
+                android:text="사용처"
+                android:textColor="#383635"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_divider2" />
+
+        <TextView
+                android:id="@+id/coupon_view_coupon_usage_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="41dp"
+                android:layout_marginTop="3dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="6.3sp"
+                android:text="제주특별자치시도 서귀포시 12020 파라세일링"
+                android:textColor="#919191"
+                android:textSize="12.5sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_coupon_usage_title" />
+
+
+        <View
+                android:id="@+id/coupon_view_divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_coupon_usage_text" />
+
+
+        <TextView
+                android:id="@+id/coupon_view_coupon_quest_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="41dp"
+                android:layout_marginTop="10dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="6.3sp"
+                android:text="연관 도전과제"
+                android:textColor="#383635"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_divider3" />
+
+        <com.google.android.material.card.MaterialCardView
+                android:id="@+id/coupon_quest_item_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="15dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="0dp"
+                app:cardForegroundColor="@android:color/transparent"
+                app:cardMaxElevation="0dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_coupon_quest_title"
+                app:strokeWidth="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/coupon_quest_item_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent">
+
+                <ImageView
+                        android:id="@+id/coupon_quest_item_img_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/item_shape_arrow_selector" />
+
+                <ImageButton
+                        android:id="@+id/coupon_quest_item_favorite_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:backgroundTint="#ffffff"
+                        android:src="@drawable/ic_favorite_quest_add_btn"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                        android:id="@+id/coupon_quest_item_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="1등은 나의 것"
+                        android:textSize="13sp"
+                        android:textColor="#5e5e5e"
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="7sp"
+                        app:layout_constraintBottom_toTopOf="@+id/coupon_quest_item_desc"
+                        app:layout_constraintStart_toStartOf="@+id/coupon_quest_item_desc"
+                        app:layout_constraintTop_toTopOf="@+id/coupon_quest_item_favorite_btn" />
+
+                <TextView
+                        android:id="@+id/coupon_quest_item_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="13dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="8dp"
+                        android:letterSpacing="-0.05"
+                        android:lineSpacingExtra="0sp"
+                        android:text="바다속 풍경을 사진으로 찍고 인증하세요!"
+                        android:textColor="#919191"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/coupon_quest_item_favorite_btn"
+                        app:layout_constraintStart_toEndOf="@+id/coupon_quest_item_favorite_btn"
+                        app:layout_constraintTop_toBottomOf="@+id/coupon_quest_item_title" />
+
+                <TextView
+                        android:id="@+id/coupon_quest_item_star"
+                        android:layout_width="68dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/ic_star_count_label"
+                        android:gravity="center"
+                        android:paddingTop="3dp"
+                        android:text="8000 스타"
+                        android:textColor="#ffffff"
+                        android:textSize="10sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/coupon_quest_item_title"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                        android:id="@+id/coupon_quest_item_challenge_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="9,888명 도전중"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/coupon_quest_item_star"
+                        app:layout_constraintStart_toStartOf="@+id/coupon_quest_item_star"
+                        app:layout_constraintTop_toBottomOf="@+id/coupon_quest_item_star" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <View
+                android:id="@+id/coupon_view_divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_quest_item_cardview" />
+
+
+        <TextView
+                android:id="@+id/coupon_view_coupon_refund_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="41dp"
+                android:layout_marginTop="10dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="6.3sp"
+                android:text="환불"
+                android:textColor="#383635"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_divider4" />
+
+        <TextView
+                android:id="@+id/coupon_view_coupon_refund_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="41dp"
+                android:layout_marginTop="3dp"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="6.3sp"
+                android:text="구매후 2020년 10월 26일까지 환불 가능합니다."
+                android:textColor="#919191"
+                android:textSize="12.5sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_coupon_refund_title" />
+
+        <com.google.android.material.button.MaterialButton
+                android:id="@+id/star_charge_complete_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="41dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="41dp"
+                android:background="#5956b7"
+                android:backgroundTint="#5956b7"
+                android:gravity="center"
+                android:lineSpacingExtra="8.3sp"
+                android:text="환불하기"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:textSize="17.5sp"
+                app:cornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coupon_view_coupon_refund_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

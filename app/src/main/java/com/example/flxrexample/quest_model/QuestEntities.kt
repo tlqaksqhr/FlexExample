@@ -12,6 +12,7 @@ private val globalId = AtomicInteger(1)
 typealias OngoingQuestHeaderExpanded = (quest: OngoingQuestHeader) -> Unit
 typealias FavoriteQuestHeaderExpanded = (favorite: FavoriteQuestHeader) -> Unit
 typealias OngoingQuestAuthClick = (id: Int) -> Unit
+typealias OngoingQuestAuthCompleteClick = (id: Int) -> Unit
 
 @Entity(tableName="quest_table")
 data class Quest(
@@ -118,7 +119,8 @@ data class OngoingQuest(
     val ongoingQuestHeader: OngoingQuestHeader,
     val questConstraints: List<QuestConstraint>,
     val ongoingQuestFooter: OngoingQuestFooter,
-    val ongoingQuestAuthClick: OngoingQuestAuthClick
+    val ongoingQuestAuthClick: OngoingQuestAuthClick,
+    val ongoingQuestAuthCompleteClick: OngoingQuestAuthCompleteClick
 )
 
 data class OngoingQuestFooter(

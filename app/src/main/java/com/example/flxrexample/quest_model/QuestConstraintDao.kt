@@ -17,6 +17,9 @@ interface QuestConstraintDao{
     fun insert(questConstraint: QuestConstraint)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun update(questConstraint: QuestConstraint)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(questConstraint: List<QuestConstraint>)
 
     @Query("SELECT COUNT(quest_constraint_table.id) FROM quest_constraint_table WHERE quest_id = :id")

@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 
 import com.example.flxrexample.R
 import com.example.flxrexample.charge.StarChargeActivity
+import com.example.flxrexample.coupon.CouponActivity
 import com.example.flxrexample.databinding.MyProfileFragmentBinding
 import com.example.flxrexample.quest_model.StarAccount
 import kotlinx.android.synthetic.main.activity_my_profile_star_history.*
@@ -67,6 +68,11 @@ class MyProfileFragment : Fragment() {
         binding.myprofileStarBtn.setOnClickListener {
             val starHistoryIntent = Intent(activity, MyProfileStarHistoryActivity::class.java)
             startActivity(starHistoryIntent)
+        }
+
+        binding.myprofileCouponBtn.setOnClickListener {
+            val couponIntent = Intent(activity, CouponActivity::class.java)
+            startActivity(couponIntent)
         }
 
         binding.myprofileAdCarouselView.setImageListener { position, imageView ->

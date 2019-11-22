@@ -4,13 +4,15 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.flxrexample.quest_model.OngoingQuestAuthClick
+import com.example.flxrexample.quest_model.OngoingQuestAuthCompleteClick
 
 class QuestOngoingViewModelFactory(
-    val mOngoingQuestAuthClick: OngoingQuestAuthClick) : ViewModelProvider.Factory {
+    val mOngoingQuestAuthClick: OngoingQuestAuthClick,
+    val mOngoingQuestAuthCompleteClick : OngoingQuestAuthCompleteClick) : ViewModelProvider.Factory {
 
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return QuestOngoingViewModel(mOngoingQuestAuthClick) as T
+        return QuestOngoingViewModel(mOngoingQuestAuthClick, mOngoingQuestAuthCompleteClick) as T
     }
 
 }

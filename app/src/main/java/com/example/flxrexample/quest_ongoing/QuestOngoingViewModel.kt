@@ -8,7 +8,7 @@ import android.view.ViewGroup.MarginLayoutParams
 import androidx.lifecycle.*
 
 
-class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : ViewModel() {
+class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick, val ongoingQuestAuthCompleteClick : OngoingQuestAuthCompleteClick) : ViewModel() {
     private val repository: QuestRepository = QuestRepository()
 
     val ongoingQuestLiveData: LiveData<Container>
@@ -83,17 +83,21 @@ class QuestOngoingViewModel(val ongoingQuestAuthClick: OngoingQuestAuthClick) : 
 
         questViewItems.forEach{questViewItem ->
 
+            val isCompleteFlag = questViewItem.questConstraints.filter { it.isCompleted == true }.size == questViewItem.questConstraints.size
+
+            //isCompleted = questViewItem.quest.isCompleted,
             if(questViewItem.quest.isOngoing) {
                 val ongoingQuest = OngoingQuest(
                     OngoingQuestHeader(
                         id = questViewItem.quest.id,
                         title = questViewItem.quest.title,
-                        isCompleted = questViewItem.quest.isCompleted,
+                        isCompleted = isCompleteFlag,
                         numOfComplete = questViewItem.quest.numOfComplete
                     ),
                     questViewItem.questConstraints,
                     OngoingQuestFooter(),
-                    ongoingQuestAuthClick
+                    ongoingQuestAuthClick,
+                    ongoingQuestAuthCompleteClick
                 )
                 ongoingQuestList.add(ongoingQuest)
             }

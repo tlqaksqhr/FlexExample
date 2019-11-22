@@ -70,6 +70,24 @@ class QuestOngoingAuthViewModel : ViewModel() {
             cnt += 1
         }
         repository.addQuestAuthImages(newItems.toList())
+
+        cnt = 0
+
+        newItems.forEach {
+            var isComplete = false
+            if(it.pictureURL != ""){
+                isComplete = true
+            }
+
+            repository.updateQuestConstraint(QuestConstraint(
+                questConstraints[cnt].constraintNum,
+                questConstraints[cnt].content,
+                isComplete,
+                questConstraints[cnt].pictureURL,
+                questConstraints[cnt].questID,
+                questConstraints[cnt].id))
+            cnt += 1
+        }
     }
 
     fun getImageURL() : MutableLiveData<String> {

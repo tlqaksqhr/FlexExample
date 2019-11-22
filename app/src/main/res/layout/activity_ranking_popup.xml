@@ -46,7 +46,7 @@
             android:id="@+id/ranking_popup_top_background_container"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@drawable/ic_ranking_bg"
+            android:background="#b099db"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ranking_popup_toolbar">

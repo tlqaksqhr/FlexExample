@@ -3,11 +3,13 @@ package com.example.flxrexample.quest
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.LinearLayout
 import androidx.core.view.LayoutInflaterCompat
 import com.example.flxrexample.R
 import com.example.flxrexample.quest_model.Quest
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import kotlinx.android.synthetic.main.marker_dialog.view.*
 

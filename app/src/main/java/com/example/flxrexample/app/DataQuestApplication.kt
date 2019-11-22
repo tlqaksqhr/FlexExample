@@ -35,14 +35,21 @@ class DataQuestApplication : Application(){
         instance = this
         super.onCreate()
 
+        /*
         Stetho.initializeWithDefaults(this)
 
         val stethoInterceptingClient = OkHttpClient.Builder()
             .addNetworkInterceptor(StethoInterceptor())
             .build()
+         */
 
+        /*
         mRetrofit = Retrofit.Builder().baseUrl(getString(R.string.baseUrl)).addConverterFactory(
             GsonConverterFactory.create()).client(stethoInterceptingClient).build()
+         */
+
+        mRetrofit = Retrofit.Builder().baseUrl(getString(R.string.baseUrl)).addConverterFactory(
+            GsonConverterFactory.create()).build()
 
         database = Room.inMemoryDatabaseBuilder(this, QuestDatabase::class.java)
             .addCallback(roomDatabaseCallback).build()
@@ -94,7 +101,7 @@ class DataQuestApplication : Application(){
             reviewDao.insert(Review("리뷰4",2.0.toFloat(),false,1))
 
             val quest2 = Quest("제주로!","rororororororor!",false,
-                12345,10000,100, 0,"제주특별자치도 제주시 공항로 3", LatLng(32.253550, 123.564733),
+                12345,10000,100, 0,"제주특별자치도 제주시 공항로 3", LatLng(33.253550, 126.564800),
                 "2019-10-20","2019-10-28",false,false,2)
             questDao.insert(quest2)
 

@@ -18,6 +18,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.flxrexample.MainActivity
 import com.example.flxrexample.R
 import com.example.flxrexample.databinding.ActivityQuestOngoingAuthBinding
 import com.example.flxrexample.quest_model.QuestAuthImage
@@ -66,9 +67,17 @@ class QuestOngoingAuthActivity : AppCompatActivity(), QuestAuthEventListener {
 
         binding.questOngoingAuthSubmitBtn.setOnClickListener {
             viewModel.addQuestAuthImages(questID, questConstraints)
+
+
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("goOngoing",1)
+            startActivity(intent)
+
+            /*
             val intent = Intent(this,QuestOngoingReviewActivity::class.java)
             intent.putExtra("id",questID)
             startActivity(intent)
+             */
         }
 
         viewModel.getQuestConstraintsCount(questID).observe(this, Observer<Int> { authImageSize ->

@@ -50,7 +50,7 @@
                 android:id="@+id/ongoing_favorite_quest_viewholder_content_complete_btn"
                 android:layout_width="43.5dp"
                 android:layout_height="43.5dp"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/sample_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintTop_toTopOf="parent"
